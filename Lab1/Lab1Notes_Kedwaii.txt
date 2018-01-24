@@ -1,0 +1,157 @@
+EE445L LAB 1 PREP STUFF
+
+fixed.h - public function prototypes & commenting
+fixed.c - implementation of public and private functions
+Lab1.c - test program
+
+You will develop and test these four functions
+	ST7735_sDecOut2 	Signed 32-bit decimal fixed-point Δ = 0.01
+	ST7735_uBinOut6		Unsigned 32-bit binary fixed-point Δ = 1/64
+	ST7735_XYplotInit 	Specify the X and Y axes for an x-y scatter plot
+	ST7735_XYplot 		Plot an array of (x,y) data
+
+
+ST7735_sDecOut2 -
+	Δ = 0.01
+	input: signed 32-bit integer (I)
+	output: display fixed-pt value (6 char)
+	range: -99.99 to 99.99
+
+Parameter	Display
+-100000		-**.**
+-10000		-**.**
+-9999		-99.99
+-999	 	 -9.99
+-1		 	 -0.01
+0		  	  0.00
+123	  	  	  1.23
+1234	 	 12.34
+9999	 	 99.99
+10000	 	 **.**
+
+
+uint32_t ASCII_Offset = 48;
+char str[6] = "";
+str[3] = '.';
+
+if (n > 9999) {
+	str = " **.**"
+	output
+	return;
+}
+if (n < -9999) {
+	str = "-**.**"
+	output
+	return;
+}
+
+char buf[4] = {' ', 0, 0, 0}
+int digit;
+int i = n;
+int j = 3;
+while (i != 0 || j < 0){
+	buf[j] = i % 10;
+	i = i / 10;
+	j = j - 1;
+}
+
+str[5] = buf[3];
+str[4] = buf[2];
+str[2] = buf[1];
+str[1] = buf[0];
+str[0] = ' ';
+
+if (n < 0){
+	if (str[1] == ' ') str[1] = '-';
+	else str[0] = '-';
+}
+
+output
+return;
+
+
+
+
+
+
+ST7735_uBinOut6 -
+	Δ = 1/64
+	range: 0 to 999.99 (0 to 63999)
+	input: unsigned 32-bit binary int (I)
+	output: display fixed-pt value (6 char)
+
+Parameter	Display
+0	  		  0.00
+1	  		  0.01
+16	  		  0.25
+25	  		  0.39
+125	  		  1.95
+128	  		  2.00
+1250	 	 19.53
+7500		117.19
+63999		999.99
+64000		***.**
+
+
+char str[6] = "";
+
+if (n > 63999) {
+	output "***.**"
+	return;
+}
+
+uint32_t i = n * 100;
+i = i / 64;
+
+same conversion & storage as other function
+don't need to deal with negatives
+same output & return
+
+
+
+
+
+
+
+
+
+/****************ST7735_sDecOut2***************
+converts fixed point number to LCD
+format signed 32-bit with resolution 0.01
+range -99.99 to +99.99
+Inputs:  signed 32-bit integer part of fixed-point number
+Outputs: none
+send exactly 6 characters to the LCD
+Parameter LCD display
+12345    " **.**"
+2345    " 23.45"
+-8100    "-81.00"
+-102    " -1.02"
+31    "  0.31"
+-12345    "-**.**"
+*/
+void ST7735_sDecOut2(int32_t n);
+
+
+/**************ST7735_uBinOut6***************
+unsigned 32-bit binary fixed-point with a resolution of 1/64.
+The full-scale range is from 0 to 999.99.
+If the integer part is larger than 63999, it signifies an error.
+The ST7735_uBinOut6 function takes an unsigned 32-bit integer part
+of the binary fixed-point number and outputs the fixed-point value on the LCD
+Inputs:  unsigned 32-bit integer part of binary fixed-point number
+Outputs: none
+send exactly 6 characters to the LCD
+Parameter LCD display
+0	  "  0.00"
+1	  "  0.01"
+16    "  0.25"
+25	  "  0.39"
+125	  "  1.95"
+128	  "  2.00"
+1250	  " 19.53"
+7500	  "117.19"
+63999	  "999.99"
+64000	  "***.**"
+*/
+void ST7735_uBinOut6(uint32_t n);
