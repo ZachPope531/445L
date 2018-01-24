@@ -22,7 +22,7 @@ void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, int32_t minY, in
 	Output_Init();
 	ST7735_SetCursor(0,0);
 	ST7735_OutString(title);
-	ST7735_FillRect(4, 160-124, 120, 120, 0xFFFF);
+	ST7735_FillRect(4, 36, 120, 120, 0xFFFF);
 	plot_minX = minX;
 	plot_maxX = maxX;
 	plot_minY = minY;
@@ -40,8 +40,8 @@ void ST7735_XYplot(uint32_t num, int32_t bufX[], int32_t bufY[]){
 		if(x_coord_32b < plot_minX || x_coord_32b > plot_maxX || y_coord_32b < plot_minY || y_coord_32b > plot_maxY){
 			continue;
 		}
-		x_coord_16b = (uint16_t) (x_coord_32b - plot_minX) * (128) / (plot_maxX - plot_minX);
-		y_coord_16b = (uint16_t) (y_coord_32b - plot_minY) * (128) / (plot_maxY - plot_minY);
+		x_coord_16b = (uint16_t) (x_coord_32b - plot_minX) * (120) / (plot_maxX - plot_minX) + 4;
+		y_coord_16b = (uint16_t) 120 - (y_coord_32b - plot_minY) * (120) / (plot_maxY - plot_minY) + 36;
 		ST7735_DrawPixel(x_coord_16b, y_coord_16b, 0x0000);
 		ST7735_DrawPixel(x_coord_16b + 1, y_coord_16b, 0x0000);
 		ST7735_DrawPixel(x_coord_16b, y_coord_16b + 1, 0x0000);
