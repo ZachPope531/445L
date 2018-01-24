@@ -11,10 +11,72 @@ int32_t plot_minY;
 int32_t plot_maxY;
 
 void ST7735_sDecOut2(int32_t n){
+	if (n > 9999) {
+		char error_str[6] = " **.**";
+		ST7735_OutString(error_str);
+		return;
+	}
+	if (n < -9999) {
+		char error_str[6] = "-**.***";
+		ST7735_OutString(error_str);
+		return;
+	}
+
+	char str[6] = "";
+	str[3] = '.';
+	char buf[4] = { ' ', 0, 0, 0 };
+
+	int32_t i = n;
+	uint32_t j = 3;
+	while (i != 0 || j < 0) {
+		buf[j] = (i % 10) + ASCII_Offset;
+		i = i / 10;
+		j = j - 1;
+	}
+
+	str[5] = buf[3];
+	str[4] = buf[2];
+	str[2] = buf[1];
+	str[1] = buf[0];
+	str[0] = ' ';
+
+	if (n < 0) {
+		if (str[1] == ' ') str[1] = '-';
+		else str[0] = '-';
+	}
+
+	ST7735_OutString(str);
 	return;
 }
 
 void ST7735_uBinOut6(uint32_t n){
+	if (n > 63999) {
+		char error_str[6] = "***.**";
+		ST7735_OutString(error_str);
+		return;
+	}
+
+	char str[6] = "";
+	str[3] = '.';
+	char buf[5] = { ' ', ' ', 0, 0, 0 };
+
+	uint32_t i = n * 100;
+	i = i / 64;
+
+	uint32_t j = 4;
+	while (i != 0 || j < 0) {
+		buf[j] = (i % 10) + ASCII_Offset;
+		i = i / 10;
+		j = j - 1;
+	}
+
+	str[5] = buf[4];
+	str[4] = buf[3];
+	str[2] = buf[2];
+	str[1] = buf[1];
+	str[0] = buf[0];
+
+	ST7735_OutString(str);
 	return;
 }
 
