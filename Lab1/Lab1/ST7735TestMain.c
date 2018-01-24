@@ -1,3 +1,4 @@
+/*
 // ST7735TestMain.c
 // Runs on LM4F120/TM4C123
 // Test the functions in ST7735.c by printing basic
@@ -6,7 +7,7 @@
 // Daniel Valvano
 // March 30, 2015
 
-/* This example accompanies the book
+//\* This example accompanies the book
    "Embedded Systems: Real Time Interfacing to ARM Cortex M Microcontrollers",
    ISBN: 978-1463590154, Jonathan Valvano, copyright (c) 2014
 
@@ -20,7 +21,7 @@
  OR CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
  For more information about my classes, my research, and my books, see
  http://users.ece.utexas.edu/~valvano/
- */
+ *
 
 // hardware connections
 // **********ST7735 TFT and SDC*******************
@@ -753,3 +754,4 @@ void DelayWait10ms(uint32_t n){uint32_t volatile time;
     n--;
   }
 }
+*/

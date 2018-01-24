@@ -29,12 +29,15 @@ char Buffer[10];
 void main(void){ // possible main program that tests your functions
 unsigned int i;
   Errors = 0;
-  for(i=0; i<16; i++){
+  /*for(i=0; i<16; i++){
     Fixed_uBinOut8s(outTests3[i].InNumber,Buffer);
     if(strcmp(Buffer, outTests3[i].OutBuffer)){
       Errors++;
       AnError = i;
     }
-  }
+  }*/
+	
+	ST7735_XYplotInit("Blah", 0, 128, 0, 160);
+	
   for(;;) {} /* wait forever */
 }
