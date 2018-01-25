@@ -9,6 +9,7 @@ int32_t plot_minX;
 int32_t plot_maxX;
 int32_t plot_minY;
 int32_t plot_maxY;
+uint32_t ASCII_Offset = 48;
 
 void ST7735_sDecOut2(int32_t n){
 	if (n > 9999) {
@@ -17,18 +18,19 @@ void ST7735_sDecOut2(int32_t n){
 		return;
 	}
 	if (n < -9999) {
-		char error_str[6] = "-**.***";
+		char error_str[6] = "-**.**";
 		ST7735_OutString(error_str);
 		return;
 	}
 
 	char str[6] = "";
 	str[3] = '.';
-	char buf[4] = { ' ', 0, 0, 0 };
+	char buf[4] = { ' ', '0', '0', '0'	};
 
 	int32_t i = n;
+	if (i < 0) i = i * -1;
 	uint32_t j = 3;
-	while (i != 0 || j < 0) {
+	while (i != 0) {
 		buf[j] = (i % 10) + ASCII_Offset;
 		i = i / 10;
 		j = j - 1;
@@ -58,13 +60,13 @@ void ST7735_uBinOut6(uint32_t n){
 
 	char str[6] = "";
 	str[3] = '.';
-	char buf[5] = { ' ', ' ', 0, 0, 0 };
+	char buf[5] = { ' ', ' ', '0', '0', '0' };
 
 	uint32_t i = n * 100;
 	i = i / 64;
 
 	uint32_t j = 4;
-	while (i != 0 || j < 0) {
+	while (i != 0) {
 		buf[j] = (i % 10) + ASCII_Offset;
 		i = i / 10;
 		j = j - 1;
