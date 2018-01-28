@@ -23,6 +23,11 @@
 #include "PLL.h"
 #include "fixed.h"
 #include "../inc/tm4c123gh6pm.h"
+#include "extra_credit_1.h"
+#include "extra_credit_2.h"
+
+void Test3(void); //Extra credit test 3
+void Test4(void); //Extra credit test 4
 void DelayWait10ms(uint32_t n);
 void PortF_Init(void);
 // const will place these structures in ROM
@@ -98,6 +103,13 @@ int main(void){uint32_t i;
   PLL_Init(Bus80MHz); 
   PortF_Init();
   ST7735_InitR(INITR_REDTAB);
+	
+	//Test1();
+	//Test2();
+	//Test3();
+	//Test4();
+	//while(1){};
+	
   while(1){
     ST7735_FillScreen(ST7735_BLACK); 
     ST7735_SetCursor(0,0);

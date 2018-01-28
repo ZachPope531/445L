@@ -6,6 +6,6 @@ volatile float T;    // temperature in C
 volatile uint32_t N; // 12-bit ADC value
 void Test1(void){
   for(N=0; N<4096; N++){
-    T = 10.0+ 0.009768*N; 	
+    T = 10.0+ 0.009768*N;
   }
 }

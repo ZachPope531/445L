@@ -1,0 +1,106 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;Version 3 assembly floating point
+    2 00000000         ; run with floating-point hardware active
+    3 00000000                 AREA             DATA, ALIGN=2
+    4 00000000 00 00 00 
+              00       T       SPACE            4
+    5 00000004 00 00 00 
+              00       N       SPACE            4
+    6 00000008                 AREA             |.text|, CODE, READONLY, ALIGN=
+2
+    7 00000000                 THUMB
+    8 00000000         
+    9 00000000                 EXPORT           Test3
+   10 00000000         Test3
+   11 00000000 F04F 0000       MOV              R0,#0
+   12 00000004 490B            LDR              R1,=N       ;pointer to N
+   13 00000006 4A0C            LDR              R2,=T       ;pointer to T
+   14 00000008 EDDF 0A0C       VLDR.F32         S1,=0.009768
+   15 0000000C EEB2 1A04       VLDR.F32         S2,=10
+   16 00000010 6008    loop3   STR              R0,[R1]     ; N is volatile
+   17 00000012 EE00 0A10       VMOV.F32         S0,R0
+   18 00000016 EEB8 0A40       VCVT.F32.U32     S0,S0       ; S0 has N
+   19 0000001A EE20 0A20       VMUL.F32         S0,S0,S1    ; N*0.09768
+   20 0000001E EE30 0A01       VADD.F32         S0,S0,S2    ; 10+N*0.0968
+   21 00000022 ED82 0A00       VSTR.F32         S0,[R2]     ; T=10+N*0.0968
+   22 00000026 F100 0001       ADD              R0,R0,#1
+   23 0000002A F5B0 5F80       CMP              R0,#4096
+   24 0000002E D1EF            BNE              loop3
+   25 00000030 4770            BX               LR
+   26 00000032         
+                       
+              00 00 00000000 
+              00000000 
+              3C2009F6 
+Command Line: --debug --xref --cpu=Cortex-M4.fp --apcs=interwork --depend=.\ext
+ra_credit_3.d -o.\extra_credit_3.o -IC:\Keil_uv4\ARM\RV31\INC -IC:\Keil_uv4\ARM
+\CMSIS\Include -IC:\Keil_uv4\ARM\Inc\TI\TM4C123 --predefine="__EVAL SETA 1" --p
+redefine="__MICROLIB SETA 1" --list=.\extra_credit_3.lst extra_credit_3.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DATA 00000000
+
+Symbol: DATA
+   Definitions
+      At line 3 in file extra_credit_3.s
+   Uses
+      None
+Comment: DATA unused
+N 00000004
+
+Symbol: N
+   Definitions
+      At line 5 in file extra_credit_3.s
+   Uses
+      At line 12 in file extra_credit_3.s
+Comment: N used once
+T 00000000
+
+Symbol: T
+   Definitions
+      At line 4 in file extra_credit_3.s
+   Uses
+      At line 13 in file extra_credit_3.s
+Comment: T used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 6 in file extra_credit_3.s
+   Uses
+      None
+Comment: .text unused
+Test3 00000000
+
+Symbol: Test3
+   Definitions
+      At line 10 in file extra_credit_3.s
+   Uses
+      At line 9 in file extra_credit_3.s
+Comment: Test3 used once
+loop3 00000010
+
+Symbol: loop3
+   Definitions
+      At line 16 in file extra_credit_3.s
+   Uses
+      At line 24 in file extra_credit_3.s
+Comment: loop3 used once
+3 symbols
+341 symbols in table
