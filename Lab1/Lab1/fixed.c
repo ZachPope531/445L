@@ -94,21 +94,17 @@ void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, int32_t minY, in
 }
 
 void ST7735_XYplot(uint32_t num, int32_t bufX[], int32_t bufY[]){
-	int32_t x_coord_32b;
-	int32_t y_coord_32b;
-	uint16_t x_coord_16b;
-	uint16_t y_coord_16b;
+	uint16_t x_coord;
+	uint16_t y_coord;
 	for(uint16_t i = 0; i < num; i++){
-		x_coord_32b = bufX[i];
-		y_coord_32b = bufY[i];
-		if(x_coord_32b < plot_minX || x_coord_32b > plot_maxX || y_coord_32b < plot_minY || y_coord_32b > plot_maxY){
+		if(bufX[i] < plot_minX || bufX[i] > plot_maxX || bufY[i] < plot_minY || bufY[i] > plot_maxY){
 			continue;
 		}
-		x_coord_16b = (uint16_t) (x_coord_32b - plot_minX) * (120) / (plot_maxX - plot_minX) + 4;
-		y_coord_16b = (uint16_t) 120 - (y_coord_32b - plot_minY) * (120) / (plot_maxY - plot_minY) + 36;
-		ST7735_DrawPixel(x_coord_16b, y_coord_16b, 0x0000);
-		ST7735_DrawPixel(x_coord_16b + 1, y_coord_16b, 0x0000);
-		ST7735_DrawPixel(x_coord_16b, y_coord_16b + 1, 0x0000);
-		ST7735_DrawPixel(x_coord_16b + 1, y_coord_16b + 1, 0x0000);
+		x_coord = (uint16_t) (bufX[i] - plot_minX) * (120) / (plot_maxX - plot_minX) + 4;
+		y_coord = (uint16_t) 120 - (bufY[i] - plot_minY) * (120) / (plot_maxY - plot_minY) + 36;
+		ST7735_DrawPixel(x_coord, y_coord, 0x0000);
+		ST7735_DrawPixel(x_coord + 1, y_coord, 0x0000);
+		ST7735_DrawPixel(x_coord, y_coord + 1, 0x0000);
+		ST7735_DrawPixel(x_coord + 1, y_coord + 1, 0x0000);
 	}
 }
