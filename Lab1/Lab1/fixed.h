@@ -2,8 +2,8 @@
 // filename ******** fixed.h ************** 
 // possible header file for Lab 1 Spring 2018
 // feel free to change the specific syntax of your system
-// put your name here
-// put the date here
+// Zachary Pope and Ali Kedwaii
+// 01/29/2018
 
 
 /****************ST7735_sDecOut2***************
@@ -57,6 +57,9 @@ void ST7735_uBinOut6(uint32_t n);
           maxY   largest Y data value allowed, resolution= 0.001
  Outputs: none
  assumes minX < maxX, and miny < maxY
+ 
+Resets the cursor, applies the title, fills white plot, and sets
+global variables for minum and maximum values for use in ST7735_XYplot
 */
 void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, int32_t minY, int32_t maxY);
 
@@ -68,6 +71,13 @@ void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, int32_t minY, in
  Outputs: none
  assumes ST7735_XYplotInit has been previously called
  neglect any points outside the minX maxY minY maxY bounds
+ 
+ First takes 32-bit fixed-point input and checks whether they're in the range set by ST7735_XYplotInit
+ Then loops through drawing pixels for each point in the buffers
+ Reflects Y-coordinates over the X-axis of the plot as the screen is "upside down"
+ Shifts drawn pixels 36 pixels down and 4 pixels to the right to fit plot area
+ Maps values taken from the input to a scale that will fit the plot area, eg. 120x120
+ Mapping function based off of Arduino map()
 */
 void ST7735_XYplot(uint32_t num, int32_t bufX[], int32_t bufY[]);
 
