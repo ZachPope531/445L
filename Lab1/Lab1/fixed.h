@@ -5,7 +5,6 @@
 // Zachary Pope and Ali Kedwaii
 // 01/29/2018
 
-
 /****************ST7735_sDecOut2***************
  converts fixed point number to LCD
  format signed 32-bit with resolution 0.01
