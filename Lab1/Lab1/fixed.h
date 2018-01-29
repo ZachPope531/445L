@@ -19,14 +19,6 @@ Parameter LCD display
   -102    " -1.02" 
     31    "  0.31" 
 -12345    "-**.**"
-First check if n is outside acceptable range, and display error value if so
-Initiallize output string with decimal in proper spot
-Initiallize buffer string
-(Make number positive if negative, to avoid dealing w/ 2's comp)
-Convert digits to ASCII in buffer
-Move buffer chars to output array
-Add negative symbol if negative
-Output
  */ 
 void ST7735_sDecOut2(int32_t n);
 
@@ -51,12 +43,6 @@ Parameter LCD display
   7500	  "117.19"
  63999	  "999.99"
  64000	  "***.**"
-Check if n is outside acceptable range, and display error val if so
-Initialize output and buffer strings
-Multiply n by 100, then divide by 64
-Convert digits to ASCII in buffer
-Move buffer chars to output array
-Output
 */
 void ST7735_uBinOut6(uint32_t n); 
 
