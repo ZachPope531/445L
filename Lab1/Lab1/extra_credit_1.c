@@ -1,5 +1,5 @@
 #include "extra_credit_1.h"
-/*
+
 // version 1: C floating point
 // run with compiler options selected for floating-point hardware
 volatile float T;    // temperature in C
@@ -10,4 +10,3 @@ void Test1(void){
   }
 }
 
-*/

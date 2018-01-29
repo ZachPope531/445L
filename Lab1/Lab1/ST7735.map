@@ -126,7 +126,11 @@ Section Cross References
     lab1.o(i.main4) refers to lab1.o(i.DelayWait10ms) for DelayWait10ms
     lab1.o(i.main5) refers to lab1.o(i.PortF_Init) for PortF_Init
     lab1.o(i.main5) refers to lab1.o(i.DelayWait10ms) for DelayWait10ms
-    extra_credit_2.o(i.Test2) refers to extra_credit_2.o(.data) for N
+    extra_credit_1.o(i.Test1) refers to dfltui.o(.text) for __aeabi_ui2d
+    extra_credit_1.o(i.Test1) refers to dmul.o(.text) for __aeabi_dmul
+    extra_credit_1.o(i.Test1) refers to dadd.o(.text) for __aeabi_dadd
+    extra_credit_1.o(i.Test1) refers to d2f.o(.text) for __aeabi_d2f
+    extra_credit_1.o(i.Test1) refers to extra_credit_1.o(.data) for N
     extra_credit_3.o(.text) refers to extra_credit_3.o(DATA) for N
     extra_credit_4.o(.text) refers to extra_credit_4.o(DATA) for N
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
@@ -372,6 +376,16 @@ Section Cross References
     printfa.o(i._printf_pre_padding) refers (Special) to iusefp.o(.text) for __I$use$fp
     printfa.o(i._snputc) refers (Special) to iusefp.o(.text) for __I$use$fp
     printfa.o(i._sputc) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dadd.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dadd.o(.text) refers to llshl.o(.text) for __aeabi_llsl
+    dadd.o(.text) refers to llsshr.o(.text) for __aeabi_lasr
+    dadd.o(.text) refers to depilogue.o(.text) for _double_epilogue
+    dmul.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dmul.o(.text) refers to depilogue.o(.text) for _double_epilogue
+    dfltui.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    dfltui.o(.text) refers to depilogue.o(.text) for _double_epilogue
+    d2f.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    d2f.o(.text) refers to fepilogue.o(.text) for _float_round
     entry2.o(.ARM.Collect$$$$00000001) refers to entry2.o(.ARM.Collect$$$$00002712) for __lit__00000000
     entry2.o(.ARM.Collect$$$$00002712) refers to startup.o(STACK) for __initial_sp
     entry2.o(__vectab_stack_and_reset_area) refers to startup.o(STACK) for __initial_sp
@@ -381,16 +395,12 @@ Section Cross References
     entry9b.o(.ARM.Collect$$$$0000000C) refers to lab1.o(i.main) for main
     uldiv.o(.text) refers to llushr.o(.text) for __aeabi_llsr
     uldiv.o(.text) refers to llshl.o(.text) for __aeabi_llsl
-    dadd.o(.text) refers to llshl.o(.text) for __aeabi_llsl
-    dadd.o(.text) refers to llsshr.o(.text) for __aeabi_lasr
-    dadd.o(.text) refers to depilogue.o(.text) for _double_epilogue
-    dmul.o(.text) refers to depilogue.o(.text) for _double_epilogue
+    depilogue.o(.text) refers to llshl.o(.text) for __aeabi_llsl
+    depilogue.o(.text) refers to llushr.o(.text) for __aeabi_llsr
     ddiv.o(.text) refers to depilogue.o(.text) for _double_round
     dfixul.o(.text) refers to llushr.o(.text) for __aeabi_llsr
     dfixul.o(.text) refers to llshl.o(.text) for __aeabi_llsl
     init.o(.text) refers to entry5.o(.ARM.Collect$$$$00000004) for __main_after_scatterload
-    depilogue.o(.text) refers to llshl.o(.text) for __aeabi_llsl
-    depilogue.o(.text) refers to llushr.o(.text) for __aeabi_llsr
 
 
 ==============================================================================
@@ -428,20 +438,23 @@ Removing Unused input sections from the image.
     Removing st7735.o(.bss), (12 bytes).
     Removing lab1.o(i.main4), (32 bytes).
     Removing lab1.o(i.main5), (32 bytes).
-    Removing extra_credit_2.o(i.Test2), (64 bytes).
-    Removing extra_credit_2.o(.data), (8 bytes).
+    Removing extra_credit_1.o(i.Test1), (160 bytes).
+    Removing extra_credit_1.o(.data), (8 bytes).
     Removing extra_credit_3.o(DATA), (8 bytes).
     Removing extra_credit_3.o(.text), (64 bytes).
     Removing extra_credit_4.o(DATA), (8 bytes).
     Removing extra_credit_4.o(.text), (60 bytes).
     Removing dadd.o(.text), (334 bytes).
     Removing dmul.o(.text), (228 bytes).
+    Removing dfltui.o(.text), (26 bytes).
+    Removing d2f.o(.text), (56 bytes).
+    Removing fepilogue.o(.text), (108 bytes).
+    Removing depilogue.o(.text), (190 bytes).
     Removing ddiv.o(.text), (222 bytes).
     Removing dfixul.o(.text), (48 bytes).
     Removing cdrcmple.o(.text), (40 bytes).
-    Removing depilogue.o(.text), (190 bytes).
 
-43 unused section(s) (total 3698 bytes) removed from the image.
+46 unused section(s) (total 3984 bytes) removed from the image.
 
 ==============================================================================
 
@@ -452,41 +465,44 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     RESET                                    0x00000000   Section      660  startup.o(RESET)
-    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
+    ../fplib/microlib/d2f.c                  0x00000000   Number         0  d2f.o ABSOLUTE
     ../fplib/microlib/fpadd.c                0x00000000   Number         0  dadd.o ABSOLUTE
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
+    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  fepilogue.o ABSOLUTE
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
+    ../fplib/microlib/fpflt.c                0x00000000   Number         0  dfltui.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
     Lab1.c                                   0x00000000   Number         0  lab1.o ABSOLUTE
     PLL.c                                    0x00000000   Number         0  pll.o ABSOLUTE
@@ -577,7 +593,7 @@ Image Symbol Table
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    BuildAttributes$$THM_ISAv4$E$P$D$K$B$S$7EM$VFPi3$EXTD16$VFPS$VFMA$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$ROPI$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    BuildAttributes$$THM_ISAv4$E$P$D$K$B$S$7EM$VFPi3$EXTD16$VFPS$VFMA$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OTIME$ROPI$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
     __ARM_use_no_argv                        0x00000000   Number         0  lab1.o ABSOLUTE
     __Vectors                                0x00000000   Data           0  startup.o(RESET)
     __cpp_initialize__aeabi_                  - Undefined Weak Reference
@@ -789,15 +805,15 @@ Memory Map of the image
 
     0x00000000   0x00000294   Code   RO            3  * RESET               startup.o
     0x00000294   0x00000000   Code   RO          432  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x00000294   0x00000004   Code   RO          695    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x00000298   0x00000004   Code   RO          698    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x0000029c   0x00000000   Code   RO          700    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x0000029c   0x00000000   Code   RO          702    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x0000029c   0x00000008   Code   RO          703    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x000002a4   0x00000000   Code   RO          705    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x000002a4   0x00000000   Code   RO          707    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x000002a4   0x00000004   Code   RO          696    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
-    0x000002a8   0x00000024   Code   RO          725    .text               mc_w.l(init.o)
+    0x00000294   0x00000004   Code   RO          703    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x00000298   0x00000004   Code   RO          706    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x0000029c   0x00000000   Code   RO          708    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x0000029c   0x00000000   Code   RO          710    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x0000029c   0x00000008   Code   RO          711    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x000002a4   0x00000000   Code   RO          713    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x000002a4   0x00000000   Code   RO          715    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x000002a4   0x00000004   Code   RO          704    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x000002a8   0x00000024   Code   RO          737    .text               mc_w.l(init.o)
     0x000002cc   0x00000020   Code   RO           34    i.Delay1ms          st7735.o
     0x000002ec   0x00000020   Code   RO          349    i.DelayWait10ms     lab1.o
     0x0000030c   0x00000010   Code   RO           37    i.Output_Init       st7735.o
@@ -819,9 +835,9 @@ Memory Map of the image
     0x00000964   0x000000dc   Code   RO          315    i.ST7735_sDecOut2   fixed.o
     0x00000a40   0x000000a8   Code   RO          316    i.ST7735_uBinOut6   fixed.o
     0x00000ae8   0x00000010   Code   RO          436    i.__0printf$bare    mc_w.l(printfb.o)
-    0x00000af8   0x0000000e   Code   RO          737    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x00000b06   0x00000002   Code   RO          738    i.__scatterload_null  mc_w.l(handlers.o)
-    0x00000b08   0x0000000e   Code   RO          739    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x00000af8   0x0000000e   Code   RO          743    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x00000b06   0x00000002   Code   RO          744    i.__scatterload_null  mc_w.l(handlers.o)
+    0x00000b08   0x0000000e   Code   RO          745    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x00000b16   0x00000022   Code   RO          443    i._printf_core      mc_w.l(printfb.o)
     0x00000b38   0x00000056   Code   RO           68    i.commandList       st7735.o
     0x00000b8e   0x00000002   PAD
@@ -836,7 +852,7 @@ Memory Map of the image
     0x00000f2c   0x000007e2   Data   RO           79    .constdata          st7735.o
     0x0000170e   0x00000002   PAD
     0x00001710   0x000008e0   Data   RO          355    .constdata          lab1.o
-    0x00001ff0   0x00000020   Data   RO          735    Region$$Table       anon$$obj.o
+    0x00001ff0   0x00000020   Data   RO          741    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Base: 0x20000000, Size: 0x00000044, Max: 0xffffffff, ABSOLUTE)
@@ -845,7 +861,7 @@ Memory Map of the image
 
     0x20000000   0x0000002c   Data   RW           80    .data               st7735.o
     0x2000002c   0x00000014   Data   RW          317    .data               fixed.o
-    0x20000040   0x00000004   Data   RW          709    .data               mc_w.l(stdout.o)
+    0x20000040   0x00000004   Data   RW          717    .data               mc_w.l(stdout.o)
 
 
     Execution Region ER_ZI (Base: 0x20000044, Size: 0x00000404, Max: 0xffffffff, ABSOLUTE)
