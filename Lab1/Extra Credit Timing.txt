@@ -1,15 +1,16 @@
 Test 1 FP
-Start:	0.510416 s
-End:	0.541138 s
+Start:	0.118063 ms
+End:	0.153728 s
 
 Test 2 Fixed
-Start:	0.510416 s
-End:	0.511952 s
+Start:	0.118063 ms
+End:	7.799313 ms
 
 Test 3 FP
-Start:	0.510416 s
-End:	0.511133 s
+Start:	0.118063 ms
+End:	3.702812 ms
 
 Test 4 Fixed
-Start:	0.510416 s
-End:	0.511081 s
+Start:	0.118063 ms
+End:	3.447375 ms
+

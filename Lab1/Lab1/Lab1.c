@@ -99,16 +99,19 @@ const int32_t StarXbuf[50] = {0, -6, -12, -18, -24, -30, -35, -41, -47, -53, 59,
 const int32_t StarYbuf[50] = {190, 172, 154, 136, 118, 100, 81, 63, 45, 27, 9, 27, 45, 63, 81, 100, 118, 136, 154, 172, 121, 121, 121, 121, 121, 121, 121, 121, 121, 121, 9, 20, 31, 43, 54, 65, 76, 87, 99, 110, 121, 110, 99, 87, 76, 65, 54, 43, 31, 20
 };
 
-int main(void){uint32_t i;
-  PLL_Init(Bus80MHz); 
-  PortF_Init();
-  ST7735_InitR(INITR_REDTAB);
+int main(void){
 	
 	//Test1();
 	//Test2();
 	//Test3();
 	//Test4();
 	//while(1){};
+	
+	uint32_t i;
+  PLL_Init(Bus80MHz); 
+  PortF_Init();
+  ST7735_InitR(INITR_REDTAB);
+	
 	
   while(1){
     ST7735_FillScreen(ST7735_BLACK); 
