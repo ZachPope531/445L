@@ -54,5 +54,5 @@ void Timer1A_Handler(void){
   //(*PeriodicTask)();                // execute user task
 	firstTime = TIMER1_TAR_R;
 	secondTime = TIMER1_TAR_R;
-	time = firstTime - secondTime;
+	time += firstTime - secondTime;
 }
