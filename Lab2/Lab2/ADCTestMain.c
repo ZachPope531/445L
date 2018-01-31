@@ -29,9 +29,11 @@
 #include "ADCSWTrigger.h"
 #include "../inc/tm4c123gh6pm.h"
 #include "PLL.h"
+#include "Timer1.h"
 
 #define PF2             (*((volatile uint32_t *)0x40025010))
 #define PF1             (*((volatile uint32_t *)0x40025008))
+#define SIZE 1000
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
 long StartCritical (void);    // previous I bit, disable interrupts
@@ -39,6 +41,9 @@ void EndCritical(long sr);    // restore I bit to previous value
 void WaitForInterrupt(void);  // low power mode
 
 volatile uint32_t ADCvalue;
+
+volatile uint32_t time[SIZE];
+volatile uint32_t data[SIZE];
 // This debug function initializes Timer0A to request interrupts
 // at a 100 Hz frequency.  It is similar to FreqMeasure.c.
 void Timer0A_Init100HzInt(void){
@@ -70,6 +75,8 @@ void Timer0A_Handler(void){
 }
 int main(void){
   PLL_Init(Bus80MHz);                   // 80 MHz
+	Timer1Init();
+	/*
   SYSCTL_RCGCGPIO_R |= 0x20;            // activate port F
   ADC0_InitSWTriggerSeq3_Ch9();         // allow time to finish activating
   Timer0A_Init100HzInt();               // set up Timer0A for 100 Hz interrupts
@@ -84,6 +91,7 @@ int main(void){
   while(1){
     PF1 ^= 0x02;  // toggles when running in main
   }
+	*/
 }
 
 
