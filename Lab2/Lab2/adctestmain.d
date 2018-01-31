@@ -3,3 +3,4 @@
 .\adctestmain.o: ADCSWTrigger.h
 .\adctestmain.o: ../inc/tm4c123gh6pm.h
 .\adctestmain.o: PLL.h
+.\adctestmain.o: Timer1.h

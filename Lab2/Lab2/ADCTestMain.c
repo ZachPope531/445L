@@ -42,8 +42,8 @@ void WaitForInterrupt(void);  // low power mode
 
 volatile uint32_t ADCvalue;
 
-volatile uint32_t time[SIZE];
-volatile uint32_t data[SIZE];
+volatile uint32_t time_dump[SIZE];
+volatile uint32_t data_dump[SIZE];
 // This debug function initializes Timer0A to request interrupts
 // at a 100 Hz frequency.  It is similar to FreqMeasure.c.
 void Timer0A_Init100HzInt(void){
@@ -75,7 +75,7 @@ void Timer0A_Handler(void){
 }
 int main(void){
   PLL_Init(Bus80MHz);                   // 80 MHz
-	Timer1Init();
+	Timer1_Init();
 	/*
   SYSCTL_RCGCGPIO_R |= 0x20;            // activate port F
   ADC0_InitSWTriggerSeq3_Ch9();         // allow time to finish activating
