@@ -91,6 +91,43 @@ void Timer0A_Handler(void){
 	}
 	
 }
+
+void Time_Process(void){
+	//return jitter or make global?
+	uint32_t jitter;
+	int32_t min, max;
+	min = time_dump[1] - time_dump[0];
+	max = time_dump[1] - time_dump[0];
+	int i;
+	for (i = 2; i < SIZE; i++){
+		int32_t diff = time_dump[i] - time_dump[i-1];
+		if (max < diff) max = diff;
+		if (min > diff) min = diff;
+	}
+	jitter = max - min;
+	return;
+}
+
+void Data_Process(void){
+	// how to plot?
+	int32_t range;
+	uint32_t min = data_dump[0];
+	uint32_t max = data_dump[0];
+	int i;
+	for (i = 1; i < SIZE; i++){
+		if (min > data_dump[i]) min = data_dump[i];
+		if (max < data_dump[i]) max = data_dump[i];
+	}
+	uint32_t data_freq[range+1];
+	for (i = 0; i < SIZE; i++){
+		data_freq[data_dump[i] - min]++;
+	}
+	data_freq[range] = min;
+	//data_freq has number of occurrences, last val is minimum ADCval
+	//plot (min+i, freq[i]) for all i
+	return;
+}
+
 int main(void){
   PLL_Init(Bus80MHz);                   // 80 MHz	
   SYSCTL_RCGCGPIO_R |= 0x20;            // activate port F
