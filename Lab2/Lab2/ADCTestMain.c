@@ -44,6 +44,8 @@ volatile uint32_t ADCvalue;
 
 volatile uint32_t time_dump[SIZE];
 volatile uint32_t data_dump[SIZE];
+volatile uint16_t dump_index;
+extern volatile uint32_t time;
 // This debug function initializes Timer0A to request interrupts
 // at a 100 Hz frequency.  It is similar to FreqMeasure.c.
 void Timer0A_Init100HzInt(void){
@@ -65,6 +67,8 @@ void Timer0A_Init100HzInt(void){
                                    // Timer0A=priority 2
   NVIC_PRI4_R = (NVIC_PRI4_R&0x00FFFFFF)|0x40000000; // top 3 bits
   NVIC_EN0_R = 1<<19;              // enable interrupt 19 in NVIC
+	
+	dump_index = 0;
 }
 void Timer0A_Handler(void){
   TIMER0_ICR_R = TIMER_ICR_TATOCINT;    // acknowledge timer0A timeout
@@ -72,11 +76,22 @@ void Timer0A_Handler(void){
   PF2 ^= 0x04;                   // profile
   ADCvalue = ADC0_InSeq3();
   PF2 ^= 0x04;                   // profile
+	
+	
+	//Time and data dump
+	time_dump[dump_index] = time;
+	data_dump[dump_index] = ADCvalue;
+	
+	dump_index++;
+	
 }
 int main(void){
   PLL_Init(Bus80MHz);                   // 80 MHz
+	
+	//Add Timer1 for debug purposes
+	//Reads time in 12.5 ns intervals
 	Timer1_Init();
-	/*
+	
   SYSCTL_RCGCGPIO_R |= 0x20;            // activate port F
   ADC0_InitSWTriggerSeq3_Ch9();         // allow time to finish activating
   Timer0A_Init100HzInt();               // set up Timer0A for 100 Hz interrupts
@@ -91,7 +106,6 @@ int main(void){
   while(1){
     PF1 ^= 0x02;  // toggles when running in main
   }
-	*/
 }
 
 
