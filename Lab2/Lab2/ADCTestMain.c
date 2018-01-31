@@ -79,22 +79,28 @@ void Timer0A_Handler(void){
 	
 	
 	//Time and data dump
-	time_dump[dump_index] = time;
-	data_dump[dump_index] = ADCvalue;
-	
-	dump_index++;
+	if(dump_index < SIZE){
+		Timer1A_Handler();
+		time_dump[dump_index] = time;
+		data_dump[dump_index] = ADCvalue;
+		
+		dump_index++;
+	} else {
+		//Set a breakpoint here
+		dump_index = dump_index;
+	}
 	
 }
 int main(void){
-  PLL_Init(Bus80MHz);                   // 80 MHz
+  PLL_Init(Bus80MHz);                   // 80 MHz	
+  SYSCTL_RCGCGPIO_R |= 0x20;            // activate port F
+  ADC0_InitSWTriggerSeq3_Ch9();         // allow time to finish activating
+  Timer0A_Init100HzInt();               // set up Timer0A for 100 Hz interrupts
 	
 	//Add Timer1 for debug purposes
 	//Reads time in 12.5 ns intervals
 	Timer1_Init();
 	
-  SYSCTL_RCGCGPIO_R |= 0x20;            // activate port F
-  ADC0_InitSWTriggerSeq3_Ch9();         // allow time to finish activating
-  Timer0A_Init100HzInt();               // set up Timer0A for 100 Hz interrupts
   GPIO_PORTF_DIR_R |= 0x06;             // make PF2, PF1 out (built-in LED)
   GPIO_PORTF_AFSEL_R &= ~0x06;          // disable alt funct on PF2, PF1
   GPIO_PORTF_DEN_R |= 0x06;             // enable digital I/O on PF2, PF1

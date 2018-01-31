@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\ADCSWTrigger.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\ADCSWTrigger.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Tue Jan 30 22:33:06 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Tue Jan 30 22:49:27 2018
 <BR><P>
 <H3>Maximum Stack Usage =          8 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -768,7 +768,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Handler
 </UL>
 
-<P><STRONG><a name="[98]"></a>ADC0_InitSWTriggerSeq3_Ch9</STRONG> (Thumb, 206 bytes, Stack size 0 bytes, adcswtrigger.o(i.ADC0_InitSWTriggerSeq3_Ch9))
+<P><STRONG><a name="[97]"></a>ADC0_InitSWTriggerSeq3_Ch9</STRONG> (Thumb, 206 bytes, Stack size 0 bytes, adcswtrigger.o(i.ADC0_InitSWTriggerSeq3_Ch9))
 <BR><BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -776,10 +776,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[20]"></a>Timer0A_Handler</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, adctestmain.o(i.Timer0A_Handler))
+<P><STRONG><a name="[20]"></a>Timer0A_Handler</STRONG> (Thumb, 114 bytes, Stack size 8 bytes, adctestmain.o(i.Timer0A_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Timer0A_Handler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC0_InSeq3
+<BR>[Calls]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Handler
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC0_InSeq3
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
 </UL>
@@ -793,9 +794,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[22]"></a>Timer1A_Handler</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, timer1.o(i.Timer1A_Handler))
+<BR><BR>[Called By]<UL><LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Handler
+</UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
 </UL>
-<P><STRONG><a name="[97]"></a>Timer1_Init</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, timer1.o(i.Timer1_Init))
+<P><STRONG><a name="[98]"></a>Timer1_Init</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, timer1.o(i.Timer1_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -803,10 +806,10 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
 <LI>Call Chain = main &rArr; Timer0A_Init100HzInt
 </UL>
-<BR>[Calls]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1_Init
+<BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1_Init
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PLL_Init
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer0A_Init100HzInt
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC0_InitSWTriggerSeq3_Ch9
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC0_InitSWTriggerSeq3_Ch9
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnableInterrupts
 </UL>
 <BR>[Called By]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
