@@ -144,7 +144,7 @@ int main(void){
                                         // configure PF2 as GPIO
   GPIO_PORTF_PCTL_R = (GPIO_PORTF_PCTL_R&0xFFFFF00F)+0x00000000;
   GPIO_PORTF_AMSEL_R = 0;               // disable analog functionality on PF
-  PF2 = 0;                      // turn off LED
+  PF2 = 1;                      // turn on LED
   EnableInterrupts();
   while(1){
     PF1 ^= 0x02;  // toggles when running in main
