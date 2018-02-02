@@ -436,11 +436,6 @@
               <FilePath>.\fixed.c</FilePath>
             </File>
             <File>
-              <FileName>Lab1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Lab1.c</FilePath>
-            </File>
-            <File>
               <FileName>extra_credit_1.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\extra_credit_1.c</FilePath>
@@ -459,6 +454,11 @@
               <FileName>extra_credit_4.s</FileName>
               <FileType>2</FileType>
               <FilePath>.\extra_credit_4.s</FilePath>
+            </File>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\main.c</FilePath>
             </File>
           </Files>
         </Group>

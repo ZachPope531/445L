@@ -1,0 +1,10 @@
+.\main.o: main.c
+.\main.o: C:\Keil_uv4\ARM\ARMCC\bin\..\include\stdio.h
+.\main.o: C:\Keil_uv4\ARM\ARMCC\bin\..\include\stdint.h
+.\main.o: C:\Keil_uv4\ARM\ARMCC\bin\..\include\string.h
+.\main.o: ST7735.h
+.\main.o: PLL.h
+.\main.o: fixed.h
+.\main.o: ../inc/tm4c123gh6pm.h
+.\main.o: extra_credit_1.h
+.\main.o: extra_credit_2.h

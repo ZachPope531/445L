@@ -1,10 +1,13 @@
-// Lab1.c
+// main.c
 // Runs on TM4C123
 // Uses ST7735.c LCD.
 // Jonathan Valvano
 // January 17, 2018
 // Possible main program to test the lab
 // Feel free to edit this to match your specifications
+
+//Zach Pope and Ali Kedwaii
+//1/31/2018
 
 // Backlight (pin 10) connected to +3.3 V
 // MISO (pin 9) unconnected 
