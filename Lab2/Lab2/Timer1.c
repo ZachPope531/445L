@@ -23,9 +23,8 @@
  #include "Timer1.h"
 
 //void (*PeriodicTask)(void);   // user function
-volatile uint32_t firstTime;
-volatile uint32_t secondTime;
-volatile uint32_t time;
+volatile uint32_t originalTime = 0;
+volatile uint32_t time = 0;
 
 // ***************** TIMER1_Init ****************
 // Activate TIMER1 interrupts to run user task periodically
@@ -47,12 +46,11 @@ void Timer1_Init(void){
 // vector number 37, interrupt number 21
   //NVIC_EN0_R = 1<<21;           // 9) enable IRQ 21 in NVIC
   TIMER1_CTL_R = 0x00000001;    // 10) enable TIMER1A
+	originalTime = TIMER1_TAR_R;
 }
 
 void Timer1A_Handler(void){
   TIMER1_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER1A timeout
   //(*PeriodicTask)();                // execute user task
-	firstTime = TIMER1_TAR_R;
-	secondTime = TIMER1_TAR_R;
-	time += firstTime - secondTime;
+	time =  originalTime - TIMER1_TAR_R;
 }

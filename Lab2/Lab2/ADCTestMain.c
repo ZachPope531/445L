@@ -73,6 +73,7 @@ void Timer0A_Init100HzInt(void){
 }
 void Timer0A_Handler(void){
   TIMER0_ICR_R = TIMER_ICR_TATOCINT;    // acknowledge timer0A timeout
+	Timer1A_Handler();
   PF2 ^= 0x04;                   // profile
   PF2 ^= 0x04;                   // profile
   ADCvalue = ADC0_InSeq3();
@@ -81,7 +82,6 @@ void Timer0A_Handler(void){
 	
 	//Time and data dump
 	if(dump_index < SIZE){
-		Timer1A_Handler();
 		time_dump[dump_index] = time;
 		data_dump[dump_index] = ADCvalue;
 		
@@ -149,6 +149,7 @@ int main(void){
 	ST7735_InitR(INITR_REDTAB);						// Turn on the screen
   EnableInterrupts();
   while(1){
+		PF1 = (PF1*12345678)/1234567+0x02;  // this line causes jitter
     PF1 ^= 0x02;  // toggles when running in main
   }
 }
