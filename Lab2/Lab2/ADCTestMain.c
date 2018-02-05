@@ -139,7 +139,7 @@ void Data_Process(void){
 	
 	ST7735_PlotClear(0, 159);
 	
-	uint32_t ADC = 2000;
+	uint32_t ADC = 1950;
 	int y = 0;
 	
 // check min and max
@@ -150,12 +150,12 @@ void Data_Process(void){
 	for (i = 0; i < SIZE; i++){
 		if (data_dump[i] == ADC) y++;
 		else if (data_dump[i] > ADC) {
-			ST7735_PlotBar(y);
-			ST7735_PlotNext();
-			//ST7735_PlotBar(y);
-			//ST7735_PlotNext();
-			y = 0;
-			ADC++;
+				while(data_dump[i] > ADC){
+				ST7735_PlotBar(y);
+				ST7735_PlotNext();
+				y = 0;
+				ADC++;
+			}
 		}
 	}
 
