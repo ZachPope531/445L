@@ -48,7 +48,12 @@ volatile uint32_t time_dump[SIZE];
 volatile uint32_t data_dump[SIZE];
 volatile uint16_t dump_index;
 extern volatile uint32_t time;
+
+
+volatile int ready;
+
 volatile uint32_t jitter;
+
 // This debug function initializes Timer0A to request interrupts
 // at a 100 Hz frequency.  It is similar to FreqMeasure.c.
 void Timer0A_Init100HzInt(void){
@@ -74,8 +79,33 @@ void Timer0A_Init100HzInt(void){
 	dump_index = 0;
 }
 
+void Timer0A_Handler(void){
+  TIMER0_ICR_R = TIMER_ICR_TATOCINT;    // acknowledge timer0A timeout
+  PF2 ^= 0x04;                   // profile
+  PF2 ^= 0x04;                   // profile
+  ADCvalue = ADC0_InSeq3();
+  PF2 ^= 0x04;                   // profile
+	
+	
+	//Time and data dump
+	if(dump_index < SIZE){
+		Timer1A_Handler();
+		time_dump[dump_index] = time;
+		data_dump[dump_index] = ADCvalue;
+		ready = 0;
+		
+		dump_index++;
+	} else {
+		//Set a breakpoint here
+		ready = 1;
+		//dump_index = dump_index;
+		//dump_index = 0;
+	}
+	
+}
+
+
 void Time_Process(void){
-	//return jitter or make global?
 	int32_t min, max;
 	min = time_dump[1] - time_dump[0];
 	max = time_dump[1] - time_dump[0];
@@ -86,50 +116,56 @@ void Time_Process(void){
 		if (min > diff) min = diff;
 	}
 	jitter = max - min;
+	
 	return;
 }
 
 void Data_Process(void){
-	// how to plot?
+	
 	int32_t range;
-	uint32_t min = data_dump[0];
-	uint32_t max = data_dump[0];
-	int i;
-	for (i = 1; i < SIZE; i++){
-		if (min > data_dump[i]) min = data_dump[i];
-		if (max < data_dump[i]) max = data_dump[i];
-	}
-	uint32_t data_freq[range+1];
+	uint32_t min;
+	uint32_t max;
+	int i, j;
 	for (i = 0; i < SIZE; i++){
-		data_freq[data_dump[i] - min]++;
+		for (j = 0; j < i; j++) {
+			if (data_dump[j] > data_dump[i]){
+				int temp = data_dump[j];
+				data_dump[j] = data_dump[i];
+				data_dump[i] = temp;
+			}
+		}
 	}
-	data_freq[range] = min;
-	//data_freq has number of occurrences, last val is minimum ADCval
-	//plot (min+i, freq[i]) for all i
-	return;
-}
+	
+	min = data_dump[0];
+	max = data_dump[SIZE-1];
+	
+	ST7735_PlotClear(0, 159);
+	
+	uint32_t ADC = 1950;
+	int y = 0;
+	
+// check min and max
+//	ST7735_OutUDec(min);
+//	ST7735_OutChar(' ');
+//	ST7735_OutUDec(max);
+	
+	for (i = 0; i < SIZE; i++){
+		if (data_dump[i] == ADC) y++;
+		else if (data_dump[i] > ADC) {
+				while(data_dump[i] > ADC){
+				ST7735_PlotBar(y);
+				ST7735_PlotNext();
+				y = 0;
+				ADC++;
+			}
+		}
+	}
 
-void Timer0A_Handler(void){
-  TIMER0_ICR_R = TIMER_ICR_TATOCINT;    // acknowledge timer0A timeout
-	Timer1A_Handler();
-  PF2 ^= 0x04;                   // profile
-  PF2 ^= 0x04;                   // profile
-  ADCvalue = ADC0_InSeq3();
-  PF2 ^= 0x04;                   // profile
+	//arrange data into plottable form
+
+	//ST7735_OutUDec(range);
 	
-	
-	//Time and data dump
-	if(dump_index < SIZE){
-		time_dump[dump_index] = time;
-		data_dump[dump_index] = ADCvalue;
-		
-		dump_index++;
-	} else {
-		//Set a breakpoint here
-		Time_Process();
-		dump_index = dump_index;
-	}
-	
+	return;
 }
 
 int main(void){
@@ -155,6 +191,12 @@ int main(void){
   while(1){
 		PF1 = (PF1*12345678)/1234567+0x02;  // this line causes jitter
     PF1 ^= 0x02;  // toggles when running in main
+		if (ready == 1) {
+			Time_Process();
+			Data_Process();
+			ready = 0;
+			dump_index = 0;
+		}
   }
 }
 
