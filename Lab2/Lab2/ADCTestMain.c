@@ -107,10 +107,10 @@ void Timer0A_Handler(void){
 
 void Time_Process(void){
 	int32_t min, max;
-	min = time_dump[1] - time_dump[0];
-	max = time_dump[1] - time_dump[0];
+	min = time_dump[2] - time_dump[1];
+	max = time_dump[2] - time_dump[1];
 	int i;
-	for (i = 2; i < SIZE; i++){
+	for (i = 3; i < SIZE; i++){
 		int32_t diff = time_dump[i] - time_dump[i-1];
 		if (max < diff) max = diff;
 		if (min > diff) min = diff;
@@ -122,9 +122,9 @@ void Time_Process(void){
 
 void Data_Process(void){
 	
-	int32_t range;
-	uint32_t min;
-	uint32_t max;
+	//int32_t range;
+	//uint32_t min;
+	//uint32_t max;
 	int i, j;
 	for (i = 0; i < SIZE; i++){
 		for (j = 0; j < i; j++) {
@@ -136,12 +136,12 @@ void Data_Process(void){
 		}
 	}
 	
-	min = data_dump[0];
-	max = data_dump[SIZE-1];
+	//min = data_dump[0];
+	//max = data_dump[SIZE-1];
 	
 	ST7735_PlotClear(0, 159);
 	
-	uint32_t ADC = 1950;
+	uint32_t ADC = 2050;
 	int y = 0;
 	
 // check min and max
@@ -194,6 +194,7 @@ int main(void){
 		if (ready == 1) {
 			Time_Process();
 			Data_Process();
+			//ST7735_Line(0, 0, 50, 50, 0xFFFF);
 			ready = 0;
 			dump_index = 0;
 		}
