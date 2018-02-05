@@ -30,6 +30,7 @@
 #include "../inc/tm4c123gh6pm.h"
 #include "PLL.h"
 #include "Timer1.h"
+#include "Timer2.h"
 #include "ST7735_Line.h"
 
 #define PF2             (*((volatile uint32_t *)0x40025010))
@@ -48,7 +49,10 @@ volatile uint32_t data_dump[SIZE];
 volatile uint16_t dump_index;
 extern volatile uint32_t time;
 
+
 volatile int ready;
+
+volatile uint32_t jitter;
 
 // This debug function initializes Timer0A to request interrupts
 // at a 100 Hz frequency.  It is similar to FreqMeasure.c.
@@ -75,7 +79,6 @@ void Timer0A_Init100HzInt(void){
 	dump_index = 0;
 }
 
-
 void Timer0A_Handler(void){
   TIMER0_ICR_R = TIMER_ICR_TATOCINT;    // acknowledge timer0A timeout
   PF2 ^= 0x04;                   // profile
@@ -101,9 +104,8 @@ void Timer0A_Handler(void){
 	
 }
 
+
 void Time_Process(void){
-	//return jitter or make global?
-	uint32_t jitter;
 	int32_t min, max;
 	min = time_dump[1] - time_dump[0];
 	max = time_dump[1] - time_dump[0];
@@ -119,7 +121,7 @@ void Time_Process(void){
 }
 
 void Data_Process(void){
-	// how to plot?
+	
 	int32_t range;
 	uint32_t min;
 	uint32_t max;
@@ -171,6 +173,7 @@ int main(void){
   SYSCTL_RCGCGPIO_R |= 0x20;            // activate port F
   ADC0_InitSWTriggerSeq3_Ch9();         // allow time to finish activating
   Timer0A_Init100HzInt();               // set up Timer0A for 100 Hz interrupts
+	Timer2_Init(799000);
 	
 	//Add Timer1 for debug purposes
 	//Reads time in 12.5 ns intervals
@@ -186,6 +189,7 @@ int main(void){
 	ST7735_InitR(INITR_REDTAB);						// Turn on the screen
   EnableInterrupts();
   while(1){
+		PF1 = (PF1*12345678)/1234567+0x02;  // this line causes jitter
     PF1 ^= 0x02;  // toggles when running in main
 		if (ready == 1) {
 			Time_Process();
