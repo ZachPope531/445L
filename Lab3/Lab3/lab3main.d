@@ -4,3 +4,4 @@
 .\lab3main.o: ST7735.h
 .\lab3main.o: PLL.h
 .\lab3main.o: ../inc/tm4c123gh6pm.h
+.\lab3main.o: screen.h
