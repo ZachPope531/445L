@@ -11,6 +11,17 @@ static volatile uint8_t OldMinute_Y = 0;
 static volatile uint8_t OldHour_X = 0;
 static volatile uint8_t OldHour_Y = 0;
 
+const uint16_t clockHandMinuteXY[60][2] = {{64, 40}, {68, 40}, {72, 41}, {76, 42}, {80,43}, {84,45}, {88,48}, {91,50}, {94,53}, {96,56},
+									{99,60}, {101,64}, {102,68}, {103,72}, {104,76}, {104,80}, {104,84}, {103,88}, {102,92}, {101,96},
+									{99,100}, {96,104}, {94,107}, {91,110}, {88,112}, {84,115}, {80,117}, {76,118}, {72,119}, {68,120},
+									{64,120}, {60,120}, {56,119}, {52,118}, {48,117}, {44,115}, {40,112}, {37,110}, {34,107}, {32,104}, 
+									{29,100}, {27,96}, {26,92}, {25,88}, {24,84}, {24,80}, {24,76}, {25,72}, {26,68},{27,64},
+									{29,60}, {32,56}, {34,53}, {37,50}, {40,48}, {44,45}, {48,43}, {52,42}, {56,41}, {60, 40}
+									};
+const uint16_t clockHandHourXY[12][2] = {{64,60}, {74,63}, {81,70}, {84,80}, {81,90}, {74,97}, {64, 100},
+																					{54,97}, {47, 90}, {44,80}, {47, 70}, {54,64}
+																				};
+									
 const unsigned short clock_BMP[] = {
  0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
  0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
@@ -774,15 +785,7 @@ const unsigned short clock_BMP[] = {
 
 
 
-void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color, uint8_t whichHand){
-	uint8_t radius = 0;
-	//Are we drawing an hour or minute hand
-	//0 means minute, 1 means hour)
-	if(whichHand){
-		radius = HOUR_RADIUS;
-	} else {
-		radius = MINUTE_RADIUS;
-	}
+void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color){
 	
 	//Check bounds
 	if(y1 > 160 || y2 > 160 || x1 > 128 || x2 > 128){
@@ -838,28 +841,7 @@ void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t co
 }
 
 void drawHands(uint8_t hour, uint8_t minute){
-	/*
-	//Convert hour and minute into angle
-	uint16_t hourX = (uint16_t) CENTER_X + 27*cos(hour * PI / 6.0 + PI);
-	uint16_t hourY = (uint16_t) CENTER_Y + 27*sin(hour * PI / 6.0 + PI);
-	uint16_t minuteX = (uint16_t) CENTER_X + 54*cos((180/PI)*minute*6 - PI);
-	uint16_t minuteY = (uint16_t) CENTER_Y + 54*sin((180/PI)*minute*6 - PI);
 	
-	//Erase old hour and minute lines
-	ST7735_Line(CENTER_X, CENTER_Y, OldMinute_X, OldMinute_Y, 0x0000);
-	ST7735_Line(CENTER_X, CENTER_Y, OldHour_X, OldHour_Y, 0x0000);
-	
-	//Draw new hour and minute lines
-	ST7735_Line(CENTER_X, CENTER_Y, hourX, hourY, 0xFFFF);
-	ST7735_Line(CENTER_X, CENTER_Y, minuteX, minuteY, 0xFFFF);
-	*/
-	
-
-	//Update OldTime variables
-	//OldMinute_X = minuteX;
-	//OldMinute_Y = minuteY;
-	//OldHour_X = hourX;
-	//OldHour_Y = hourY;
 }
 
 void drawClock(void){

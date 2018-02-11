@@ -241,7 +241,7 @@ Image Symbol Table
     Rcmd2green                               0x00000e6d   Data          13  st7735.o(.constdata)
     Rcmd2red                                 0x00000e7a   Data          13  st7735.o(.constdata)
     Rcmd3                                    0x00000e87   Data          43  st7735.o(.constdata)
-    .constdata                               0x000010b2   Section    24200  screen.o(.constdata)
+    .constdata                               0x000010b2   Section    24488  screen.o(.constdata)
     .data                                    0x20000000   Section       44  st7735.o(.data)
     _width                                   0x2000000a   Data           2  st7735.o(.data)
     _height                                  0x2000000c   Data           2  st7735.o(.data)
@@ -412,9 +412,11 @@ Image Symbol Table
     drawClock                                0x000007dd   Thumb Code    20  screen.o(i.drawClock)
     main                                     0x000007f5   Thumb Code    22  lab3main.o(i.main)
     dBfs                                     0x00000eb2   Data         512  st7735.o(.constdata)
-    clock_BMP                                0x000010b2   Data       24200  screen.o(.constdata)
-    Region$$Table$$Base                      0x00006f3c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00006f5c   Number         0  anon$$obj.o(Region$$Table)
+    clockHandMinuteXY                        0x000010b2   Data         240  screen.o(.constdata)
+    clockHandHourXY                          0x000011a2   Data          48  screen.o(.constdata)
+    clock_BMP                                0x000011d2   Data       24200  screen.o(.constdata)
+    Region$$Table$$Base                      0x0000705c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0000707c   Number         0  anon$$obj.o(Region$$Table)
     StX                                      0x20000000   Data           4  st7735.o(.data)
     StY                                      0x20000004   Data           4  st7735.o(.data)
     StTextColor                              0x20000008   Data           2  st7735.o(.data)
@@ -434,9 +436,9 @@ Memory Map of the image
 
   Image Entry point : 0x0000026d
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00006f88, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x000070a8, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x00000000, Size: 0x00006f5c, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x00000000, Size: 0x0000707c, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -470,9 +472,9 @@ Memory Map of the image
     0x00000880   0x00000030   Code   RO           76    i.writecommand      st7735.o
     0x000008b0   0x00000020   Code   RO           77    i.writedata         st7735.o
     0x000008d0   0x000007e2   Data   RO           79    .constdata          st7735.o
-    0x000010b2   0x00005e88   Data   RO          346    .constdata          screen.o
-    0x00006f3a   0x00000002   PAD
-    0x00006f3c   0x00000020   Data   RO          390    Region$$Table       anon$$obj.o
+    0x000010b2   0x00005fa8   Data   RO          346    .constdata          screen.o
+    0x0000705a   0x00000002   PAD
+    0x0000705c   0x00000020   Data   RO          390    Region$$Table       anon$$obj.o
 
 
     Execution Region ER_RW (Base: 0x20000000, Size: 0x0000002c, Max: 0xffffffff, ABSOLUTE)
@@ -499,12 +501,12 @@ Image component sizes
 
         22          0          0          0          0        411   lab3main.o
        124          6          0          0          0       4651   pll.o
-        24          4      24200          0          0        968   screen.o
+        24          4      24488          0          0       1110   screen.o
       1354        142       2018         44          0       9968   st7735.o
        644        620          0          0       1024        712   startup.o
 
     ----------------------------------------------------------------------
-      2170        772      26252         44       1028      16710   Object Totals
+      2170        772      26540         44       1028      16852   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          2          0          2          0          4          0   (incl. Padding)
 
@@ -543,15 +545,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      2256        788      26252         44       1028      16154   Grand Totals
-      2256        788      26252         44       1028      16154   ELF Image Totals
-      2256        788      26252         44          0          0   ROM Totals
+      2256        788      26540         44       1028      16296   Grand Totals
+      2256        788      26540         44       1028      16296   ELF Image Totals
+      2256        788      26540         44          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                28508 (  27.84kB)
+    Total RO  Size (Code + RO Data)                28796 (  28.12kB)
     Total RW  Size (RW Data + ZI Data)              1072 (   1.05kB)
-    Total ROM Size (Code + RO Data + RW Data)      28552 (  27.88kB)
+    Total ROM Size (Code + RO Data + RW Data)      28840 (  28.16kB)
 
 ==============================================================================
 
