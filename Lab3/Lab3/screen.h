@@ -6,7 +6,7 @@
 //				x2	The second x coordinate
 //				y2	The second y coordinate
 //Ouput:	None
-void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
+void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color, uint8_t whichHand);
 
 //Draws the circle starting from (10, 80) and with a radius of 54 pixels
 //Places numbers around the circle like a clock

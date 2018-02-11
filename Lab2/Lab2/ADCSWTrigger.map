@@ -39,7 +39,8 @@ Section Cross References
     adctestmain.o(i.main) refers to adctestmain.o(i.Data_Process) for Data_Process
     adctestmain.o(i.main) refers to adctestmain.o(.data) for ready
     timer1.o(i.Timer1A_Handler) refers to timer1.o(.data) for time
-    st7735_line.o(i.ST7735_Line) refers to st7735.o(i.ST7735_FillScreen) for ST7735_FillScreen
+    st7735_line.o(i.ST7735_Line) refers to st7735.o(i.ST7735_DrawFastHLine) for ST7735_DrawFastHLine
+    st7735_line.o(i.ST7735_Line) refers to st7735.o(i.ST7735_DrawFastVLine) for ST7735_DrawFastVLine
     st7735_line.o(i.ST7735_Line) refers to st7735.o(i.ST7735_DrawPixel) for ST7735_DrawPixel
     st7735.o(i.Output_Clear) refers to st7735.o(i.ST7735_FillScreen) for ST7735_FillScreen
     st7735.o(i.Output_Color) refers to st7735.o(i.ST7735_SetTextColor) for ST7735_SetTextColor
@@ -234,7 +235,7 @@ Section Cross References
 
 Removing Unused input sections from the image.
 
-    Removing st7735_line.o(i.ST7735_Line), (138 bytes).
+    Removing st7735_line.o(i.ST7735_Line), (248 bytes).
     Removing st7735.o(i.Output_Clear), (10 bytes).
     Removing st7735.o(i.Output_Color), (12 bytes).
     Removing st7735.o(i.Output_Init), (16 bytes).
@@ -266,7 +267,7 @@ Removing Unused input sections from the image.
     Removing st7735.o(i.pushColor), (18 bytes).
     Removing st7735.o(.bss), (12 bytes).
 
-31 unused section(s) (total 2798 bytes) removed from the image.
+31 unused section(s) (total 2908 bytes) removed from the image.
 
 ==============================================================================
 

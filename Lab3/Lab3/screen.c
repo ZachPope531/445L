@@ -2,12 +2,14 @@
 
 #define CENTER_X 64
 #define CENTER_Y 80
+#define MINUTE_RADIUS 40
+#define HOUR_RADIUS 20
 
 
-volatile uint8_t OldMinute_X = 0;
-volatile uint8_t OldMinute_Y = 0;
-volatile uint8_t OldHour_X = 0;
-volatile uint8_t OldHour_Y = 0;
+static volatile uint8_t OldMinute_X = 0;
+static volatile uint8_t OldMinute_Y = 0;
+static volatile uint8_t OldHour_X = 0;
+static volatile uint8_t OldHour_Y = 0;
 
 const unsigned short clock_BMP[] = {
  0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
@@ -772,7 +774,16 @@ const unsigned short clock_BMP[] = {
 
 
 
-void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color){
+void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color, uint8_t whichHand){
+	uint8_t radius = 0;
+	//Are we drawing an hour or minute hand
+	//0 means minute, 1 means hour)
+	if(whichHand){
+		radius = HOUR_RADIUS;
+	} else {
+		radius = MINUTE_RADIUS;
+	}
+	
 	//Check bounds
 	if(y1 > 160 || y2 > 160 || x1 > 128 || x2 > 128){
 		return;
