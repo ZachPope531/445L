@@ -10,3 +10,5 @@
 .\lab3main.o: PLL.h
 .\lab3main.o: screen.h
 .\lab3main.o: switch.h
+.\lab3main.o: ADC.h
+.\lab3main.o: PLL.h

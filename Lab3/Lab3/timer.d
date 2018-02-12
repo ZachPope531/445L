@@ -6,3 +6,5 @@
 .\timer.o: PLL.h
 .\timer.o: screen.h
 .\timer.o: ST7735.h
+.\timer.o: ADC.h
+.\timer.o: PLL.h

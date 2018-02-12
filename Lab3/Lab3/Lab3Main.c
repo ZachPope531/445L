@@ -7,6 +7,7 @@
 #include "speaker.h"
 #include "timer.h"
 #include "switch.h"
+#include "ADC.h"
 
 extern volatile enum displaymode currentDisplay;
 
@@ -20,16 +21,10 @@ int main(void){
 	PLL_Init(Bus80MHz);
 	ST7735_InitR(INITR_REDTAB);
 	Timer0A_Init1HzInt();
+	Timer1_Init();
+	ADC0_InitSWTriggerSeq3_Ch9();
 	EdgeCounter_Init();
 	EnableInterrupts();
-	/*drawHands(3, 0);
-	drawHands(6, 0);
-	drawHands(9, 0);
-	
-	drawHands(1, 0);
-	*/
-	
-	//switch(currentDisplay);
 	
 	while(1){
 		static uint16_t blah = 1;

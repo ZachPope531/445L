@@ -1,0 +1,10 @@
+.\adc.o: ADC.c
+.\adc.o: ADC.h
+.\adc.o: C:\Keil_uv4\ARM\ARMCC\bin\..\include\stdio.h
+.\adc.o: C:\Keil_uv4\ARM\ARMCC\bin\..\include\stdint.h
+.\adc.o: PLL.h
+.\adc.o: ../inc/tm4c123gh6pm.h
+.\adc.o: timer.h
+.\adc.o: PLL.h
+.\adc.o: screen.h
+.\adc.o: ST7735.h
