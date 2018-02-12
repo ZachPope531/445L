@@ -65,7 +65,7 @@ void GPIOPortB_Handler(void){
 	} 
 	else if (trigger_check_b == 0x0002){ //switch 4
 		GPIO_PORTB_ICR_R = 0x02;
-		//call Snooze
+		//Snooze();
 	}
 }
 

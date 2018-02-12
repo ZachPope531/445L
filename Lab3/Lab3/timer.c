@@ -1,4 +1,5 @@
 #include "timer.h"
+#include "ADC.h"
 
 #define PF1             (*((volatile uint32_t *)0x40025008))
 	
@@ -89,7 +90,6 @@ void Display_Time(void) {
 	} else if (display_status == DIGITAL) {
 		digitalClock(hours, minutes, seconds);
 	}
-
 }
 
 void Timer0A_Handler(void){
@@ -108,7 +108,11 @@ void Timer0A_Handler(void){
 	}
 
 	Display_Time();
-
+	if (alarm_en == ON){
+		if (aHr == hours && aMin == minutes && aSec == seconds){
+			//Alarm_Sound(); //in speaker
+		}
+	}
 }
  
 void Timer1_Init(void){
@@ -131,7 +135,10 @@ void Timer1_Init(void){
 void Timer1A_Handler(void){
   TIMER1_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER1A timeout
   //check and set mode
-	//use different file for potentiometer/ADC?
+	uint32_t ADC_val = ADC0_InSeq3();
+	if (ADC_val < 1365) mode_status = ALARM;
+	else if (ADC_val >= 1365 && ADC_val <= 2730) mode_status = TIME;
+	else if (ADC_val > 2730) mode_status = DISPLAY;
 }
 
 void Time_Change(int val){
@@ -162,11 +169,9 @@ void Alarm_Set(void) {
 	aMin = (minutes + 1) % 60;
 	aHr = hours;
 	alarm_en = ON;
-	//update alarm status
 }
 
 void Alarm_Disable(void) {
 	alarm_en = OFF;
-	//update alarm status
 }
 
