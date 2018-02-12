@@ -8,9 +8,8 @@
 int main(void){
 	PLL_Init(Bus80MHz);
 	ST7735_InitR(INITR_REDTAB);
-	drawClock();
-	drawHands(12, 15);
-	drawHands(1, 20);
+	digitalClock(88, 88, 88);
+	digitalClock(99,99,99);
 	/*drawHands(3, 0);
 	drawHands(6, 0);
 	drawHands(9, 0);

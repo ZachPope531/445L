@@ -18,12 +18,12 @@ void drawClock(void);
 //Input:	hour		Number between 0-24
 //				minute	Number between 0-59
 //Ouput:	None
-void drawHands(uint8_t hour, uint8_t minute);
+void drawHands(uint8_t hour, uint8_t minute, uint8_t second);
 
 //Displays the digital clock
 //Input:	none
 //Output:	none
-void digitalClock(void);
+void digitalClock(uint16_t hour, uint16_t minute, uint16_t second);
 
 //Shows the time until the next alarm
 //Input:	none
