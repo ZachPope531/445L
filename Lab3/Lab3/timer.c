@@ -14,11 +14,13 @@ void EndCritical(long sr);    // restore I bit to previous value
 void WaitForInterrupt(void);  // low power mode
 
 
+
 //enum part {
 //	HR,
 //	MIN,
 //	SEC
 //};
+
 
 //enum mode {
 //	TIME,
@@ -36,6 +38,7 @@ void WaitForInterrupt(void);  // low power mode
 //	DIGITAL
 //};
 
+
 //enum alarm {
 //	OFF,
 //	ON
@@ -46,6 +49,7 @@ void WaitForInterrupt(void);  // low power mode
 //extern enum timemode time_status;
 //extern enum displaymode display_status;
 //extern enum alarm alarm_en;
+
 
 void Timer0A_Init1HzInt(void){
   volatile uint32_t delay;
@@ -71,6 +75,7 @@ void Timer0A_Init1HzInt(void){
 	minutes = 0;
 	hours = 0;
 	
+
 	time_part = MIN;
 	mode_status = TIME;
 	time_status = MILITARY;
@@ -84,6 +89,7 @@ void Display_Time(void) {
 	} else if (display_status == DIGITAL) {
 		digitalClock(hours, minutes, seconds);
 	}
+
 }
 
 void Timer0A_Handler(void){
@@ -100,8 +106,9 @@ void Timer0A_Handler(void){
 	if (hours >= 24) {
 		hours = 0;
 	}
-	
+
 	Display_Time();
+
 }
  
 void Timer1_Init(void){
