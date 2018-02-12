@@ -901,7 +901,6 @@ void drawClock(void){
 
 void digitalClock(uint16_t hour, uint16_t minute, uint16_t second){
 	static uint16_t digits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-	//12
 	ST7735_DrawChar(18, 73, digits[hour/10], 0xFFFF, 0x0000, 2);
 	ST7735_DrawChar(30, 73, digits[hour - (hour/10)*10], 0xFFFF, 0x0000, 2);
 	ST7735_DrawChar(40, 71, ':', 0xFFFF, 0x0000, 3);

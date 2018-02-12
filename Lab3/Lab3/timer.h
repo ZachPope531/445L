@@ -31,12 +31,6 @@ typedef enum {
 	ON
 } alarm;
 
-extern part time_part;
-extern mode mode_status;
-extern timemode time_status;
-extern displaymode display_status;
-extern alarm alarm_en;
-
 void Timer0A_Init1HzInt(void);
 
 void Display_Time(void);

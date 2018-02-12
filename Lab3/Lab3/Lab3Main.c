@@ -19,9 +19,8 @@ void WaitForInterrupt(void);  // low power mode
 int main(void){
 	PLL_Init(Bus80MHz);
 	ST7735_InitR(INITR_REDTAB);
-	drawClock();
 	Timer0A_Init1HzInt();
-	drawHands(0,0,0);
+	EdgeCounter_Init();
 	EnableInterrupts();
 	/*drawHands(3, 0);
 	drawHands(6, 0);
