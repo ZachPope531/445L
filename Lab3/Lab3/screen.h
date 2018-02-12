@@ -5,16 +5,27 @@
 //				y1	The firsy y coordinate
 //				x2	The second x coordinate
 //				y2	The second y coordinate
+//				color is the hex color value
+//				minuteOrHour is 0 if we're drawing a minute hand, 1 for hour
 //Ouput:	None
-void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color);
+void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t color, uint8_t minuteOrHour);
 
-//Draws the circle starting from (10, 80) and with a radius of 54 pixels
-//Places numbers around the circle like a clock
+//Draws a BMP image of the clock
 void drawClock(void);
 
 
 //Erases the old hands and redraws the new hands
-//Input:	hour		Number between 0-23
+//Input:	hour		Number between 0-24
 //				minute	Number between 0-59
 //Ouput:	None
 void drawHands(uint8_t hour, uint8_t minute);
+
+//Displays the digital clock
+//Input:	none
+//Output:	none
+void digitalClock(void);
+
+//Shows the time until the next alarm
+//Input:	none
+//Output:	none
+void timeUntilAlarm(void);
