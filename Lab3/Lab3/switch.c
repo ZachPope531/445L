@@ -16,8 +16,13 @@ extern timemode time_status;
 extern displaymode display_status;
 extern alarm alarm_en;
 
+
+int isChanged;
+
 //ADD BITS FOR OTHER BUTTONS
 void EdgeCounter_Init(void){       
+	isChanged = 0;
+	
 	uint32_t delay;
 	
 	SYSCTL_RCGCGPIO_R |= 0x00000020; // (a) activate clock for port F
@@ -103,6 +108,7 @@ void GPIOPortB_Handler(void){
 		} 
 		else if (mode_status == DISPLAY){
 			//12/24
+			isChanged = 1;
 		}
 	} 
 	else if (trigger_check_b == 0x0002){ //switch 4
@@ -126,6 +132,7 @@ void GPIOPortF_Handler(void){
 		else if (mode_status == DISPLAY){
 			if (display_status == ANALOG) display_status = DIGITAL;
 			else if (display_status == DIGITAL) display_status = ANALOG;
+			isChanged = 1;
 		}
 	} else if (trigger_check_f == 0x0010){ //button 2
 		GPIO_PORTF_ICR_R = 0x10;      // acknowledge flag4
@@ -138,6 +145,7 @@ void GPIOPortF_Handler(void){
 		} 
 		else if (mode_status == DISPLAY){
 			//STYLE
+			isChanged = 1;
 		}
 	}
 }

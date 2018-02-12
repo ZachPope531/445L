@@ -1,5 +1,6 @@
 #include "timer.h"
 #include "ADC.h"
+#include "ST7735.h"
 
 #define PF1             (*((volatile uint32_t *)0x40025008))
 	
@@ -45,6 +46,8 @@ void WaitForInterrupt(void);  // low power mode
 //	ON
 //};
 
+extern int isChanged;
+
 part time_part;
 mode mode_status;
 timemode time_status;
@@ -85,6 +88,11 @@ void Timer0A_Init1HzInt(void){
 }
 
 void Display_Time(void) {
+	if (isChanged == 1){
+		Output_Clear();
+		if (display_status == ANALOG) drawClock();
+		isChanged = 0;
+	}
 	if (display_status == ANALOG){
 		drawHands(hours, minutes, seconds);
 	} else if (display_status == DIGITAL) {
