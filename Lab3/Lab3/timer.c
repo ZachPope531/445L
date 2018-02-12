@@ -58,7 +58,7 @@ void Timer0A_Init1HzInt(void){
   // **** timer0A initialization ****
                                    // configure for periodic mode
   TIMER0_TAMR_R = TIMER_TAMR_TAMR_PERIOD;
-  TIMER0_TAILR_R = 7999;         // start value for 1 Hz interrupts
+  TIMER0_TAILR_R = 79999999;         // start value for 1 Hz interrupts
   TIMER0_IMR_R |= TIMER_IMR_TATOIM;// enable timeout (rollover) interrupt
   TIMER0_ICR_R = TIMER_ICR_TATOCINT;// clear timer0A timeout flag
   TIMER0_CTL_R |= TIMER_CTL_TAEN;  // enable timer0A 32-b, periodic, interrupts
@@ -110,7 +110,7 @@ void Timer1_Init(void){
   TIMER1_CTL_R = 0x00000000;    // 1) disable TIMER1A during setup
   TIMER1_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
   TIMER1_TAMR_R = 0x00000002;   // 3) configure for periodic mode, default down-count settings
-  TIMER1_TAILR_R = 0xFFFFFFFF;    // 4) reload value
+  TIMER1_TAILR_R = 799999;    // 4) reload value
   TIMER1_TAPR_R = 0;            // 5) bus clock resolution
   TIMER1_ICR_R = 0x00000001;    // 6) clear TIMER1A timeout flag
   TIMER1_IMR_R = 0x00000001;    // 7) arm timeout interrupt
