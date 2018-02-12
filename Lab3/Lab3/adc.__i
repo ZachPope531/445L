@@ -1,0 +1,6 @@
+-c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99
+-I C:\Keil_uv4\ARM\RV31\INC
+-I C:\Keil_uv4\ARM\CMSIS\Include
+-I C:\Keil_uv4\ARM\Inc\Luminary
+-Drvmdk -DPART_LM4F120H5QR
+-o .\adc.o --omf_browse .\adc.crf --depend .\adc.d "ADC.c"

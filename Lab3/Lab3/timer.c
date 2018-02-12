@@ -128,6 +128,8 @@ void Timer0A_Handler(void){
 			Alarm_On(); //in speaker
 		}
 	}
+	
+	GPIO_PORTF_DATA_R ^= 0x02;
 }
  
 void Timer1_Init(void){
@@ -216,4 +218,11 @@ void Print_Alarm(void){
 		ST7735_OutUDec(0);
 	}
 	ST7735_OutUDec(aMin);
+	
+	ST7735_SetCursor(19, 15);
+	if(alarm_en == ON){
+		ST7735_OutUDec(1);
+	} else {
+		ST7735_OutUDec(0);
+	}
 }

@@ -20,7 +20,7 @@ I (speaker.h)(0x5A814F0F)
 I (timer.h)(0x5A814CE5)
 I (switch.h)(0x5A8119A2)
 I (ADC.h)(0x5A81349D)
-F (.\switch.c)(0x5A815411)(-c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\switch.o --omf_browse .\switch.crf --depend .\switch.d)
+F (.\switch.c)(0x5A815A48)(-c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\switch.o --omf_browse .\switch.crf --depend .\switch.d)
 I (timer.h)(0x5A814CE5)
 I (C:\Keil_uv4\ARM\ARMCC\include\stdio.h)(0x51C87C24)
 I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C87C24)
@@ -39,7 +39,7 @@ I (../inc/tm4c123gh6pm.h)(0x5388B4CA)
 I (timer.h)(0x5A814CE5)
 I (screen.h)(0x5A80F6B9)
 I (ST7735.h)(0x5A7A16C8)
-F (.\timer.c)(0x5A814F0F)(-c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\timer.o --omf_browse .\timer.crf --depend .\timer.d)
+F (.\timer.c)(0x5A815740)(-c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\timer.o --omf_browse .\timer.crf --depend .\timer.d)
 I (timer.h)(0x5A814CE5)
 I (C:\Keil_uv4\ARM\ARMCC\include\stdio.h)(0x51C87C24)
 I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C87C24)

@@ -20,6 +20,17 @@ extern alarm alarm_en;
 
 int isChanged;
 
+//Taken from Valvano himself
+void Delay1millisecond(uint32_t n){uint32_t volatile time;
+  while(n){
+    time = 72724*2/91;  // 1msec, tuned at 80 MHz
+    while(time){
+      time--;
+    }
+    n--;
+  }
+}
+
 //ADD BITS FOR OTHER BUTTONS
 void EdgeCounter_Init(void){       
 	isChanged = 0;
@@ -112,32 +123,33 @@ void EdgeCounter_Init(void){
 //CHECK WHICH BIT TO CLEAR
 //BY CHECKING RIS?
 
-void GPIOPortB_Handler(void){
-	//delay?
-	uint32_t trigger_check_b = GPIO_PORTB_RIS_R & 0x00FF;
-	if (trigger_check_b == 0x0001){ //switch 3
-		GPIO_PORTB_ICR_R = 0x01;
-		if (mode_status == ALARM){
-			if (alarm_en == ON) Alarm_Disable();
-			else if (alarm_en == OFF) Alarm_Set();
-		} 
-		else if (mode_status == TIME) {
-			if (time_part == HR) time_part = MIN;
-			else if (time_part == MIN) time_part = HR;
-		} 
-//		else if (mode_status == DISPLAY){
-//			//12/24
-//			isChanged = 1;
-//		}
-	} 
-	else if (trigger_check_b == 0x0002){ //switch 4
-		GPIO_PORTB_ICR_R = 0x02;
-		Snooze();
-	}
-}
+//void GPIOPortB_Handler(void){
+//	//delay?
+//	uint32_t trigger_check_b = GPIO_PORTB_RIS_R & 0x00FF;
+//	if (trigger_check_b == 0x0001){ //switch 3
+//		GPIO_PORTB_ICR_R = 0x01;
+//		if (mode_status == ALARM){
+//			if (alarm_en == ON) Alarm_Disable();
+//			else if (alarm_en == OFF) Alarm_Set();
+//		} 
+//		else if (mode_status == TIME) {
+//			if (time_part == HR) time_part = MIN;
+//			else if (time_part == MIN) time_part = HR;
+//		} 
+////		else if (mode_status == DISPLAY){
+////			//12/24
+////			isChanged = 1;
+////		}
+//	} 
+//	else if (trigger_check_b == 0x0002){ //switch 4
+//		GPIO_PORTB_ICR_R = 0x02;
+//		Snooze();
+//	}
+//}
 
 void GPIOPortF_Handler(void){
-	//delay?
+	//delay
+	Delay1millisecond(5);
 	uint32_t trigger_check_f = GPIO_PORTF_RIS_R & 0x00FF;
 	if (trigger_check_f == 0x0001){ //PF0/SW1
 		GPIO_PORTF_ICR_R = 0x01;
@@ -164,7 +176,7 @@ void GPIOPortF_Handler(void){
 		} 
 		else if (mode_status == DISPLAY){
 			//STYLE
-			isChanged = 1;
+			//isChanged = 1;
 		}
 	} else if(trigger_check_f == 0x0004){ //PF2
 		GPIO_PORTF_ICR_R = 0x04;
