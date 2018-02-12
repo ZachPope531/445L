@@ -796,7 +796,7 @@ void ST7735_Line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t co
 	uint16_t radius;
 	if(!minuteOrHour){
 		radius = MINUTE_RADIUS;
-	} else {
+	} else{
 		radius = HOUR_RADIUS;
 	}
 	if(y1 == y2){
@@ -879,7 +879,7 @@ void drawHands(uint8_t hour, uint8_t minute, uint8_t second){
 	ST7735_Line(CENTER_X, CENTER_Y, clockHandHourXY[OldHour%12][0], clockHandHourXY[OldHour%12][1], 0x0000, 1);
 	
 	//Draw new minute hand
-	ST7735_Line(CENTER_X, CENTER_Y, clockHandMinuteXY[second][0], clockHandMinuteXY[second][1], 0xFFFF, 0);
+	ST7735_Line(CENTER_X, CENTER_Y, clockHandMinuteXY[second][0], clockHandMinuteXY[second][1], 0x001F, 0);
 	
 	//Draw new minute hand
 	ST7735_Line(CENTER_X, CENTER_Y, clockHandMinuteXY[minute][0], clockHandMinuteXY[minute][1], 0xFFFF, 0);
@@ -902,18 +902,16 @@ void drawClock(void){
 void digitalClock(uint16_t hour, uint16_t minute, uint16_t second){
 	static uint16_t digits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 	//12
-	ST7735_DrawChar(18, 10, digits[hour/10], 0xFFFF, 0x0000, 2);
-	ST7735_DrawChar(30, 10, digits[hour - (hour/10)*10], 0xFFFF, 0x0000, 2);
-	ST7735_DrawChar(40, 8, ':', 0xFFFF, 0x0000, 3);
-	ST7735_DrawChar(54, 10, digits[minute/10], 0xFFFF, 0x0000, 2);
-	ST7735_DrawChar(66, 10, digits[minute - (minute/10)*10], 0xFFFF, 0x0000, 2);
-	ST7735_DrawChar(76, 8, ':', 0xFFFF, 0x0000, 3);
-	ST7735_DrawChar(90, 10, digits[second/10], 0xFFFF, 0x0000, 2);
-	ST7735_DrawChar(102, 10, digits[second - (second/10)*10], 0xFFFF, 0x0000, 2);
+	ST7735_DrawChar(18, 73, digits[hour/10], 0xFFFF, 0x0000, 2);
+	ST7735_DrawChar(30, 73, digits[hour - (hour/10)*10], 0xFFFF, 0x0000, 2);
+	ST7735_DrawChar(40, 71, ':', 0xFFFF, 0x0000, 3);
+	ST7735_DrawChar(54, 73, digits[minute/10], 0xFFFF, 0x0000, 2);
+	ST7735_DrawChar(66, 73, digits[minute - (minute/10)*10], 0xFFFF, 0x0000, 2);
+	ST7735_DrawChar(76, 71, ':', 0xFFFF, 0x0000, 3);
+	ST7735_DrawChar(90, 73, digits[second/10], 0xFFFF, 0x0000, 2);
+	ST7735_DrawChar(102, 73, digits[second - (second/10)*10], 0xFFFF, 0x0000, 2);
 	ST7735_DrawFastVLine(12, 0, 180, 0xFFFF);
 	ST7735_DrawFastVLine(116, 0, 180, 0xFFFF);
-	ST7735_DrawFastHLine(0, 9, 128, 0xFFFF);
-	ST7735_DrawFastHLine(0, 24, 128, 0xFFFF);
 }
 
 void timeUntilAlarm(void){
