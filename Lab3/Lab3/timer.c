@@ -5,6 +5,7 @@
 volatile uint16_t hours;
 volatile uint16_t minutes;
 volatile uint16_t seconds;
+volatile uint16_t aHr, aMin, aSec;
 
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
@@ -13,29 +14,38 @@ void EndCritical(long sr);    // restore I bit to previous value
 void WaitForInterrupt(void);  // low power mode
 
 
-enum part {
-	HR,
-	MIN,
-	SEC
-};
+//enum part {
+//	HR,
+//	MIN,
+//	SEC
+//};
 
-enum mode {
-	TIME,
-	ALARM,
-	DISPLAY
-};
+//enum mode {
+//	TIME,
+//	ALARM,
+//	DISPLAY
+//};
 
-enum timemode {
-	AMPM,
-	MILITARY
-};
+//enum timemode {
+//	AMPM,
+//	MILITARY
+//};
 
-enum displaymode {
-	ANALOG,
-	DIGITAL
-};
+//enum displaymode {
+//	ANALOG,
+//	DIGITAL
+//};
 
-int part, mode, timemode, displaymode;
+//enum alarm {
+//	OFF,
+//	ON
+//};
+
+//extern enum part time_part;
+//extern enum mode mode_status;
+//extern enum timemode time_status;
+//extern enum displaymode display_status;
+//extern enum alarm alarm_en;
 
 void Timer0A_Init1HzInt(void){
   volatile uint32_t delay;
@@ -56,6 +66,24 @@ void Timer0A_Init1HzInt(void){
                                    // Timer0A=priority 1
   NVIC_PRI4_R = (NVIC_PRI4_R&0x00FFFFFF)|0x20000000; // top 3 bits
   NVIC_EN0_R = 1<<19;              // enable interrupt 19 in NVIC
+	
+	seconds = 0;
+	minutes = 0;
+	hours = 0;
+	
+	time_part = MIN;
+	mode_status = TIME;
+	time_status = MILITARY;
+	display_status = ANALOG;
+	alarm_en = OFF;
+}
+
+void Display_Time(void) {
+	if (display_status == ANALOG){
+		drawHands(hours, minutes, seconds);
+	} else if (display_status == DIGITAL) {
+		digitalClock(hours, minutes, seconds);
+	}
 }
 
 void Timer0A_Handler(void){
@@ -73,13 +101,9 @@ void Timer0A_Handler(void){
 		hours = 0;
 	}
 	
-	if (displaymode == ANALOG){
-		drawHands(hours, minutes, seconds);
-	} else if (displaymode == DIGITAL) {
-		digitalClock(hours, minutes, seconds);
-	}
+	Display_Time();
 }
- /*
+ 
 void Timer1_Init(void){
   SYSCTL_RCGCTIMER_R |= 0x02;   // 0) activate TIMER1
   //PeriodicTask = task;          // user function
@@ -99,6 +123,43 @@ void Timer1_Init(void){
 
 void Timer1A_Handler(void){
   TIMER1_ICR_R = TIMER_ICR_TATOCINT;// acknowledge TIMER1A timeout
-  
+  //check and set mode
+	//use different file for potentiometer/ADC?
 }
-*/
+
+void Time_Change(int val){
+	if (time_part == HR) {
+		hours = (hours + val) % 24;
+	}
+	if (time_part == MIN) {
+		minutes = (minutes + val) % 60;
+	}
+	Display_Time();
+}
+
+void Alarm_Change(int val){
+	aMin += val;
+	if (aMin >= 60) {
+		aMin = 0;
+		aHr = (aHr + 1) % 24;
+	}
+	else if (aMin < 0) {
+		aMin = 59;
+		aHr = (aHr - 1) % 24;
+	}
+	//update alarm if displayed
+}
+
+void Alarm_Set(void) {
+	aSec = seconds;
+	aMin = (minutes + 1) % 60;
+	aHr = hours;
+	alarm_en = ON;
+	//update alarm status
+}
+
+void Alarm_Disable(void) {
+	alarm_en = OFF;
+	//update alarm status
+}
+
