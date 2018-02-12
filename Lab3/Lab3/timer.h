@@ -49,3 +49,4 @@ void Alarm_Set(void);
 
 void Alarm_Disable(void);
 
+void Print_Alarm(void);

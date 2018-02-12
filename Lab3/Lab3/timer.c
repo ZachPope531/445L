@@ -96,8 +96,14 @@ void Display_Time(void) {
 	if (display_status == ANALOG){
 		drawHands(hours, minutes, seconds);
 	} else if (display_status == DIGITAL) {
-		digitalClock(hours, minutes, seconds);
+		if(time_status == AMPM){
+			digitalClock(hours%12, minutes, seconds);
+		} else {
+			digitalClock(hours, minutes, seconds);
+		}
 	}
+	
+	Print_Alarm();
 }
 
 void Timer0A_Handler(void){
@@ -119,6 +125,8 @@ void Timer0A_Handler(void){
 	if (alarm_en == ON){
 		if (aHr == hours && aMin == minutes && aSec == seconds){
 			//Alarm_Sound(); //in speaker
+			ST7735_SetCursor(0,0);
+			ST7735_OutUDec(9999);
 		}
 	}
 }
@@ -181,6 +189,8 @@ void Alarm_Change(int val){
 		if (aHr < 0) aHr = 23;
 	}
 	//update alarm if displayed
+	Print_Alarm();
+	
 }
 
 void Alarm_Set(void) {
@@ -188,9 +198,23 @@ void Alarm_Set(void) {
 	aMin = (minutes + 1) % 60;
 	aHr = hours;
 	alarm_en = ON;
+	
+	Print_Alarm();
 }
 
 void Alarm_Disable(void) {
 	alarm_en = OFF;
 }
 
+void Print_Alarm(void){
+	ST7735_SetCursor(9, 15);
+	if(aHr < 10){
+		ST7735_OutUDec(0);
+	}
+	ST7735_OutUDec(aHr);
+	ST7735_SetCursor(12, 15);
+	if(aMin < 10){
+		ST7735_OutUDec(0);
+	}
+	ST7735_OutUDec(aMin);
+}
