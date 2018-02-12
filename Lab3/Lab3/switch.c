@@ -1,5 +1,6 @@
 #include "timer.h"
 #include "switch.h"
+#include "speaker.h"
 
 #define PF2             (*((volatile uint32_t *)0x40025010))
 #define PF1             (*((volatile uint32_t *)0x40025008))
@@ -124,14 +125,14 @@ void GPIOPortB_Handler(void){
 			if (time_part == HR) time_part = MIN;
 			else if (time_part == MIN) time_part = HR;
 		} 
-		else if (mode_status == DISPLAY){
-			//12/24
-			isChanged = 1;
-		}
+//		else if (mode_status == DISPLAY){
+//			//12/24
+//			isChanged = 1;
+//		}
 	} 
 	else if (trigger_check_b == 0x0002){ //switch 4
 		GPIO_PORTB_ICR_R = 0x02;
-		//Snooze();
+		Snooze();
 	}
 }
 

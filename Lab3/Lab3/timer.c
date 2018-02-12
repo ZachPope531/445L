@@ -1,6 +1,7 @@
 #include "timer.h"
 #include "ADC.h"
 #include "ST7735.h"
+#include "speaker.h"
 
 #define PF1             (*((volatile uint32_t *)0x40025008))
 	
@@ -124,9 +125,7 @@ void Timer0A_Handler(void){
 	Display_Time();
 	if (alarm_en == ON){
 		if (aHr == hours && aMin == minutes && aSec == seconds){
-			//Alarm_Sound(); //in speaker
-			ST7735_SetCursor(0,0);
-			ST7735_OutUDec(9999);
+			Alarm_On(); //in speaker
 		}
 	}
 }
