@@ -49,7 +49,7 @@ void Timer0A_Init1HzInt(void){
   // **** timer0A initialization ****
                                    // configure for periodic mode
   TIMER0_TAMR_R = TIMER_TAMR_TAMR_PERIOD;
-  TIMER0_TAILR_R = 7999;         // start value for 1 Hz interrupts
+  TIMER0_TAILR_R = 79999999;         // start value for 1 Hz interrupts
   TIMER0_IMR_R |= TIMER_IMR_TATOIM;// enable timeout (rollover) interrupt
   TIMER0_ICR_R = TIMER_ICR_TATOCINT;// clear timer0A timeout flag
   TIMER0_CTL_R |= TIMER_CTL_TAEN;  // enable timer0A 32-b, periodic, interrupts
@@ -57,6 +57,12 @@ void Timer0A_Init1HzInt(void){
                                    // Timer0A=priority 1
   NVIC_PRI4_R = (NVIC_PRI4_R&0x00FFFFFF)|0x20000000; // top 3 bits
   NVIC_EN0_R = 1<<19;              // enable interrupt 19 in NVIC
+	
+	seconds = 0;
+	minutes = 0;
+	hours = 0;
+	
+	currentDisplay = ANALOG;
 }
 
 void Timer0A_Handler(void){
@@ -74,9 +80,9 @@ void Timer0A_Handler(void){
 		hours = 0;
 	}
 	
-	if (displaymode == ANALOG){
+	if (currentDisplay == ANALOG){
 		drawHands(hours, minutes, seconds);
-	} else if (displaymode == DIGITAL) {
+	} else if (currentDisplay == DIGITAL) {
 		digitalClock(hours, minutes, seconds);
 	}
 }
