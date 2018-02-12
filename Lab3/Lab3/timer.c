@@ -3,10 +3,10 @@
 
 #define PF1             (*((volatile uint32_t *)0x40025008))
 	
-volatile uint16_t hours;
-volatile uint16_t minutes;
-volatile uint16_t seconds;
-volatile uint16_t aHr, aMin, aSec;
+volatile int16_t hours;
+volatile int16_t minutes;
+volatile int16_t seconds;
+volatile int16_t aHr, aMin, aSec;
 
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
@@ -45,11 +45,11 @@ void WaitForInterrupt(void);  // low power mode
 //	ON
 //};
 
-//extern enum part time_part;
-//extern enum mode mode_status;
-//extern enum timemode time_status;
-//extern enum displaymode display_status;
-//extern enum alarm alarm_en;
+part time_part;
+mode mode_status;
+timemode time_status;
+displaymode display_status;
+alarm alarm_en;
 
 
 void Timer0A_Init1HzInt(void){
@@ -80,7 +80,7 @@ void Timer0A_Init1HzInt(void){
 	time_part = MIN;
 	mode_status = TIME;
 	time_status = MILITARY;
-	display_status = ANALOG;
+	display_status = DIGITAL;
 	alarm_en = OFF;
 }
 
@@ -139,14 +139,24 @@ void Timer1A_Handler(void){
 	if (ADC_val < 1365) mode_status = ALARM;
 	else if (ADC_val >= 1365 && ADC_val <= 2730) mode_status = TIME;
 	else if (ADC_val > 2730) mode_status = DISPLAY;
+
 }
 
 void Time_Change(int val){
 	if (time_part == HR) {
-		hours = (hours + val) % 24;
+		if(hours+val >= 0){
+			hours = (hours + val) % 24;
+		} else {
+			hours = 23;
+		}
 	}
+	
 	if (time_part == MIN) {
-		minutes = (minutes + val) % 60;
+		if(minutes+val >= 0){
+			minutes = (minutes + val) % 60;
+		} else {
+			minutes = 59;
+		}
 	}
 	Display_Time();
 }
@@ -160,6 +170,7 @@ void Alarm_Change(int val){
 	else if (aMin < 0) {
 		aMin = 59;
 		aHr = (aHr - 1) % 24;
+		if (aHr < 0) aHr = 23;
 	}
 	//update alarm if displayed
 }

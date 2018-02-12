@@ -1,2 +1,9 @@
 .\switch.o: switch.c
+.\switch.o: timer.h
+.\switch.o: C:\Keil_uv4\ARM\ARMCC\bin\..\include\stdio.h
+.\switch.o: C:\Keil_uv4\ARM\ARMCC\bin\..\include\stdint.h
+.\switch.o: ../inc/tm4c123gh6pm.h
+.\switch.o: PLL.h
+.\switch.o: screen.h
+.\switch.o: ST7735.h
 .\switch.o: switch.h
