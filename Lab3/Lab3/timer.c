@@ -12,7 +12,6 @@ long StartCritical (void);    // previous I bit, disable interrupts
 void EndCritical(long sr);    // restore I bit to previous value
 void WaitForInterrupt(void);  // low power mode
 
-
 enum part {
 	HR,
 	MIN,
@@ -34,6 +33,8 @@ enum displaymode {
 	ANALOG,
 	DIGITAL
 };
+
+volatile enum displaymode currentDisplay;
 
 int part, mode, timemode, displaymode;
 
