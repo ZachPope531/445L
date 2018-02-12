@@ -6,6 +6,7 @@
 .\lab3main.o: ../inc/tm4c123gh6pm.h
 .\lab3main.o: screen.h
 .\lab3main.o: speaker.h
+.\lab3main.o: PLL.h
 .\lab3main.o: timer.h
 .\lab3main.o: PLL.h
 .\lab3main.o: screen.h

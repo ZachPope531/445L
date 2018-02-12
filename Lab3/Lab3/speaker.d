@@ -1,2 +1,10 @@
 .\speaker.o: speaker.c
 .\speaker.o: speaker.h
+.\speaker.o: C:\Keil_uv4\ARM\ARMCC\bin\..\include\stdio.h
+.\speaker.o: C:\Keil_uv4\ARM\ARMCC\bin\..\include\stdint.h
+.\speaker.o: PLL.h
+.\speaker.o: ../inc/tm4c123gh6pm.h
+.\speaker.o: timer.h
+.\speaker.o: PLL.h
+.\speaker.o: screen.h
+.\speaker.o: ST7735.h

@@ -7,3 +7,5 @@
 .\switch.o: screen.h
 .\switch.o: ST7735.h
 .\switch.o: switch.h
+.\switch.o: speaker.h
+.\switch.o: PLL.h

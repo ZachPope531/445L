@@ -24,6 +24,7 @@ int main(void){
 	Timer1_Init();
 	ADC0_InitSWTriggerSeq3_Ch9();
 	EdgeCounter_Init();
+	PortB_Init();
 	EnableInterrupts();
 	
 	while(1){

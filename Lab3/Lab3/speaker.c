@@ -16,14 +16,15 @@ void PortB_Init(){
 	GPIO_PORTB_AFSEL_R = 0x00;
 	GPIO_PORTB_DIR_R = 0x08;
 	GPIO_PORTB_DEN_R = 0x0F;
-	PB3 = 0;
+	
+	GPIO_PORTB_DATA_R &= ~0x08;
 }
 
 void Alarm_On() {
-	PB3 = 1;
+	GPIO_PORTB_DATA_R |= 0x08;
 }
 
 void Snooze(){
-	PB3 = 0;
+	GPIO_PORTB_DATA_R &= ~0x08;
 	alarm_en = OFF;
 }

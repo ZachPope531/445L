@@ -184,7 +184,7 @@ void GPIOPortF_Handler(void){
 	}
 	else if (trigger_check_f == 0x0008) { //PF3
 		GPIO_PORTF_ICR_R = 0x08;
-		//Snooze();
+		Snooze();
 	} else {
 		trigger_check_f = 0;
 		GPIO_PORTF_ICR_R = 0x1D;
