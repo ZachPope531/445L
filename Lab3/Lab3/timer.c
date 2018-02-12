@@ -37,7 +37,7 @@ enum displaymode {
 
 int part, mode, timemode, displaymode;
 
-void Timer0A_Init100HzInt(void){
+void Timer0A_Init1HzInt(void){
   volatile uint32_t delay;
   DisableInterrupts();
   // **** general initialization ****

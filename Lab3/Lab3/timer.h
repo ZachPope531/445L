@@ -5,7 +5,7 @@
 #include "screen.h"
 
 
-void Timer0A_Init100HzInt(void);
+void Timer0A_Init1HzInt(void);
 
 void Timer0A_Handler(void);
 
