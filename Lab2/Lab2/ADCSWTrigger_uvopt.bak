@@ -298,7 +298,7 @@
       <Focus>0</Focus>
       <ColumnNumber>60</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>108</TopLine>
+      <TopLine>36</TopLine>
       <CurrentLine>37</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\ADCTestMain.c</PathWithFileName>
@@ -378,7 +378,7 @@
       <Focus>0</Focus>
       <ColumnNumber>39</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>24</TopLine>
+      <TopLine>26</TopLine>
       <CurrentLine>32</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Timer2.c</PathWithFileName>
