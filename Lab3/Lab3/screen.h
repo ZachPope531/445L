@@ -1,3 +1,10 @@
+/* screen.h */
+/* 
+  Zachary Pope zhp76
+  Mohammad Kedwaii mak3799
+  Feb 12 2018
+*/
+
 #include "ST7735.h"
 
 //Draws a line between (x1, y1) and (x2, y2)
