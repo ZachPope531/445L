@@ -93,10 +93,12 @@ Port A, SSI0 (PA2, PA3, PA5, PA6, PA7) sends data to Nokia5110 LCD
 #include "application_commands.h"
 #include "LED.h"
 #include "ST7735.h"
+//#include "ADC.h" //stdint throws error?
 #include <string.h>
 //#define SSID_NAME  "valvanoAP" /* Access point name to connect to */
 #define SEC_TYPE   SL_SEC_TYPE_WPA
 //#define PASSKEY    "12345678"  /* Password in case of secure AP */ 
+//need to change these things
 #define SSID_NAME  "ValvanoJonathaniPhone"
 #define PASSKEY    "y2uvdjfi5puyd"
 #define BAUD_RATE   115200
@@ -254,6 +256,8 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
     while(Board_Input()==0){}; // wait for touch
     LED_GreenOff();
   }
+	//Print temp
+	//ADC_Display();
 }
 
 /*!
