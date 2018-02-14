@@ -226,3 +226,4 @@ void Print_Alarm(void){
 		ST7735_OutUDec(0);
 	}
 }
+

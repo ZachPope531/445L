@@ -25,8 +25,10 @@ int main(void){
 	ADC0_InitSWTriggerSeq3_Ch9();
 	EdgeCounter_Init();
 	PortB_Init();
+	Timer2_Init(181818);
 	EnableInterrupts();
 	
+	//Alarm_On();
 	while(1){
 		static uint16_t blah = 1;
 		blah++;

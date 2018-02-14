@@ -149,7 +149,7 @@ void EdgeCounter_Init(void){
 
 void GPIOPortF_Handler(void){
 	//delay
-	Delay1millisecond(5);
+	Delay1millisecond(10);
 	uint32_t trigger_check_f = GPIO_PORTF_RIS_R & 0x00FF;
 	if (trigger_check_f == 0x0001){ //PF0/SW1
 		GPIO_PORTF_ICR_R = 0x01;
