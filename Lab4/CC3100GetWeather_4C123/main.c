@@ -99,8 +99,8 @@ Port A, SSI0 (PA2, PA3, PA5, PA6, PA7) sends data to Nokia5110 LCD
 #define SEC_TYPE   SL_SEC_TYPE_WPA
 //#define PASSKEY    "12345678"  /* Password in case of secure AP */ 
 //need to change these things
-#define SSID_NAME  "ValvanoJonathaniPhone"
-#define PASSKEY    "y2uvdjfi5puyd"
+#define SSID_NAME  "AliKedwaiiS7"
+#define PASSKEY    "vxpg7484"
 #define BAUD_RATE   115200
 void UART_Init(void){
   SysCtlPeripheralEnable(SYSCTL_PERIPH_UART0);
@@ -207,16 +207,19 @@ void Crash(uint32_t time){
  */
 // 1) change Austin Texas to your city
 // 2) you can change metric to imperial if you want temperature in F
-#define REQUEST "GET /data/2.5/weather?q=Austin%20Texas&APPID=1bc54f645c5f1c75e681c102ed4bbca4&units=metric HTTP/1.1\r\nUser-Agent: Keil\r\nHost:api.openweathermap.org\r\nAccept: */*\r\n\r\n"
+#define REQUEST "GET /data/2.5/weather?q=Austin,Texas&APPID=9960bfd6b1d005c9db7eddbad1795aa7&units=metric HTTP/1.1\r\nUser-Agent: Keil\r\nHost:api.openweathermap.org\r\nAccept: */*\r\n\r\n"
 // 1) go to http://openweathermap.org/appid#use 
 // 2) Register on the Sign up page
 // 3) get an API key (APPID) replace the 1234567890abcdef1234567890abcdef with your APPID
 int main(void){int32_t retVal;  SlSecParams_t secParams;
   char *pConfig = NULL; INT32 ASize = 0; SlSockAddrIn_t  Addr;
+	char tempPrint[5];
   initClk();        // PLL 50 MHz
   UART_Init();      // Send data to PC, 115200 bps
   LED_Init();       // initialize LaunchPad I/O 
+	ST7735_InitR(INITR_REDTAB);
   UARTprintf("Weather App\n");
+	ST7735_FillScreen(0x0000);
   retVal = configureSimpleLinkToDefaultState(pConfig); // set policies
   if(retVal < 0)Crash(4000000);
   retVal = sl_Start(0, pConfig, 0);
@@ -249,6 +252,17 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
         sl_Recv(SockID, Recvbuff, MAX_RECV_BUFF_SIZE, 0);// Receive response 
         sl_Close(SockID);
         LED_GreenOn();
+				for(int i = 3; i < MAX_RECV_BUFF_SIZE; i++){
+					if(Recvbuff[i] == 'p' && Recvbuff[i-1] == 'm' && Recvbuff[i-2] == 'e' && Recvbuff[i-3] == 't' && Recvbuff[i+1] == '"'){
+						*tempPrint = Recvbuff[i+3];
+						*(tempPrint+1) = Recvbuff[i+4];
+						*(tempPrint+2) = Recvbuff[i+5];
+						*(tempPrint+3) = Recvbuff[i+6];
+						*(tempPrint+4) = Recvbuff[i+7];
+						
+						ST7735_DrawString(0,0, tempPrint, 0xFFFF);
+					}
+				}
         UARTprintf("\r\n\r\n");
         UARTprintf(Recvbuff);  UARTprintf("\r\n");
       }
