@@ -208,6 +208,7 @@ void Crash(uint32_t time){
 // 1) change Austin Texas to your city
 // 2) you can change metric to imperial if you want temperature in F
 #define REQUEST "GET /data/2.5/weather?q=Austin,Texas&APPID=9960bfd6b1d005c9db7eddbad1795aa7&units=metric HTTP/1.1\r\nUser-Agent: Keil\r\nHost:api.openweathermap.org\r\nAccept: */*\r\n\r\n"
+#define UPLOADREQUEST "GET /query?city=<city>&id=<name>&greet=<data>&edxcode=8086 HTTP/1.1\r\nUser-Agent: Keil\r\nHost: embedded-systems-server.appspot.com\r\n\r\n"
 // 1) go to http://openweathermap.org/appid#use 
 // 2) Register on the Sign up page
 // 3) get an API key (APPID) replace the 1234567890abcdef1234567890abcdef with your APPID
@@ -269,28 +270,29 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
     }
     while(Board_Input()==0){}; // wait for touch
     LED_GreenOff();
-  }
+  
 	
-	//Uploading log to server
-	unsigned long uploadServerIP;
-	retVal = sl_NetAppDnsGetHostByName("/*server Name*/",
-             strlen("/*server Name*/"),&uploadServerIP, SL_AF_INET); //Get the IP address
-	
-	Addr.sin_family = SL_AF_INET;
-  Addr.sin_port = sl_Htons(80);
-  Addr.sin_addr.s_addr = sl_Htonl(uploadServerIP);// IP to big endian 
-  ASize = sizeof(SlSockAddrIn_t);
-	SockID = sl_Socket(SL_AF_INET,SL_SOCK_STREAM, 0); //Get the socket ID
-	
-	if(SockID >= 0){
-		retVal = sl_Connect(SockID, ( SlSockAddr_t *)&Addr, ASize); //Open the socket
-	}
-	
-	if((SockID >= 0)&&(retVal >= 0)){
-		char uploadBuff[MAX_SEND_BUFF_SIZE];
-		sl_Send(SockID, SendBuff, strlen(SendBuff), 0);// Send the HTTP GET 
-		sl_Recv(SockID, Recvbuff, MAX_RECV_BUFF_SIZE, 0);// Receive response 
-		sl_Close(SockID);
+		//Uploading log to server
+		unsigned long uploadServerIP;
+		retVal = sl_NetAppDnsGetHostByName("/*server Name*/",
+							 strlen("/*server Name*/"),&uploadServerIP, SL_AF_INET); //Get the IP address
+		
+		Addr.sin_family = SL_AF_INET;
+		Addr.sin_port = sl_Htons(80);
+		Addr.sin_addr.s_addr = sl_Htonl(uploadServerIP);// IP to big endian 
+		ASize = sizeof(SlSockAddrIn_t);
+		SockID = sl_Socket(SL_AF_INET,SL_SOCK_STREAM, 0); //Get the socket ID
+		
+		if(SockID >= 0){
+			retVal = sl_Connect(SockID, ( SlSockAddr_t *)&Addr, ASize); //Open the socket
+		}
+		
+		if((SockID >= 0)&&(retVal >= 0)){
+			char uploadBuff[MAX_SEND_BUFF_SIZE] = UPLOADREQUEST;
+			sl_Send(SockID, uploadBuff, strlen(uploadBuff), 0);// Send the HTTP GET 
+			sl_Recv(SockID, Recvbuff, MAX_RECV_BUFF_SIZE, 0);// Receive response 
+			sl_Close(SockID);
+		}
 	}
 	
 }
