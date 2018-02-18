@@ -270,8 +270,29 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
     while(Board_Input()==0){}; // wait for touch
     LED_GreenOff();
   }
-	//Print temp
-	//ADC_Display();
+	
+	//Uploading log to server
+	unsigned long uploadServerIP;
+	retVal = sl_NetAppDnsGetHostByName("/*server Name*/",
+             strlen("/*server Name*/"),&uploadServerIP, SL_AF_INET); //Get the IP address
+	
+	Addr.sin_family = SL_AF_INET;
+  Addr.sin_port = sl_Htons(80);
+  Addr.sin_addr.s_addr = sl_Htonl(uploadServerIP);// IP to big endian 
+  ASize = sizeof(SlSockAddrIn_t);
+	SockID = sl_Socket(SL_AF_INET,SL_SOCK_STREAM, 0); //Get the socket ID
+	
+	if(SockID >= 0){
+		retVal = sl_Connect(SockID, ( SlSockAddr_t *)&Addr, ASize); //Open the socket
+	}
+	
+	if((SockID >= 0)&&(retVal >= 0)){
+		char uploadBuff[MAX_SEND_BUFF_SIZE];
+		sl_Send(SockID, SendBuff, strlen(SendBuff), 0);// Send the HTTP GET 
+		sl_Recv(SockID, Recvbuff, MAX_RECV_BUFF_SIZE, 0);// Receive response 
+		sl_Close(SockID);
+	}
+	
 }
 
 /*!
