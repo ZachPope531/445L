@@ -103,6 +103,10 @@ Port A, SSI0 (PA2, PA3, PA5, PA6, PA7) sends data to Nokia5110 LCD
 #define SSID_NAME  "AliKedwaiiS7"
 #define PASSKEY    "vxpg7484"
 #define BAUD_RATE   115200
+#define SERVER     "iot-zhp76-mak3799.appspot.com"
+//#define REQUEST     "GET /query?city=Austin%2C%20Texas&id=Ali%27s%20LaunchPad&greet=hello \
+										 HTTP/1.1\r\nUser-Agent: Keil\r\nHost: iot-zhp76-mak3799.appspot.com\r\n\r\n"
+
 void UART_Init(void){
   SysCtlPeripheralEnable(SYSCTL_PERIPH_UART0);
   SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);
@@ -208,7 +212,7 @@ void Crash(uint32_t time){
  */
 // 1) change Austin Texas to your city
 // 2) you can change metric to imperial if you want temperature in F
-#define REQUEST "GET /data/2.5/weather?q=Austin,Texas&APPID=9960bfd6b1d005c9db7eddbad1795aa7&units=metric HTTP/1.1\r\nUser-Agent: Keil\r\nHost:api.openweathermap.org\r\nAccept: */*\r\n\r\n"
+ #define REQUEST "GET /data/2.5/weather?q=Austin,Texas&APPID=9960bfd6b1d005c9db7eddbad1795aa7&units=metric HTTP/1.1\r\nUser-Agent: Keil\r\nHost:api.openweathermap.org\r\nAccept: */*\r\n\r\n"
 // 1) go to http://openweathermap.org/appid#use 
 // 2) Register on the Sign up page
 // 3) get an API key (APPID) replace the 1234567890abcdef1234567890abcdef with your APPID
@@ -264,6 +268,8 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
 						*(tempPrint+4) = Recvbuff[i+7];
 						
 						ST7735_DrawString(0,0, tempPrint, 0xFFFF);
+					  int result = ADC0_InSeq3();
+					  ST7735_OutUDec(result);
 					}
 				}
         UARTprintf("\r\n\r\n");
@@ -276,8 +282,8 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
 	
 		//Uploading log to server
 		unsigned long uploadServerIP;
-		retVal = sl_NetAppDnsGetHostByName("/*server Name*/",
-							 strlen("/*server Name*/"),&uploadServerIP, SL_AF_INET); //Get the IP address
+		retVal = sl_NetAppDnsGetHostByName(SERVER,
+							 strlen(SERVER),&uploadServerIP, SL_AF_INET); //Get the IP address
 		
 		Addr.sin_family = SL_AF_INET;
 		Addr.sin_port = sl_Htons(80);
@@ -291,9 +297,10 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
 		
 		if((SockID >= 0)&&(retVal >= 0)){
 			char uploadBuff[MAX_SEND_BUFF_SIZE];
+			//edit string for sending ADC val
 			strcpy(uploadBuff, "GET /query?city=Austin%2CTexas&id=Zach%20Pope%2C%20Ali%20Kedwaii&greet=Temp%20in%20C:%20");
 			strcat(uploadBuff, tempPrint);
-			strcat(uploadBuff, "&edxcode=8086 HTTP/1.1\r\nUser-Agent: Keil\r\nHost: embedded-systems-server.appspot.com\r\n\r\n");
+			strcat(uploadBuff, "&edxcode=8086 HTTP/1.1\r\nUser-Agent: Keil\r\nHost: iot-zhp76-mak3799.appspot.com\r\n\r\n");
 			sl_Send(SockID, uploadBuff, strlen(uploadBuff), 0);// Send the HTTP GET 
 			sl_Recv(SockID, Recvbuff, MAX_RECV_BUFF_SIZE, 0);// Receive response 
 			sl_Close(SockID); //Close the socket
