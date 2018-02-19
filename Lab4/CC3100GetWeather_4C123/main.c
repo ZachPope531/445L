@@ -93,7 +93,8 @@ Port A, SSI0 (PA2, PA3, PA5, PA6, PA7) sends data to Nokia5110 LCD
 #include "application_commands.h"
 #include "LED.h"
 #include "ST7735.h"
-//#include "ADC.h" //stdint throws error?
+#include <stdlib.h>
+#include "ADC.h" //stdint throws error?
 #include <string.h>
 //#define SSID_NAME  "valvanoAP" /* Access point name to connect to */
 #define SEC_TYPE   SL_SEC_TYPE_WPA
@@ -208,17 +209,18 @@ void Crash(uint32_t time){
 // 1) change Austin Texas to your city
 // 2) you can change metric to imperial if you want temperature in F
 #define REQUEST "GET /data/2.5/weather?q=Austin,Texas&APPID=9960bfd6b1d005c9db7eddbad1795aa7&units=metric HTTP/1.1\r\nUser-Agent: Keil\r\nHost:api.openweathermap.org\r\nAccept: */*\r\n\r\n"
-#define UPLOADREQUEST "GET /query?city=Austin%20Texas&id=Zach&greet=<data>&edxcode=8086 HTTP/1.1\r\nUser-Agent: Keil\r\nHost: embedded-systems-server.appspot.com\r\n\r\n"
 // 1) go to http://openweathermap.org/appid#use 
 // 2) Register on the Sign up page
 // 3) get an API key (APPID) replace the 1234567890abcdef1234567890abcdef with your APPID
 int main(void){int32_t retVal;  SlSecParams_t secParams;
   char *pConfig = NULL; INT32 ASize = 0; SlSockAddrIn_t  Addr;
-	char tempPrint[5];
+	char *tempPrint = (char*) malloc(5*sizeof(char));
   initClk();        // PLL 50 MHz
   UART_Init();      // Send data to PC, 115200 bps
   LED_Init();       // initialize LaunchPad I/O 
 	ST7735_InitR(INITR_REDTAB);
+	ADC0_InitSWTriggerSeq3_Ch9();
+	ST7735_FillScreen(0x0000);
   UARTprintf("Weather App\n");
 	ST7735_FillScreen(0x0000);
   retVal = configureSimpleLinkToDefaultState(pConfig); // set policies
@@ -288,7 +290,10 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
 		}
 		
 		if((SockID >= 0)&&(retVal >= 0)){
-			char uploadBuff[MAX_SEND_BUFF_SIZE] = UPLOADREQUEST;
+			char uploadBuff[MAX_SEND_BUFF_SIZE];
+			strcpy(uploadBuff, "GET /query?city=Austin%2CTexas&id=Zach%20Pope%2C%20Ali%20Kedwaii&greet=Temp%20in%20C:%20");
+			strcat(uploadBuff, tempPrint);
+			strcat(uploadBuff, "&edxcode=8086 HTTP/1.1\r\nUser-Agent: Keil\r\nHost: embedded-systems-server.appspot.com\r\n\r\n");
 			sl_Send(SockID, uploadBuff, strlen(uploadBuff), 0);// Send the HTTP GET 
 			sl_Recv(SockID, Recvbuff, MAX_RECV_BUFF_SIZE, 0);// Receive response 
 			sl_Close(SockID); //Close the socket

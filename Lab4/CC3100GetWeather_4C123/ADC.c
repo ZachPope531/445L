@@ -1,17 +1,17 @@
-#include "ADC.h"
-
-
-uint32_t ASCII_Offset = 48;
+#include <stdio.h>
+#include <string.h>
+#include <stdint.h>
+#include "../inc/tm4c123gh6pm.h"
 
 void ADC0_InitSWTriggerSeq3_Ch9(void){ 
-  SYSCTL_RCGCADC_R |= 0x0001;   // 7) activate ADC0 
+  SYSCTL_RCGCADC_R |= 0x0001;   	// 7) activate ADC0 
                                   // 1) activate clock for Port E
   SYSCTL_RCGCGPIO_R |= 0x10;
   while((SYSCTL_PRGPIO_R&0x10) != 0x10){};
-  GPIO_PORTE_DIR_R &= ~0x10;      // 2) make PE4 input
-  GPIO_PORTE_AFSEL_R |= 0x10;     // 3) enable alternate function on PE4
-  GPIO_PORTE_DEN_R &= ~0x10;      // 4) disable digital I/O on PE4
-  GPIO_PORTE_AMSEL_R |= 0x10;     // 5) enable analog functionality on PE4
+  GPIO_PORTE_DIR_R &= ~0x08;      // 2) make PE3 input
+  GPIO_PORTE_AFSEL_R |= 0x08;     // 3) enable alternate function on PE3
+  GPIO_PORTE_DEN_R &= ~0x08;      // 4) disable digital I/O on PE3
+  GPIO_PORTE_AMSEL_R |= 0x08;     // 5) enable analog functionality on PE3
     
 //  while((SYSCTL_PRADC_R&0x0001) != 0x0001){};    // good code, but not yet implemented in simulator
 
@@ -33,22 +33,11 @@ void ADC0_InitSWTriggerSeq3_Ch9(void){
 // Busy-wait Analog to digital conversion
 // Input: none
 // Output: 12-bit result of ADC conversion
-uint32_t ADC0_InSeq3(void){  uint32_t result;
+unsigned int ADC0_InSeq3(void){  unsigned int result;
   ADC0_PSSI_R = 0x0008;            // 1) initiate SS3
   while((ADC0_RIS_R&0x08)==0){};   // 2) wait for conversion done
     // if you have an A0-A3 revision number, you need to add an 8 usec wait here
   result = ADC0_SSFIFO3_R&0xFFF;   // 3) read result
   ADC0_ISC_R = 0x0008;             // 4) acknowledge completion
   return result;
-}
-
-
-void ADC_Display(void){
-	uint32_t val = ADC0_InSeq3();
-	char msg[13] = "Voltage~0.00V";
-	val = (val * 330) / 4096;
-	msg[12] = (val % 10) + ASCII_Offset;
-	msg[11] = ((val / 10) % 10) + ASCII_Offset;
-	msg[9] = (val / 100) + ASCII_Offset;
-	ST7735_OutString(msg);
 }

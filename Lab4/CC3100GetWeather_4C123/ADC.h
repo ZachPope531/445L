@@ -5,14 +5,7 @@
   Feb 12 2018
 */
 
-#include <stdio.h>
-#include <stdint.h>
-#include <string.h>
-#include "../inc/tm4c123gh6pm.h"
-#include "ST7735.h"
-
-//Initializes ADC on PE4
-//Potentiometer used to change mode
+//Initializes ADC on PE3
 //Input: none
 //Output: none
 void ADC0_InitSWTriggerSeq3_Ch9(void);
@@ -20,4 +13,4 @@ void ADC0_InitSWTriggerSeq3_Ch9(void);
 // Busy-wait Analog to digital conversion
 // Input: none
 // Output: 12-bit result of ADC conversion
-uint32_t ADC0_InSeq3(void);
+unsigned int ADC0_InSeq3(void);

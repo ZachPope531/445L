@@ -39,3 +39,5 @@
 .\rvmdk\main.o: application_commands.h
 .\rvmdk\main.o: LED.h
 .\rvmdk\main.o: ST7735.h
+.\rvmdk\main.o: C:\Keil_uv4\ARM\ARMCC\bin\..\include\stdlib.h
+.\rvmdk\main.o: ADC.h
