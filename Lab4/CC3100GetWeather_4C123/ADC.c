@@ -3,6 +3,8 @@
 #include <stdint.h>
 #include "../inc/tm4c123gh6pm.h"
 
+//PE3 ain't workin bois
+//Pranav says PE5 works
 void ADC0_InitSWTriggerSeq3_Ch9(void){ 
   SYSCTL_RCGCADC_R |= 0x0001;   	// 7) activate ADC0 
                                   // 1) activate clock for Port E
