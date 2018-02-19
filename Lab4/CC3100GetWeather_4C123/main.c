@@ -218,7 +218,8 @@ void Crash(uint32_t time){
 // 3) get an API key (APPID) replace the 1234567890abcdef1234567890abcdef with your APPID
 int main(void){int32_t retVal;  SlSecParams_t secParams;
   char *pConfig = NULL; INT32 ASize = 0; SlSockAddrIn_t  Addr;
-	char *tempPrint = (char*) malloc(5*sizeof(char));
+	char *temperaturePrint = (char*) malloc(5*sizeof(char));
+	int ADCResult;
   initClk();        // PLL 50 MHz
   UART_Init();      // Send data to PC, 115200 bps
   LED_Init();       // initialize LaunchPad I/O 
@@ -240,6 +241,7 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
   }
   UARTprintf("Connected\n");
   while(1){
+		char *result_string = (char*) malloc(5*sizeof(char));
    // strcpy(HostName,"openweathermap.org");  // used to work 10/2015
     strcpy(HostName,"api.openweathermap.org"); // works 9/2016
     retVal = sl_NetAppDnsGetHostByName(HostName,
@@ -261,15 +263,21 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
         LED_GreenOn();
 				for(int i = 3; i < MAX_RECV_BUFF_SIZE; i++){
 					if(Recvbuff[i] == 'p' && Recvbuff[i-1] == 'm' && Recvbuff[i-2] == 'e' && Recvbuff[i-3] == 't' && Recvbuff[i+1] == '"'){
-						*tempPrint = Recvbuff[i+3];
-						*(tempPrint+1) = Recvbuff[i+4];
-						*(tempPrint+2) = Recvbuff[i+5];
-						*(tempPrint+3) = Recvbuff[i+6];
-						*(tempPrint+4) = Recvbuff[i+7];
+						*temperaturePrint = Recvbuff[i+3];
+						*(temperaturePrint+1) = Recvbuff[i+4];
+						*(temperaturePrint+2) = Recvbuff[i+5];
+						*(temperaturePrint+3) = Recvbuff[i+6];
+						*(temperaturePrint+4) = Recvbuff[i+7];
 						
-						ST7735_DrawString(0,0, tempPrint, 0xFFFF);
-					  int result = ADC0_InSeq3();
-					  ST7735_OutUDec(result);
+						ST7735_DrawString(0,0, temperaturePrint, 0xFFFF);
+					  ADCResult = ADC0_InSeq3();
+						for(int j = 0; j < 4; j++){
+							*(result_string + (3-j)) = (ADCResult % 10) + 48;
+							ADCResult /= 10;
+						}
+						*(result_string + 4) = 0;
+						//ST7735_DrawString(0,0,result_string, 0xFFFF);
+						break;
 					}
 				}
         UARTprintf("\r\n\r\n");
@@ -296,15 +304,19 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
 		}
 		
 		if((SockID >= 0)&&(retVal >= 0)){
+			LED_RedOn();
 			char uploadBuff[MAX_SEND_BUFF_SIZE];
 			//edit string for sending ADC val
-			strcpy(uploadBuff, "GET /query?city=Austin%2CTexas&id=Zach%20Pope%2C%20Ali%20Kedwaii&greet=Temp%20in%20C:%20");
-			strcat(uploadBuff, tempPrint);
+			strcpy(uploadBuff, "GET /query?city=Austin%2CTexas&id=Zach%20Pope%2C%20Ali%20Kedwaii&greet=ADC%20Value:%20");
+			strcat(uploadBuff, result_string);
 			strcat(uploadBuff, "&edxcode=8086 HTTP/1.1\r\nUser-Agent: Keil\r\nHost: iot-zhp76-mak3799.appspot.com\r\n\r\n");
 			sl_Send(SockID, uploadBuff, strlen(uploadBuff), 0);// Send the HTTP GET 
 			sl_Recv(SockID, Recvbuff, MAX_RECV_BUFF_SIZE, 0);// Receive response 
 			sl_Close(SockID); //Close the socket
+			LED_RedOff();
 		}
+		free(temperaturePrint);
+		free(result_string);
 	}
 	
 }
