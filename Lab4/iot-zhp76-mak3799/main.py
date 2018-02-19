@@ -76,9 +76,9 @@ class MainPage(webapp2.RequestHandler):
 class Auto(webapp2.RequestHandler):
     def get(self):
         #comment these three lines for debugging; So we can access it through a browser
-        #if self.request.environ.get('HTTP_USER_AGENT') != 'Keil':
-        #   self.response.write('<html><body> <pre> Invalid Access</pre> </body></html>')
-        #   return
+        if self.request.environ.get('HTTP_USER_AGENT') != 'Keil':
+           self.response.write('<html><body> <pre> Invalid Access</pre> </body></html>')
+           return
         greeting = Greeting(parent=logbook_key('logbook'))
         greeting.ipaddr = self.request.environ.get('REMOTE_ADDR')     
         geo_url = "http://ipinfo.io/%s/loc" % greeting.ipaddr
