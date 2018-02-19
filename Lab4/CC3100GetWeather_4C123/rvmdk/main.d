@@ -41,3 +41,4 @@
 .\rvmdk\main.o: ST7735.h
 .\rvmdk\main.o: C:\Keil_uv4\ARM\ARMCC\bin\..\include\stdlib.h
 .\rvmdk\main.o: ADC.h
+.\rvmdk\main.o: timer1.h

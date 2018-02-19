@@ -96,6 +96,7 @@ Port A, SSI0 (PA2, PA3, PA5, PA6, PA7) sends data to Nokia5110 LCD
 #include <stdlib.h>
 #include "ADC.h" //stdint throws error?
 #include <string.h>
+#include "timer1.h"
 //#define SSID_NAME  "valvanoAP" /* Access point name to connect to */
 #define SEC_TYPE   SL_SEC_TYPE_WPA
 //#define PASSKEY    "12345678"  /* Password in case of secure AP */ 
@@ -207,6 +208,9 @@ void Crash(uint32_t time){
     LED_RedToggle();
   }
 }
+
+extern unsigned int time;
+
 /*
  * Application's entry point
  */
@@ -224,6 +228,7 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
   UART_Init();      // Send data to PC, 115200 bps
   LED_Init();       // initialize LaunchPad I/O 
 	ST7735_InitR(INITR_REDTAB);
+	Timer1_Init();
 	ADC0_InitSWTriggerSeq3_Ch9();
 	ST7735_FillScreen(0x0000);
   UARTprintf("Weather App\n");
@@ -240,8 +245,16 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
     _SlNonOsMainLoopTask();
   }
   UARTprintf("Connected\n");
+	Timer1A_Handler();
   while(1){
 		char *result_string = (char*) malloc(5*sizeof(char));
+		unsigned int connectBeginTime;
+		unsigned int connectEndTime;
+		unsigned int uploadBeginTime;
+		unsigned int uploadEndTime;
+		
+		//Timer1A_Handler();
+		//connectBeginTime = time;
    // strcpy(HostName,"openweathermap.org");  // used to work 10/2015
     strcpy(HostName,"api.openweathermap.org"); // works 9/2016
     retVal = sl_NetAppDnsGetHostByName(HostName,
@@ -284,10 +297,14 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
         UARTprintf(Recvbuff);  UARTprintf("\r\n");
       }
     }
-    while(Board_Input()==0){}; // wait for touch
+		//Timer1A_Handler();
+		//connectEndTime = time;
+		//unsigned int totalConnectTime = connectEndTime-connectBeginTime;
     LED_GreenOff();
+		while(Board_Input()==0){}; // wait for touch
   
 	
+		
 		//Uploading log to server
 		unsigned long uploadServerIP;
 		retVal = sl_NetAppDnsGetHostByName(SERVER,
@@ -309,7 +326,7 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
 			//edit string for sending ADC val
 			strcpy(uploadBuff, "GET /query?city=Austin%2CTexas&id=Zach%20Pope%2C%20Ali%20Kedwaii&greet=ADC%20Value:%20");
 			strcat(uploadBuff, result_string);
-			strcat(uploadBuff, "&edxcode=8086 HTTP/1.1\r\nUser-Agent: Keil\r\nHost: iot-zhp76-mak3799.appspot.com\r\n\r\n");
+			strcat(uploadBuff, " HTTP/1.1\r\nUser-Agent: Keil\r\nHost: iot-zhp76-mak3799.appspot.com\r\n\r\n");
 			sl_Send(SockID, uploadBuff, strlen(uploadBuff), 0);// Send the HTTP GET 
 			sl_Recv(SockID, Recvbuff, MAX_RECV_BUFF_SIZE, 0);// Receive response 
 			sl_Close(SockID); //Close the socket
