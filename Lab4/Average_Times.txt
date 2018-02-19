@@ -1,0 +1,3 @@
+Get weather avg time: 50.403 ms
+
+Send ADC value avg time: 152.612 ms

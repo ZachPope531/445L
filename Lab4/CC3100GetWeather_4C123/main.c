@@ -255,7 +255,8 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
 		
 		//Timer1A_Handler();
 		//connectBeginTime = time;
-   // strcpy(HostName,"openweathermap.org");  // used to work 10/2015
+    // strcpy(HostName,"openweathermap.org");  // used to work 10/2015
+		LED_RedOn(); //Start timing the OpenWeather request
     strcpy(HostName,"api.openweathermap.org"); // works 9/2016
     retVal = sl_NetAppDnsGetHostByName(HostName,
              strlen(HostName),&DestinationIP, SL_AF_INET);
@@ -273,6 +274,7 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
         sl_Send(SockID, SendBuff, strlen(SendBuff), 0);// Send the HTTP GET 
         sl_Recv(SockID, Recvbuff, MAX_RECV_BUFF_SIZE, 0);// Receive response 
         sl_Close(SockID);
+				LED_RedOff(); //End the timing for sending 
         LED_GreenOn();
 				for(int i = 3; i < MAX_RECV_BUFF_SIZE; i++){
 					if(Recvbuff[i] == 'p' && Recvbuff[i-1] == 'm' && Recvbuff[i-2] == 'e' && Recvbuff[i-3] == 't' && Recvbuff[i+1] == '"'){
@@ -307,6 +309,8 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
 		
 		//Uploading log to server
 		unsigned long uploadServerIP;
+		Timer1A_Handler();
+		uploadBeginTime = time;
 		retVal = sl_NetAppDnsGetHostByName(SERVER,
 							 strlen(SERVER),&uploadServerIP, SL_AF_INET); //Get the IP address
 		
@@ -330,6 +334,18 @@ int main(void){int32_t retVal;  SlSecParams_t secParams;
 			sl_Send(SockID, uploadBuff, strlen(uploadBuff), 0);// Send the HTTP GET 
 			sl_Recv(SockID, Recvbuff, MAX_RECV_BUFF_SIZE, 0);// Receive response 
 			sl_Close(SockID); //Close the socket
+			/*
+			Timer1A_Handler();
+			uploadEndTime = time;
+			ST7735_SetCursor(0,1);
+			ST7735_OutUDec(uploadBeginTime);
+			ST7735_SetCursor(0,2);
+			ST7735_OutUDec(uploadEndTime);
+			ST7735_SetCursor(0,3);
+			ST7735_OutUDec(uploadBeginTime - uploadEndTime);
+			ST7735_SetCursor(0,0);
+			*/
+			
 			LED_RedOff();
 		}
 		free(temperaturePrint);

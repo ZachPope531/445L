@@ -13,34 +13,25 @@ main.c(251): warning:  #177-D: variable "connectBeginTime" was declared but neve
                 unsigned int connectBeginTime;
 main.c(252): warning:  #177-D: variable "connectEndTime" was declared but never referenced
                 unsigned int connectEndTime;
-main.c(253): warning:  #177-D: variable "uploadBeginTime" was declared but never referenced
+main.c(253): warning:  #550-D: variable "uploadBeginTime" was set but never used
                 unsigned int uploadBeginTime;
 main.c(254): warning:  #177-D: variable "uploadEndTime" was declared but never referenced
                 unsigned int uploadEndTime;
 main.c: 4 warnings, 0 errors
 linking...
-Program Size: Code=16036 RO-data=4004 RW-data=112 ZI-data=19512  
+Program Size: Code=16048 RO-data=4004 RW-data=112 ZI-data=19512  
 After Build - User command #1: fromelf --bin --output .\rvmdk\cc31000_starter.bin .\rvmdk\cc31000_starter.axf
 ".\rvmdk\getWeather.axf" - 0 Error(s), 4 Warning(s).
 </pre>
 </body>
 </html>
-.
-compiling spi.c...
-assembling startup_rvmdk.S...
-compiling uart.c...
-compiling wlan.c...
-compiling uartstdio.c...
-compiling ustdlib.c...
-compiling ST7735.c...
-compiling ADC.c...
-compiling Timer1.c...
-linking...
-Program Size: Code=16036 RO-data=4016 RW-data=112 ZI-data=19512  
-After Build - User command #1: fromelf --bin --output .\rvmdk\cc31000_starter.bin .\rvmdk\cc31000_starter.axf
-".\rvmdk\getWeather.axf" - 0 Error(s), 4 Warning(s).
-Load "C:\\Users\\zacan\\Dropbox\\School\\EE445L\\ValvanoWare\\GitHub\\Lab4\\CC3100GetWeather_4C123\\rvmdk\\getWeather.axf" 
-Connecting: Mode=JTAG, Speed=1000000Hz
-Erase Done.
+ogramming Done.
+Verify OK.
+               unsigned int uploadBeginTime;
+main.c(254): warning:  #177-D: variable "uploadEndTime" was declared but never referenced
+                unsigned int uploadEndTime;
+main.c: 2 warnings, 0 errors
+"main.c" - 0 Error(s), 2 Warning(s).
+ase Done.
 Programming Done.
 Verify OK.
