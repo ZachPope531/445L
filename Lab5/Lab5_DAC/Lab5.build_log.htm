@@ -1,0 +1,55 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab5\Lab5_DAC\Lab5.uvproj
+Project File Date:  02/20/2018
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+timer.h(3): warning:  #1295-D: Deprecated declaration Timer1A_Init - give arg types
+  void Timer1A_Init();
+timer.h(5): warning:  #1295-D: Deprecated declaration Timer1A_Handler - give arg types
+  void Timer1A_Handler();
+timer.h(7): warning:  #1-D: last line of file ends without a newline
+  void Timer1A_ChangeFrequency();
+timer.h(7): warning:  #1295-D: Deprecated declaration Timer1A_ChangeFrequency - give arg types
+  void Timer1A_ChangeFrequency();
+main.c: 4 warnings, 0 errors
+compiling DAC.c...
+linking...
+Program Size: Code=1132 RO-data=32 RW-data=4 ZI-data=1124  
+".\Lab5.axf" - 0 Error(s), 4 Warning(s).
+</pre>
+</body>
+</html>
+ency - give arg types
+  void Timer1A_ChangeFrequency();
+main.c: 4 warnings, 2 errors
+compiling timer.c...
+timer.h(3): warning:  #1295-D: Deprecated declaration Timer1A_Init - give arg types
+  void Timer1A_Init();
+timer.h(5): warning:  #1295-D: Deprecated declaration Timer1A_Handler - give arg types
+  void Timer1A_Handler();
+timer.h(7): warning:  #1-D: last line of file ends without a newline
+  void Timer1A_ChangeFrequency();
+timer.h(7): warning:  #1295-D: Deprecated declaration Timer1A_ChangeFrequency - give arg types
+  void Timer1A_ChangeFrequency();
+timer.c: 4 warnings, 0 errors
+compiling DAC.c...
+../driverlib/ssi.h(134): error:  #20: identifier "bool" is undefined
+  extern uint32_t SSIIntStatus(uint32_t ui32Base, bool bMasked);
+../driverlib/ssi.h(138): error:  #20: identifier "bool" is undefined
+  extern bool SSIBusy(uint32_t ui32Base);
+DAC.c: 0 warnings, 2 errors
+compiling switch.c...
+switch.h(26): warning:  #1-D: last line of file ends without a newline
+  void reset(void);
+switch.c(16): warning:  #1-D: last line of file ends without a newline
+  }
+switch.c: 2 warnings, 0 errors
+compiling music.c...
+".\Lab5.axf" - 4 Error(s), 10 Warning(s).
+Target not created
