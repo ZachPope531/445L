@@ -5,6 +5,6 @@
 #include "timer.h"
 
 int main(void){
-	PLL_Init(Bus80MHz);
+	PLL_Init(Bus16MHz);
 	DAC_Init();
 }

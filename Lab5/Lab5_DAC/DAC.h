@@ -1,13 +1,13 @@
+
 #include <stdint.h>
-#include <stdbool.h>
-#include "../driverlib/ssi.h"
+#include "../inc/tm4c123gh6pm.h"
 
 /**
 	Initialize the DAC output using SSI
 	Inputs:		None
 	Outputs:	None
 */
-void DAC_Init(void);
+void DAC_Init(uint16_t data);
 
 
 /**

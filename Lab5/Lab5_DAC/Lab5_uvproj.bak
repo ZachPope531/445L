@@ -435,6 +435,31 @@
               <FileType>1</FileType>
               <FilePath>.\switch.c</FilePath>
             </File>
+            <File>
+              <FileName>music.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\music.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>drivers</GroupName>
+          <Files>
+            <File>
+              <FileName>ssi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\driverlib\ssi.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssi.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\driverlib\ssi.h</FilePath>
+            </File>
+            <File>
+              <FileName>interrupt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\driverlib\interrupt.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
