@@ -48,7 +48,7 @@ void Timer1A_Init(void){long sr;
 }
 
 void Timer1A_Handler(void){
-  TIMER1_ICR_R = TIMER_ICR_TATOCINT;// acknowledge timer0A timeout
+  TIMER1_ICR_R = TIMER_ICR_TATOCINT;// acknowledge timer1A timeout
   //(*PeriodicTask)();                // execute user task
 	
 	//this is a pretty crude way to separate notes

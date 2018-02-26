@@ -8,21 +8,29 @@ Project File Date:  02/25/2018
 
 <h2>Output:</h2>
 Build target 'PeriodicTimer0AInts'
-compiling switch.c...
+compiling main.c...
 compiling timer0.c...
+timer0.c(78): warning:  #177-D: variable "index" was declared but never referenced
+        static uint8_t index = 0;        // counting index of output sequence
+timer0.c: 1 warning, 0 errors
 linking...
-Program Size: Code=1556 RO-data=96 RW-data=8 ZI-data=1120  
-".\PeriodicTimer0AInts.axf" - 0 Error(s), 0 Warning(s).
+Program Size: Code=2440 RO-data=96 RW-data=1792 ZI-data=1120  
+".\PeriodicTimer0AInts.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Users\\zacan\\Dropbox\\School\\EE445L\\ValvanoWare\\GitHub\\Lab5\\Lab5_DAC\\PeriodicTimer0AInts.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Connection failed!, error code=&d
+Error: Flash Download failed  -  Target DLL has been cancelled
+Load "C:\\Users\\zacan\\Dropbox\\School\\EE445L\\ValvanoWare\\GitHub\\Lab5\\Lab5_DAC\\PeriodicTimer0AInts.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
 </pre>
 </body>
 </html>
-g, 0 errors
-compiling music.c...
-compiling DAC.c...
-compiling timer0.c...
-timer0.c(82): warning:  #1-D: last line of file ends without a newline
-  }
-timer0.c: 1 warning, 0 errors
-linking...
-Program Size: Code=1556 RO-data=96 RW-data=8 ZI-data=1120  
-".\PeriodicTimer0AInts.axf" - 0 Error(s), 2 Warning(s).
+ symbol Timer1A_Disable (referred from switch.o).
+.\PeriodicTimer0AInts.axf: Error: L6218E: Undefined symbol Timer1A_Enable (referred from switch.o).
+Not enough information to list image symbols.
+Finished: 1 information, 0 warning and 5 error messages.
+".\PeriodicTimer0AInts.axf" - 5 Error(s), 3 Warning(s).
+Target not created

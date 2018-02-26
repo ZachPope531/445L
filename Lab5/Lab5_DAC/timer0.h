@@ -36,7 +36,7 @@
 // Inputs:  task is a pointer to a user function
 //          period in units (1/clockfreq), 32 bits
 // Outputs: none
-void Timer0A_Init(void);
+void Timer0A_Init(void(*task)(void));
 
 void Timer0A_ChangeFrequency(uint32_t frequency);
 

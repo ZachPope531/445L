@@ -25,16 +25,16 @@ const unsigned short Wave[32] = {
 };
 
 void PlayNext(void){
-//  static uint8_t index = 0;        // counting index of output sequence
-//  DAC_Out(Wave[index]);         // output next value in sequence
-//  index = (index + 1)&0x1F;        // increment counter
+  static uint8_t index = 0;        // counting index of output sequence
+  DAC_Out(Wave[index]);         // output next value in sequence
+  index = (index + 1)&0x1F;        // increment counter
 }
 
 int main(void){ 
   PLL_Init(Bus16MHz);              // bus clock at 16 MHz
 	//DisableInterrupts();
 	DAC_Init(0x1000);
-	Timer0A_Init();
+	Timer0A_Init(&PlayNext);
 	Timer1A_Init();
 	Timer0A_ChangeFrequency(song1.pitches[0]);
 	Timer1A_ChangeTime(song1.lengths[0]);

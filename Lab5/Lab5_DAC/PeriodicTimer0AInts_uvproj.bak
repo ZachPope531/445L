@@ -421,11 +421,6 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>timer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\timer.c</FilePath>
-            </File>
-            <File>
               <FileName>switch.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\switch.c</FilePath>
@@ -456,9 +451,9 @@
               <FilePath>.\switch.h</FilePath>
             </File>
             <File>
-              <FileName>timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\timer.h</FilePath>
+              <FileName>timer0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\timer0.c</FilePath>
             </File>
           </Files>
         </Group>
