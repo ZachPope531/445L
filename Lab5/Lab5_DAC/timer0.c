@@ -1,4 +1,6 @@
-// Timer0A.c
+
+// Timer0.c
+
 // Runs on LM4F120/TM4C123
 // Use Timer0A in periodic mode to request interrupts at a particular
 // period.
@@ -25,8 +27,9 @@
  For more information about my classes, my research, and my books, see
  http://users.ece.utexas.edu/~valvano/
  */
-#include <stdint.h>
-#include "..//inc//tm4c123gh6pm.h"
+
+
+#include "timer0.h"
 
 
 
@@ -79,4 +82,6 @@ void Timer0A_Disable(void){
 
 void Timer0A_Enable(void){
 	TIMER0_CTL_R = 0x00000001;
+
 }
+

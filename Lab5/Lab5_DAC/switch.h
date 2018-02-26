@@ -2,8 +2,19 @@
 #include "timer0.h"
 
 
+void Switch_Init(void);
+
+void PortF_Handler(void);
+
+typedef enum {
+	OFF,
+	ON
+} status;
+
+
+
 /**
-	Starts playing the sound from it's current spot
+	Starts playing the sound from its current spot
 	Picks up from where DAC_Index is currently set
 	Inputs:		None
 	Outputs:	None
@@ -11,7 +22,7 @@
 void play(void);
 
 /**
-	Stops playing the sound at it's current spot
+	Stops playing the sound at its current spot
 	Doesn't change DAC_Index to 0
 	Inputs:		None
 	Outputs:	None
