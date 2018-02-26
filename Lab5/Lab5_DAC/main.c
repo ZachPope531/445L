@@ -2,7 +2,9 @@
 #include "..//inc//tm4c123gh6pm.h"
 #include <stdint.h>
 #include "PLL.h"
-#include "timer.h"
+#include "timer0.h"
+#include "timer1.h"
+#include "switch.h"
 #include "DAC.h"
 
 

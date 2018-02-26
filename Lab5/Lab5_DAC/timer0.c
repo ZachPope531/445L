@@ -1,4 +1,4 @@
-// Timer0A.c
+// Timer0.c
 // Runs on LM4F120/TM4C123
 // Use Timer0A in periodic mode to request interrupts at a particular
 // period.
@@ -25,9 +25,8 @@
  For more information about my classes, my research, and my books, see
  http://users.ece.utexas.edu/~valvano/
  */
-#include <stdint.h>
-#include "..//inc//tm4c123gh6pm.h"
 
+#include "timer0.h"
 
 
 void DisableInterrupts(void); // Disable interrupts
@@ -36,6 +35,7 @@ long StartCritical (void);    // previous I bit, disable interrupts
 void EndCritical(long sr);    // restore I bit to previous value
 void WaitForInterrupt(void);  // low power mode
 void (*PeriodicTask)(void);   // user function
+
 
 
 // ***************** Timer0A_Init ****************

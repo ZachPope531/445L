@@ -1,4 +1,4 @@
-// Timer0A.h
+// Timer0.h
 // Runs on LM4F120/TM4C123
 // Use Timer0A in periodic mode to request interrupts at a particular
 // period.
@@ -21,6 +21,10 @@
  For more information about my classes, my research, and my books, see
  http://users.ece.utexas.edu/~valvano/
  */
+ 
+#include <stdint.h>
+#include "..//inc//tm4c123gh6pm.h"
+
 
 #ifndef __TIMER0AINTS_H__ // do not include more than once
 #define __TIMER0AINTS_H__
