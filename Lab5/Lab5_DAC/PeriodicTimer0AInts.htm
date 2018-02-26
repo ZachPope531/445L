@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\PeriodicTimer0AInts.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\PeriodicTimer0AInts.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Sun Feb 25 19:19:57 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.03 [Build 76]: Last Updated: Sun Feb 25 20:14:04 2018
 <BR><P>
 <H3>Maximum Stack Usage =         16 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -127,7 +127,7 @@ Function Pointers
  <LI><a href="#[9]">SVC_Handler</a> from startup.o(RESET) referenced from startup.o(RESET)
  <LI><a href="#[29]">SysCtl_Handler</a> from startup.o(RESET) referenced from startup.o(RESET)
  <LI><a href="#[c]">SysTick_Handler</a> from startup.o(RESET) referenced from startup.o(RESET)
- <LI><a href="#[20]">Timer0A_Handler</a> from timer.o(i.Timer0A_Handler) referenced from startup.o(RESET)
+ <LI><a href="#[20]">Timer0A_Handler</a> from timer0.o(i.Timer0A_Handler) referenced from startup.o(RESET)
  <LI><a href="#[21]">Timer0B_Handler</a> from startup.o(RESET) referenced from startup.o(RESET)
  <LI><a href="#[22]">Timer1A_Handler</a> from startup.o(RESET) referenced from startup.o(RESET)
  <LI><a href="#[23]">Timer1B_Handler</a> from startup.o(RESET) referenced from startup.o(RESET)
@@ -787,16 +787,16 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[9a]"></a>Timer0A_ChangeFrequency</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, timer.o(i.Timer0A_ChangeFrequency))
+<P><STRONG><a name="[9a]"></a>Timer0A_ChangeFrequency</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, timer0.o(i.Timer0A_ChangeFrequency))
 <BR><BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[20]"></a>Timer0A_Handler</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, timer.o(i.Timer0A_Handler))
+<P><STRONG><a name="[20]"></a>Timer0A_Handler</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, timer0.o(i.Timer0A_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Timer0A_Handler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup.o(RESET)
 </UL>
-<P><STRONG><a name="[95]"></a>Timer0A_Init</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, timer.o(i.Timer0A_Init))
+<P><STRONG><a name="[95]"></a>Timer0A_Init</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, timer0.o(i.Timer0A_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16 + Unknown Stack Size
 <LI>Call Chain = Timer0A_Init
 </UL>

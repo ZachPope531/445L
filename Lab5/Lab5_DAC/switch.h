@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include "timer0.h"
 
+
 void Switch_Init(void);
 
 void PortF_Handler(void);
@@ -9,6 +10,7 @@ typedef enum {
 	OFF,
 	ON
 } status;
+
 
 
 /**
