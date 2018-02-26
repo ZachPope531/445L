@@ -1,6 +1,7 @@
 #include "DAC.h"
 
 volatile uint16_t DAC_Index;
+volatile uint16_t Note_Index;
 
 
 // SSI0Clk (SCLK, pin 4) connected to PA2
@@ -27,6 +28,8 @@ void DAC_Init(uint16_t data){
   SSI0_DR_R = data;               // load 'data' into transmit FIFO
   SSI0_CR1_R |= 0x00000002;       // enable SSI
 
+	DAC_Index = 0;
+	Note_Index = 0;
 }
 
 

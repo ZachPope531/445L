@@ -30,7 +30,13 @@
 
 
 #include "timer0.h"
+#include "DAC.h"
+#include "music.h"
 
+
+extern volatile uint16_t DAC_Index;
+extern volatile uint16_t Note_Index;
+extern song song1;
 
 
 void DisableInterrupts(void); // Disable interrupts
@@ -41,19 +47,20 @@ void WaitForInterrupt(void);  // low power mode
 void (*PeriodicTask)(void);   // user function
 
 
+
 // ***************** Timer0A_Init ****************
 // Activate TIMER0 interrupts to run user task periodically
 // Inputs:  task is a pointer to a user function
 //          period in units (1/clockfreq), 32 bits
 // Outputs: none
-void Timer0A_Init(void(*task)(void), uint32_t period){long sr;
+void Timer0A_Init(void){long sr;
   sr = StartCritical(); 
   SYSCTL_RCGCTIMER_R |= 0x01;   // 0) activate TIMER0
-  PeriodicTask = task;          // user function
+  //PeriodicTask = task;          // user function
   TIMER0_CTL_R = 0x00000000;    // 1) disable TIMER0A during setup
   TIMER0_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
   TIMER0_TAMR_R = 0x00000002;   // 3) configure for periodic mode, default down-count settings
-  TIMER0_TAILR_R = period-1;    // 4) reload value
+  TIMER0_TAILR_R = 15999999;    // 4) reload value
   TIMER0_TAPR_R = 0;            // 5) bus clock resolution
   TIMER0_ICR_R = 0x00000001;    // 6) clear TIMER0A timeout flag
   TIMER0_IMR_R = 0x00000001;    // 7) arm timeout interrupt
@@ -67,7 +74,10 @@ void Timer0A_Init(void(*task)(void), uint32_t period){long sr;
 
 void Timer0A_Handler(void){
   TIMER0_ICR_R = TIMER_ICR_TATOCINT;// acknowledge timer0A timeout
-  (*PeriodicTask)();                // execute user task
+  //(*PeriodicTask)();                // execute user task
+	//static uint8_t index = 0;        // counting index of output sequence
+  DAC_Out(song1.waveform[DAC_Index]);         // output next value in sequence
+  DAC_Index = (DAC_Index + 1)&0x1F;        // increment counter
 }
 
 void Timer0A_ChangeFrequency(uint32_t frequency){
@@ -78,10 +88,12 @@ void Timer0A_ChangeFrequency(uint32_t frequency){
 
 void Timer0A_Disable(void){
 	TIMER0_CTL_R = 0x00000000;
+	DAC_Out(0);
 }
 
 void Timer0A_Enable(void){
 	TIMER0_CTL_R = 0x00000001;
-
+	//Timer0A_ChangeFrequency(song1.pitches[Note_Index]);
+  DAC_Out(song1.waveform[DAC_Index]);
 }
 

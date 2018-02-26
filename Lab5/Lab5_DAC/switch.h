@@ -1,10 +1,11 @@
 #include <stdint.h>
 #include "timer0.h"
+#include "timer1.h"
 
 
 void Switch_Init(void);
 
-void PortF_Handler(void);
+void GPIOPortF_Handler(void);
 
 typedef enum {
 	OFF,
