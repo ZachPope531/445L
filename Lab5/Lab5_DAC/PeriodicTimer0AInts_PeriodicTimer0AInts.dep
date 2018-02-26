@@ -4,19 +4,16 @@ F (.\PLL.c)(0x554592D2)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_secti
 I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C87C24)
 I (PLL.h)(0x55462230)
 I (../inc/tm4c123gh6pm.h)(0x5388B4CA)
-F (.\main.c)(0x5A9360BC)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+F (.\main.c)(0x5A936D4E)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\main.o --omf_browse .\main.crf --depend .\main.d)
 I (..//inc//tm4c123gh6pm.h)(0x5388B4CA)
 I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C87C24)
 I (PLL.h)(0x55462230)
-I (timer.h)(0x5A93600F)
+I (timer0.h)(0x5A93600F)
 I (DAC.h)(0x5A9320B4)
-F (.\timer.c)(0x5A93600F)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\timer.o --omf_browse .\timer.crf --depend .\timer.d)
-I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (..//inc//tm4c123gh6pm.h)(0x5388B4CA)
 F (.\switch.c)(0x5A936039)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\switch.o --omf_browse .\switch.crf --depend .\switch.d)
-I (switch.h)(0x5A93600F)
+I (switch.h)(0x5A936D6B)
 I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C87C24)
-I (timer.h)(0x5A93600F)
+I (timer0.h)(0x5A93600F)
 F (.\music.c)(0x5A8DEC5C)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\music.o --omf_browse .\music.crf --depend .\music.d)
 I (music.h)(0x5A8CA403)
 F (.\DAC.c)(0x5A933B8B)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\dac.o --omf_browse .\dac.crf --depend .\dac.d)
@@ -25,5 +22,7 @@ I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C87C24)
 I (../inc/tm4c123gh6pm.h)(0x5388B4CA)
 F (.\DAC.h)(0x5A9320B4)()
 F (.\music.h)(0x5A8CA403)()
-F (.\switch.h)(0x5A93600F)()
-F (.\timer.h)(0x5A93600F)()
+F (.\switch.h)(0x5A936D6B)()
+F (.\timer0.c)(0x5A936D6B)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\timer0.o --omf_browse .\timer0.crf --depend .\timer0.d)
+I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C87C24)
+I (..//inc//tm4c123gh6pm.h)(0x5388B4CA)
