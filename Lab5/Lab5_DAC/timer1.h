@@ -6,7 +6,10 @@
 #ifndef __TIMER1AINTS_H__ // do not include more than once
 #define __TIMER1AINTS_H__
 
-void Timer1A_Init(void(*task)(void), uint32_t period);
+//Taken from Valvano himself
+void Delay1millisecond(uint32_t n);
+
+void Timer1A_Init(void);
 
 void Timer1A_ChangeTime(uint32_t time);
 

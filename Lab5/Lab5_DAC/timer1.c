@@ -1,22 +1,41 @@
 /* Timer1.c*/
 
+#include "timer0.h"
 #include "timer1.h"
+#include "music.h"
+
+extern song song1;
+extern volatile uint16_t Note_Index;
 
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
 long StartCritical (void);    // previous I bit, disable interrupts
 void EndCritical(long sr);    // restore I bit to previous value
 void WaitForInterrupt(void);  // low power mode
-void (*PeriodicTask)(void);   // user function
+//void (*PeriodicTask)(void);   // user function
 
-void Timer1A_Init(void(*task)(void), uint32_t period){long sr;
+
+//Taken from Valvano himself
+void Delay1millisecond(uint32_t n){
+	uint32_t volatile time;
+  while(n){
+    time = 16000;  // 1msec, tuned at 16 MHz DOUBLE CHECK THIS VALUE
+    while(time){
+      time--;
+    }
+    n--;
+  }
+}
+
+
+void Timer1A_Init(void){long sr;
   sr = StartCritical(); 
   SYSCTL_RCGCTIMER_R |= 0x02;   // 0) activate TIMER1
   //PeriodicTask = task;          // user function
   TIMER1_CTL_R = 0x00000000;    // 1) disable TIMER1A during setup
   TIMER1_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
   TIMER1_TAMR_R = 0x00000002;   // 3) configure for periodic mode, default down-count settings
-  TIMER1_TAILR_R = 799999;    // 4) reload value
+  TIMER1_TAILR_R = 15999999;    // 4) reload value
   TIMER1_TAPR_R = 0;            // 5) bus clock resolution
   TIMER1_ICR_R = 0x00000001;    // 6) clear TIMER1A timeout flag
   TIMER1_IMR_R = 0x00000001;    // 7) arm timeout interrupt
@@ -30,12 +49,23 @@ void Timer1A_Init(void(*task)(void), uint32_t period){long sr;
 
 void Timer1A_Handler(void){
   TIMER1_ICR_R = TIMER_ICR_TATOCINT;// acknowledge timer0A timeout
-  (*PeriodicTask)();                // execute user task
+  //(*PeriodicTask)();                // execute user task
+	
+	//this is a pretty crude way to separate notes
+	//you can tell but after a long time the music might be delayed
+	if (song1.pitches[Note_Index] == song1.pitches[Note_Index + 1]){
+		Timer0A_Disable();
+		Delay1millisecond(1);
+		Timer0A_Enable();
+	}
+	Note_Index = (Note_Index + 1) % 206;
+	Timer0A_ChangeFrequency(song1.pitches[Note_Index]);
+	Timer1A_ChangeTime(song1.lengths[Note_Index]);
 }
 
 void Timer1A_ChangeTime(uint32_t time){
 	TIMER1_CTL_R = 0x00000000;
-	TIMER1_TAILR_R = 16000000/time; //16MHz, how to represent time?
+	TIMER1_TAILR_R = 1000000*time; //1M - 1/16 s
 	TIMER1_CTL_R = 0x00000001;
 }
 
@@ -45,4 +75,5 @@ void Timer1A_Disable(void){
 
 void Timer1A_Enable(void){
 	TIMER1_CTL_R = 0x00000001;
+	//Timer1A_ChangeTime(song1.lengths[Note_Index]);
 }
