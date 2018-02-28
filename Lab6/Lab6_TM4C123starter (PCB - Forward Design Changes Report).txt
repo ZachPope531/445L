@@ -1,0 +1,107 @@
+Forward Design Changes Report
+-----------------------------
+
+Report File:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab6\Lab6_TM4C123starter (PCB - Forward Design Changes Report).txt
+Report Written:     Wednesday, February 28, 2018
+Design Path:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab6\Lab6_TM4C123starter.pcb
+Design Title:       
+Created:            1/28/2013 11:01:41 PM
+Last Saved:         2/27/2018 3:00:44 PM
+Editing Time:       830 min
+Units:              mil (precision 0)
+
+Added net "N0678".
+Added net "N0679".
+Added net "N0680".
+Added net "N0681".
+Added net "N0682".
+Added net "N0683".
+Added net "N0684".
+Added net "N0685".
+Added net "N0686".
+Added net "N0689".
+Added net "N0692".
+Added net "N0698".
+Added net "N0699".
+Added net "N0700".
+Added net "N0705".
+Added net "N0706".
+Added net "N0711".
+
+Added component reference "J2" of component "ST7735", package "LCD".
+Added component reference "U3" of component "TLV5618", package "DIP".
+Added component reference "U4" of component "LM4041", package "MISC".
+Added component reference "R4" of component "R 0.5W 5% MCF 12K", package "R 0.600".
+Added component reference "R5" of component "R 0.5W 5% MCF 2.0K", package "R 0.600".
+Added component reference "R6" of component "R 0.5W 5% MCF 47K", package "R 0.600".
+Added component reference "R7" of component "R 0.5W 5% MCF 10K", package "R 0.600".
+Added component reference "C15" of component "C 0.1uF", package "C0603".
+Added component reference "C16" of component "Electrolytic", package "C".
+Added component reference "R8" of component "0.25Wresistor", package "DIP".
+Changed value "V" on component reference "R8" to "100".
+Added component reference "R9" of component "0.25Wresistor", package "DIP".
+Changed value "V" on component reference "R9" to "200".
+Added component reference "U5" of component "TPA731", package "SM".
+Added component reference "C17" of component "tantalum", package "C".
+Added component reference "J4" of component "Speaker", package "DIP".
+Added component reference "C18" of component "Ceramic", package "C".
+Changed value "V" on component reference "C18" to "0.47uF".
+
+Connected pin "U1.24" to net "N0678".
+Connected pin "U1.23" to net "N0679".
+Connected pin "U1.22" to net "N0681".
+Connected pin "U1.20" to net "N0680".
+Connected pin "U1.19" to net "N0682".
+Connected pin "U1.4" to net "N0684".
+Connected pin "U1.57" to net "N0685".
+Connected pin "U1.58" to net "N0683".
+Connected pin "J2.1" to net "GND".
+Connected pin "J2.2" to net "+3.3".
+Connected pin "J2.3" to net "N0678".
+Connected pin "J2.4" to net "N0679".
+Connected pin "J2.6" to net "N0680".
+Connected pin "J2.7" to net "N0681".
+Connected pin "J2.8" to net "N0682".
+Connected pin "J2.10" to net "+3.3".
+Connected pin "U3.2" to net "N0683".
+Connected pin "U3.3" to net "N0685".
+Connected pin "U3.1" to net "N0684".
+Connected pin "U3.5" to net "GND".
+Connected pin "U3.6" to net "N0692".
+Connected pin "U3.7" to net "N0711".
+Connected pin "U3.8" to net "+3.3".
+Connected pin "U4.2" to net "N0692".
+Connected pin "U4.1" to net "N0689".
+Connected pin "U4.3" to net "GND".
+Connected pin "R4.1" to net "GND".
+Connected pin "R4.2" to net "N0686".
+Connected pin "R5.1" to net "N0686".
+Connected pin "R5.2" to net "N0689".
+Connected pin "R6.1" to net "N0689".
+Connected pin "R6.2" to net "N0692".
+Connected pin "R7.1" to net "N0692".
+Connected pin "R7.2" to net "+3.3".
+Connected pin "C15.1" to net "+3.3".
+Connected pin "C15.2" to net "GND".
+Connected pin "C16.1" to net "N0698".
+Connected pin "C16.2" to net "N0711".
+Connected pin "R8.1" to net "N0699".
+Connected pin "R8.2" to net "N0705".
+Connected pin "R9.1" to net "N0698".
+Connected pin "R9.2" to net "N0699".
+Connected pin "U5.4" to net "N0699".
+Connected pin "U5.2" to net "N0700".
+Connected pin "U5.8" to net "N0706".
+Connected pin "U5.7" to net "GND".
+Connected pin "U5.3" to net "N0700".
+Connected pin "U5.6" to net "+5V".
+Connected pin "U5.5" to net "N0705".
+Connected pin "C17.1" to net "N0700".
+Connected pin "C17.2" to net "GND".
+Connected pin "J4.1" to net "N0705".
+Connected pin "J4.2" to net "N0706".
+Connected pin "C18.1" to net "+5V".
+Connected pin "C18.2" to net "GND".
+
+
+End Of Report.
