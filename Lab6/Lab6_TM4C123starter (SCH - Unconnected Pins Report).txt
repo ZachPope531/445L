@@ -1,0 +1,56 @@
+Unconnected Pins Report
+-----------------------
+
+Report File:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab6\Lab6_TM4C123starter (SCH - Unconnected Pins Report).txt
+Report Written:     Sunday, March 04, 2018
+Design Path:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab6\Lab6_TM4C123starter.sch
+Design Title:       
+Created:            
+Last Saved:         3/4/2018 5:52:35 PM
+Editing Time:       4084 min
+Units:              mil (precision 0)
+
+Component U1 Pin U1.21 (PA4)
+Component U1 Pin U1.18 (PA1)
+Component U1 Pin U1.17 (PA0)
+Component U1 Pin U1.1 (PB6)
+Component U1 Pin U1.48 (PB3)
+Component U1 Pin U1.47 (PB2)
+Component U1 Pin U1.46 (PB1)
+Component U1 Pin U1.45 (PB0)
+Component U1 Pin U1.13 (PC7)
+Component U1 Pin U1.14 (PC6)
+Component U1 Pin U1.15 (PC5)
+Component U1 Pin U1.16 (PC4)
+Component U1 Pin U1.10 (PD7)
+Component U1 Pin U1.53 (PD6)
+Component U1 Pin U1.44 (PD5)
+Component U1 Pin U1.43 (PD4)
+Component U1 Pin U1.64 (PD3)
+Component U1 Pin U1.63 (PD2)
+Component U1 Pin U1.62 (PD1)
+Component U1 Pin U1.61 (PD0)
+Component U1 Pin U1.60 (PE5)
+Component U1 Pin U1.59 (PE4)
+Component U1 Pin U1.6 (PE3)
+Component U1 Pin U1.7 (PE2)
+Component U1 Pin U1.8 (PE1)
+Component U1 Pin U1.9 (PE0)
+Component U1 Pin U1.31 (PF3)
+Component U1 Pin U1.30 (PF2)
+Component U1 Pin U1.29 (PF1)
+Component U1 Pin U1.36 (XOSC1)
+Component U1 Pin U1.33 (HIB*)
+Component J5 Pin J5.4 (Id)
+Component J5 Pin J5.3 (D+)
+Component J5 Pin J5.2 (D-)
+Component J5 Pin J5.6 (m1)
+Component J5 Pin J5.7 (m2)
+Component J5 Pin J5.8 (m3)
+Component J5 Pin J5.9 (m4)
+Component J2 Pin J2.5 (CARD_CS)
+Component J2 Pin J2.9 (MISO)
+
+Unconnected pins found : 40
+
+End Of Report.

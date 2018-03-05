@@ -1,0 +1,8 @@
+Channel 0: To view the data being sent from the TM4C123 to the TLV5618, connect a logic analyzer pin to J3.16
+Channel 1: To view the analog signal output from the TLV5618, connect an oscilloscope probe to J3.15
+Channel 2: To view the Fss data from the TM4C123, connect a logic analyzer pin to J3.14
+Channel 3: To view the reference voltage being applied to the TLV5618, connect an oscilloscope or DMM probe to J3.13
+Channel 4: To view the amplified signal from the TPA731, connect an oscilloscope probe to J3.12
+Channel 5: To view the SSI clock signal, connect a logic analyzer pin to J3.11
+Channel 6: To view the SW1 status, connect a logic analyzer pin to J3.10
+Channel 7: To view the SW2 status, connect a logic analyzer pin to J3.09

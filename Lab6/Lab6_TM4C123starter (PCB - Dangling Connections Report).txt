@@ -1,0 +1,14 @@
+Dangling Connections Report
+---------------------------
+
+Report File:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab6\Lab6_TM4C123starter (PCB - Dangling Connections Report).txt
+Report Written:     Sunday, March 04, 2018
+Design Path:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab6\Lab6_TM4C123starter.pcb
+Design Title:       
+Created:            1/28/2013 11:01:41 PM
+Last Saved:         3/4/2018 8:05:27 PM
+Editing Time:       1202 min
+Units:              mil (precision 0)
+
+
+End Of Report.

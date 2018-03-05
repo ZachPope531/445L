@@ -1,0 +1,119 @@
+Design Status Report
+--------------------
+
+Report File:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab6\Lab6_TM4C123starter (PCB - Design Status Report).txt
+Report Written:     Sunday, March 04, 2018
+Design Path:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab6\Lab6_TM4C123starter.pcb
+Design Title:       
+Created:            1/28/2013 11:01:41 PM
+Last Saved:         3/4/2018 8:05:27 PM
+Editing Time:       1202 min
+Units:              mil (precision 0)
+
+
+Board Area
+==========
+
+    8578125 mil squared
+
+
+Board Extents
+=============
+
+    X:3813 mil Y:2250 mil
+Layers
+======
+
+Name               Type          Side   Net
+--------------------------------------------------
+Top Silkscreen     Silk Screen   Top
+Top Copper         Electrical    Top
+Top Solder Mask    Solder Mask   Top
+Documentation1     Documentation Top
+Top Paste Mask     Paste Mask    Top
+Bottom Silkscreen  Silk Screen   Bottom
+Bottom Copper      Electrical    Bottom
+Bottom Solder Mask Solder Mask   Bottom
+Documentation2     Documentation Bottom
+
+Components
+==========
+
+Component           Package  Components Top Bottom Pins
+-----------------------------------------------------------------
+0.25Wresistor       DIP               2   2      0    4
+0.125Wresistor      DIL               3   3      0    6
+C 0.1uF             C0603             1   1      0    2
+Ceramic             C                12  12      0   24
+Electrolytic        C                 1   1      0    2
+Header5             SIP               1   1      0    5
+KSC353JLFG          SM                1   1      0    4
+LEDT1.75            SIP               1   1      0    2
+LM4041              MISC              1   1      0    3
+LogicAnalyzer       DIP               1   1      0   16
+LP2950CZ-3.3        TO220             1   1      0    3
+OffBoardPowerSwitch DIP               1   1      0    2
+R 0.5W 5% MCF 2.0K  R 0.600           1   1      0    2
+R 0.5W 5% MCF 10K   R 0.600           1   1      0    2
+R 0.5W 5% MCF 12K   R 0.600           1   1      0    2
+R 0.5W 5% MCF 47K   R 0.600           1   1      0    2
+Speaker             DIP               1   1      0    2
+ST7735              LCD               1   0      1   10
+tantalum            C                 4   4      0    8
+testpoint           BIG               2   2      0    2
+Testpoint_TwoHole   DIL               4   4      0    8
+TLV5618             DIP               1   1      0    8
+TM4C123GH6PM        LQFP              1   1      0   64
+TPA731              SM                1   1      0    8
+USB_Micro-B_SM      SM                1   1      0    9
+XTAL                NX5032            1   1      0    2
+-----------------------------------------------------------------
+Total:                               47  46      1  202
+-----------------------------------------------------------------
+
+Total Pin Count
+===============
+
+Free Pads:                             6
+Total PinCount:                        208
+
+
+Net List
+========
+
+Net Class Nets  Track Length Vias Connections Connection Length
+-------------------------------------------------------------------------
+Signal    132          72445   54           0                 0
+Power     8            13408    4           0                 0
+-------------------------------------------------------------------------
+Total:    140          85853   58           0                 0
+-------------------------------------------------------------------------
+
+Drill List
+==========
+
+Drill Diameter  Number of holes
+---------------------------------
+15                           58
+29                           52
+30                            2
+31                            8
+32                            3
+33                            9
+33                            2
+35                           16
+40                           10
+42                            3
+50                            8
+59                            2
+60                            2
+125                           6
+---------------------------------
+Total:                      181
+---------------------------------
+Total number of free pads 6.
+
+
+
+
+End Of Report.

@@ -2,17 +2,19 @@ Design Consistency Status Report
 --------------------------------
 
 Report File:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab6\Lab6_TM4C123starter (PCB - Design Consistency Status Report).txt
-Report Written:     Wednesday, February 28, 2018
+Report Written:     Sunday, March 04, 2018
 Design Path:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab6\Lab6_TM4C123starter.pcb
 Design Title:       
 Created:            1/28/2013 11:01:41 PM
-Last Saved:         2/27/2018 3:00:44 PM
-Editing Time:       830 min
+Last Saved:         3/4/2018 8:07:55 PM
+Editing Time:       1204 min
 Units:              mil (precision 0)
 
 
 Checking integrity of Schematic "C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab6\Lab6_TM4C123starter.sch" with PCB "C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab6\Lab6_TM4C123starter.pcb"
 ======================================================================================================================================================================================================================
+
+The designs are the same.
 
 
 End Of Report.
