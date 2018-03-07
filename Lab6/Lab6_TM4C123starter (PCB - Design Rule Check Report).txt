@@ -2,200 +2,130 @@ Design Rule Check Report
 ------------------------
 
 Report File:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab6\Lab6_TM4C123starter (PCB - Design Rule Check Report).txt
-Report Written:     Wednesday, February 28, 2018
+Report Written:     Monday, March 05, 2018
 Design Path:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab6\Lab6_TM4C123starter.pcb
 Design Title:       
 Created:            1/28/2013 11:01:41 PM
-Last Saved:         2/28/2018 12:16:19 AM
-Editing Time:       845 min
+Last Saved:         3/5/2018 3:49:36 PM
+Editing Time:       1271 min
 Units:              mil (precision 0)
 
 
 Results
 =======
 
-Gap in Net "+3.3" between (10688,10550) and (10488,10713) 
-    +3.3.
-Gap in Net "+3.3" between (10488,10713) and (10763,10875) 
-    +3.3.
-Gap in Net "+3.3" between (10488,10713) and (10113,10863) 
-    +3.3.
-Gap in Net "+3.3" between (10113,10863) and (10013,10863) 
-    +3.3.
-Gap in Net "+3.3" between (10013,10863) and (9763,10913) 
-    +3.3.
-Gap in Net "+3.3" between (9513,9900) and (9150,9675) 
-    +3.3.
-Gap in Net "+3.3" between (10350,9475) and (10838,9238) 
-    +3.3.
-Gap in Net "+3.3" between (9963,9475) and (9963,8850) 
-    +3.3.
-Gap in Net "+3.3" between (9963,8850) and (9338,8953) 
-    +3.3.
-Gap in Net "+3.3" between (9513,9900) and (9150,10475) 
-    +3.3.
-Gap in Net "+3.3" between (9150,10475) and (8438,10900) 
-    +3.3.
-Gap in Net "+5V" between (11138,10725) and (10963,10875) 
-    +5V.
-Gap in Net "+5V" between (11138,10725) and (11588,10325) 
-    +5V.
-Gap in Net "+5V" between (11588,10325) and (11605,10035) 
-    +5V.
-Gap in Net "+5V" between (11605,10035) and (11705,10035) 
-    +5V.
-Gap in Net "+5V" between (11605,10035) and (11338,10113) 
-    +5V.
-Gap in Net "+5V" between (11605,10035) and (11650,9062) 
-    +5V.
-Gap in Net "Battery" between (11584,10699) and (11238,10113) 
-    Battery.
-Gap in Net "GND" between (10285,10675) and (10125,10675) 
-    GND.
-Gap in Net "GND" between (10125,10675) and (9950,10525) 
-    GND.
-Gap in Net "GND" between (10285,10675) and (10488,10913) 
-    GND.
-Gap in Net "GND" between (10488,10913) and (10863,10875) 
-    GND.
-Gap in Net "GND" between (10863,10875) and (10863,10725) 
-    GND.
-Gap in Net "GND" between (10863,10875) and (11138,10925) 
-    GND.
-Gap in Net "GND" between (9950,10525) and (10217,10159) 
-    GND.
-Gap in Net "GND" between (10079,9691) and (10113,9375) 
-    GND.
-Gap in Net "GND" between (10113,9375) and (9963,9375) 
-    GND.
-Gap in Net "GND" between (10113,9375) and (10350,9375) 
-    GND.
-Gap in Net "GND" between (10422,9974) and (10763,10000) 
-    GND.
-Gap in Net "GND" between (10763,10000) and (10763,9863) 
-    GND.
-Gap in Net "GND" between (10763,9863) and (10763,9738) 
-    GND.
-Gap in Net "GND" between (11138,10925) and (11584,10801) 
-    GND.
-Gap in Net "GND" between (11584,10801) and (11688,10325) 
-    GND.
-Gap in Net "GND" between (10350,9375) and (10700,9013) 
-    GND.
-Gap in Net "GND" between (10700,9013) and (10800,9013) 
-    GND.
-Gap in Net "GND" between (9953,9955) and (9413,9900) 
-    GND.
-Gap in Net "GND" between (9413,9900) and (9413,9738) 
-    GND.
-Gap in Net "GND" between (9413,9738) and (9375,9588) 
-    GND.
-Gap in Net "GND" between (9413,9900) and (9413,10063) 
-    GND.
-Gap in Net "GND" between (9375,9588) and (9150,9575) 
-    GND.
-Gap in Net "GND" between (10800,9013) and (11350,9075) 
-    GND.
-Gap in Net "GND" between (11350,9075) and (11600,9062) 
-    GND.
-Gap in Net "GND" between (9150,9575) and (8675,9875) 
-    GND.
-Gap in Net "GND" between (9375,9588) and (9338,9023) 
-    GND.
-Gap in Net "GND" between (9338,9023) and (8838,9000) 
-    GND.
-Gap in Net "GND" between (8838,9000) and (8738,9000) 
-    GND.
-Gap in Net "GND" between (8738,9000) and (8638,9000) 
-    GND.
-Gap in Net "GND" between (8638,9000) and (8538,9000) 
-    GND.
-Gap in Net "GND" between (8538,9000) and (8438,9000) 
-    GND.
-Gap in Net "GND" between (8438,9000) and (8338,9000) 
-    GND.
-Gap in Net "GND" between (8338,9000) and (8238,9000) 
-    GND.
-Gap in Net "GND" between (8238,9000) and (8138,9000) 
-    GND.
-Gap in Net "GND" between (8675,9875) and (8213,10300) 
-    GND.
-Gap in Net "GND" between (8213,10300) and (8188,10825) 
-    GND.
-Gap in Net "GND" between (8188,10825) and (8088,10825) 
-    GND.
-Gap in Net "GND" between (8188,10825) and (8738,10900) 
-    GND.
-Gap in Net "GND" between (8738,10900) and (9100,10750) 
-    GND.
-Gap in Net "GND" between (9100,10750) and (9360,10750) 
-    GND.
-Gap in Net "N0678" between (10422,9915) and (9150,9775) 
-    N0678.
-Gap in Net "N0679" between (10422,9895) and (9150,9875) 
-    N0679.
-Gap in Net "N0680" between (10422,9836) and (9150,10075) 
-    N0680.
-Gap in Net "N0681" between (10422,9876) and (9150,10175) 
-    N0681.
-Gap in Net "N0682" between (10422,9817) and (9150,10275) 
-    N0682.
-Gap in Net "N0683" between (9953,9895) and (8538,10600) 
-    N0683.
-Gap in Net "N0684" between (10099,9691) and (8438,10600) 
-    N0684.
-Gap in Net "N0685" between (9953,9915) and (8638,10600) 
-    N0685.
-Gap in Net "N0686" between (8075,9875) and (8075,9713) 
-    N0686.
-Gap in Net "N0689" between (8213,10450) and (8675,9713) 
-    N0689.
-Gap in Net "N0689" between (8675,9713) and (8675,9563) 
-    N0689.
-Gap in Net "N0692" between (8638,10900) and (8288,10375) 
-    N0692.
-Gap in Net "N0692" between (8288,10375) and (8075,9563) 
-    N0692.
-Gap in Net "N0692" between (8075,9563) and (9363,8850) 
-    N0692.
-Gap in Net "N0698" between (10263,8963) and (10500,8838) 
-    N0698.
-Gap in Net "N0699" between (11000,8838) and (10850,8838) 
-    N0699.
-Gap in Net "N0699" between (11000,8838) and (11700,8863) 
-    N0699.
-Gap in Net "N0700" between (11600,8863) and (11650,8863) 
-    N0700.
-Gap in Net "N0700" between (11600,8863) and (10663,10725) 
-    N0700.
-Gap in Net "N0705" between (11350,8838) and (11700,9062) 
-    N0705.
-Gap in Net "N0705" between (11700,9062) and (11675,9363) 
-    N0705.
-Gap in Net "N0706" between (11550,9062) and (11575,9363) 
-    N0706.
-Gap in Net "N0711" between (8538,10900) and (10163,8963) 
-    N0711.
-Gap in Net "PC0" between (9413,10163) and (9953,10014) 
-    PC0.
-Gap in Net "PC1" between (9413,10263) and (9953,10033) 
-    PC1.
-Gap in Net "PC2" between (9413,10363) and (9953,10053) 
-    PC2.
-Gap in Net "PC3" between (9413,10463) and (9953,10073) 
-    PC3.
-Gap in Net "PowerLED" between (11088,9238) and (11350,8975) 
-    PowerLED.
-Gap in Net "RST" between (9513,10913) and (9360,10907) 
-    RST.
-Gap in Net "RST" between (9360,10907) and (9100,10907) 
-    RST.
-Gap in Net "RST" between (9513,10913) and (10237,10159) 
-    RST.
-Gap in Net "Wake" between (10688,10300) and (10422,10073) 
-    Wake.
+Track to Pad Error (T-P) between (10046 9667) and (10060 9667) on Layer "Top Copper".
+    Error between Component Pad U1.1 and Track (Net '+3.3'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10046 9691) and (10060 9691) on Layer "Top Copper".
+    Error between Component Pad U1.1 and Track (Net '+3.3'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10066 9691) and (10079 9691) on Layer "Top Copper".
+    Error between Component Pad U1.2 (Net '+3.3') and Track (Net 'GND'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10073 9667) and (10060 9667) on Layer "Top Copper".
+    Error between Component Pad U1.3 (Net 'GND') and Track (Net '+3.3'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10073 9714) and (10060 9714) on Layer "Top Copper".
+    Error between Component Pad U1.3 (Net 'GND') and Track (Net '+3.3'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10093 9714) and (10079 9714) on Layer "Top Copper".
+    Error between Component Pad U1.4 (Net 'DAC_Din') and Track (Net 'GND'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10105 9697) and (10113 9697) on Layer "Top Copper".
+    Error between Component Pad U1.4 (Net 'DAC_Din') and Track (Net 'PF4'), Gap is 4 needs to be 7.
+Track to Pad Error (T-P) between (10223 9667) and (10237 9667) on Layer "Top Copper".
+    Error between Component Pad U1.10 and Track (Net '+3.3'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10223 9691) and (10237 9691) on Layer "Top Copper".
+    Error between Component Pad U1.10 and Track (Net '+3.3'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10243 9691) and (10256 9691) on Layer "Top Copper".
+    Error between Component Pad U1.11 (Net '+3.3') and Track (Net 'GND'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10250 9667) and (10237 9667) on Layer "Top Copper".
+    Error between Component Pad U1.12 (Net 'GND') and Track (Net '+3.3'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10250 9714) and (10237 9714) on Layer "Top Copper".
+    Error between Component Pad U1.12 (Net 'GND') and Track (Net '+3.3'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10270 9714) and (10261 9723) on Layer "Top Copper".
+    Error between Component Pad U1.13 and Track (Net 'GND'), Gap is 4 needs to be 7.
+Track to Pad Error (T-P) between (10422 9941) and (10422 9955) on Layer "Top Copper".
+    Error between Component Pad U1.25 (Net 'LDO') and Track (Net '+3.3'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10422 9961) and (10422 9974) on Layer "Top Copper".
+    Error between Component Pad U1.26 (Net '+3.3') and Track (Net 'GND'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10398 9968) and (10398 9955) on Layer "Top Copper".
+    Error between Component Pad U1.27 (Net 'GND') and Track (Net '+3.3'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10398 9988) and (10398 9974) on Layer "Top Copper".
+    Error between Component Pad U1.28 (Net 'PF0') and Track (Net 'GND'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10445 10007) and (10445 10000) on Layer "Top Copper".
+    Error between Component Pad U1.29 and Track (Net 'PF0'), Gap is 4 needs to be 7.
+Track to Pad Error (T-P) between (10282 10136) and (10296 10136) on Layer "Top Copper".
+    Error between Component Pad U1.36 and Track (Net 'GND'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10270 10159) and (10256 10159) on Layer "Top Copper".
+    Error between Component Pad U1.36 and Track (Net '+3.3'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10230 10159) and (10217 10159) on Layer "Top Copper".
+    Error between Component Pad U1.38 (Net 'RST') and Track (Net 'GND'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10243 10136) and (10256 10136) on Layer "Top Copper".
+    Error between Component Pad U1.38 (Net 'RST') and Track (Net '+3.3'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10204 10136) and (10217 10136) on Layer "Top Copper".
+    Error between Component Pad U1.40 (Net 'OSC0') and Track (Net 'GND'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10171 10183) and (10158 10183) on Layer "Top Copper".
+    Error between Component Pad U1.41 (Net 'OSC1') and Track (Net '+3.3'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10171 10159) and (10158 10159) on Layer "Top Copper".
+    Error between Component Pad U1.41 (Net 'OSC1') and Track (Net '+3.3'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10145 10183) and (10158 10183) on Layer "Top Copper".
+    Error between Component Pad U1.43 and Track (Net '+3.3'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (10145 10136) and (10158 10136) on Layer "Top Copper".
+    Error between Component Pad U1.43 and Track (Net '+3.3'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (9930 10040) and (9930 10050) on Layer "Top Copper".
+    Error between Component Pad U1.51 (Net 'PC1') and Track (Net 'PC2'), Gap is 7 needs to be 7.
+Track to Pad Error (T-P) between (9953 9988) and (9953 9975) on Layer "Top Copper".
+    Error between Component Pad U1.53 and Track (Net '+3.3'), Gap is 5 needs to be 7.
+Track to Pad Error (T-P) between (9953 9988) and (9953 9975) on Layer "Top Copper".
+    Error between Component Pad U1.53 and Track (Net '+3.3'), Gap is 5 needs to be 7.
+Track to Pad Error (T-P) between (9953 9968) and (9953 9955) on Layer "Top Copper".
+    Error between Component Pad U1.54 (Net '+3.3') and Track (Net 'GND'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (9953 9961) and (9953 9974) on Layer "Top Copper".
+    Error between Component Pad U1.55 (Net 'GND') and Track (Net '+3.3'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (9953 9961) and (9953 9974) on Layer "Top Copper".
+    Error between Component Pad U1.55 (Net 'GND') and Track (Net '+3.3'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (9977 9941) and (9977 9955) on Layer "Top Copper".
+    Error between Component Pad U1.56 (Net 'LDO') and Track (Net 'GND'), Gap is 6 needs to be 7.
+Track to Pad Error (T-P) between (9930 9941) and (9930 9950) on Layer "Top Copper".
+    Error between Component Pad U1.56 (Net 'LDO') and Track (Net 'GND'), Gap is 5 needs to be 7.
+Track to Pad Error (T-P) between (8318 10375) and (8325 10375) on Layer "Bottom Copper".
+    Error between Component Pad U4.2 (Net 'DAC_RefIn') and Track (Net 'Diode_Ref'), Gap is 3 needs to be 7.
+Track to Track Error (T-T) between (9953 9955) and (9953 9974) on Layer "Top Copper".
+    Error between Track (Net 'GND') and Track (Net '+3.3'), Gap is 5 needs to be 7.
+Track to Track Error (T-T) between (9953 9955) and (9953 9974) on Layer "Top Copper".
+    Error between Track (Net 'GND') and Track (Net '+3.3'), Gap is 5 needs to be 7.
+Track to Track Error (T-T) between (9953 9955) and (9951 9938) on Layer "Top Copper".
+    Error between Track (Net 'GND') and Track (Net 'LDO'), Gap is 6 needs to be 7.
+Track to Track Error (T-T) between (10422 9974) and (10422 9955) on Layer "Top Copper".
+    Error between Track (Net 'GND') and Track (Net '+3.3'), Gap is 5 needs to be 7.
+Track to Track Error (T-T) between (10256 9691) and (10237 9691) on Layer "Top Copper".
+    Error between Track (Net 'GND') and Track (Net '+3.3'), Gap is 5 needs to be 7.
+Track to Track Error (T-T) between (10256 9691) and (10237 9691) on Layer "Top Copper".
+    Error between Track (Net 'GND') and Track (Net '+3.3'), Gap is 5 needs to be 7.
+Track to Track Error (T-T) between (10079 9691) and (10060 9691) on Layer "Top Copper".
+    Error between Track (Net 'GND') and Track (Net '+3.3'), Gap is 5 needs to be 7.
+Track to Track Error (T-T) between (10079 9691) and (10060 9691) on Layer "Top Copper".
+    Error between Track (Net 'GND') and Track (Net '+3.3'), Gap is 5 needs to be 7.
+Track to Via Error (T-V) between (10094 9756) and (10104 9746) on Layer "Top Copper".
+    Error between Track (Net 'GND') and Via (Net 'PF4'), Gap is 7 needs to be 7.
+Track to Via Error (T-V) between (10079 9625) and (10086 9625) on Layer "Top Copper".
+    Error between Track (Net 'GND') and Via (Net 'DAC_Din'), Gap is 4 needs to be 7.
+Track to Track Error (T-T) between (9825 9950) and (9825 9938) on Layer "Top Copper".
+    Error between Track (Net 'GND') and Track (Net 'LDO'), Gap is 6 needs to be 7.
+Track to Via Error (T-V) between (10237 10213) and (10230 10213) on Layer "Top Copper".
+    Error between Via (Net 'GND') and Track (Net 'RST'), Gap is 4 needs to be 7.
+Via to Via Error (V-V) between (10225 10222) and (10229 10228) on Layer "[All]".
+    Error between Via (Net 'GND') and Via (Net 'RST'), Gap is 7 needs to be 7.
+Track to Via Error (T-V) between (10197 10213) and (10205 10213) on Layer "Top Copper".
+    Error between Via (Net 'GND') and Track (Net 'OSC0'), Gap is 4 needs to be 7.
+Track to Via Error (T-V) between (9788 9975) and (9788 9963) on Layer "Top Copper".
+    Error between Via (Net 'GND') and Track (Net '+3.3'), Gap is 5 needs to be 7.
+Track to Via Error (T-V) between (10562 9936) and (10562 9928) on Layer "Top Copper".
+    Error between Track (Net 'LDO') and Via (Net 'PA7'), Gap is 4 needs to be 7.
+Track to Via Error (T-V) between (9875 9938) and (9875 9928) on Layer "Top Copper".
+    Error between Track (Net 'LDO') and Via (Net 'DAC_CS'), Gap is 6 needs to be 7.
+Track to Via Error (T-V) between (10525 9915) and (10525 9908) on Layer "Top Copper".
+    Error between Track (Net 'PA7') and Via (Net 'PA6'), Gap is 4 needs to be 7.
+Track to Via Error (T-V) between (10475 9895) and (10475 9888) on Layer "Top Copper".
+    Error between Track (Net 'PA6') and Via (Net 'PA5'), Gap is 4 needs to be 7.
 
-Number of errors found : 90
+Number of errors found : 55
 
 
 Settings

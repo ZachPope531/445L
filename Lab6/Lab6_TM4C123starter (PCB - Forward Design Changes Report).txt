@@ -2,19 +2,15 @@ Forward Design Changes Report
 -----------------------------
 
 Report File:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab6\Lab6_TM4C123starter (PCB - Forward Design Changes Report).txt
-Report Written:     Sunday, March 04, 2018
+Report Written:     Monday, March 05, 2018
 Design Path:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab6\Lab6_TM4C123starter.pcb
 Design Title:       
 Created:            1/28/2013 11:01:41 PM
-Last Saved:         3/4/2018 7:49:24 PM
-Editing Time:       1193 min
+Last Saved:         3/5/2018 3:26:30 PM
+Editing Time:       1266 min
 Units:              mil (precision 0)
 
-Added component reference "TP3" of component "testpoint", package "BIG".
-Added component reference "TP4" of component "testpoint", package "BIG".
-
-Connected pin "TP3.1" to net "In-".
-Connected pin "TP4.1" to net "Diode_Ref".
+The designs are the same, so no design changes to forward.
 
 
 End Of Report.
