@@ -15,12 +15,12 @@ R 0.5W 5% MCF 2.0K,R 0.600,0.04,Galco,.5W-2K-5%-CF,,,R5,1,,http://malibor.by/sit
 R 0.5W 5% MCF 10K,R 0.600,0.32,SEI,,Quest Components,RC1/2-10K-5%,R7,1,,
 R 0.5W 5% MCF 12K,R 0.600,0.17,Yageo,FMP100JR-52-12K,Mouser,603-FMP100JR-52-12K,R4,1,,
 R 0.5W 5% MCF 47K,R 0.600,0.8,Ohmite,OF473JE,Mouser,588-OF473JE,R6,1,,
-Speaker,DIP,2.28,CUI Inc,CDM-20008,Digikey,102-2502-ND,J4,1,,https://www.cui.com/product/resource/cdm-20008.pdf
+Speaker,DIP,2.28,CUI Inc,CDM-20008,Digikey,102-2502-ND,J4,1,60mA,https://www.cui.com/product/resource/cdm-20008.pdf
 ST7735,LCD,19.95,Adafruit,,,,J2,1,50mA,http://www.displayfuture.com/Display/datasheet/controller/ST7735.pdf
 tantalum,C,0.94,AVX,TAP685K035CCS,Mouser,581-TAP685K035CCS,C12 C2 C1 C17,4,,https://www.vishay.com/docs/40002/293d.pdf
 testpoint,BIG,0.29,Harwin,S1751-46R,Mouser,855-S1751-46R,TP3 TP4,2,,https://www.advanced.com/pdf/AIC_TESTPIN-TECH07_rev0.pdf
 Testpoint_TwoHole,DIL,0.5,Components Corp,TP-106-01-05,J-Tron,,GND TP2 TP1 Gnd3,4,,http://datasheet.octopart.com/5002-Keystone-datasheet-7266429.pdf
-TLV5618,DIP,12.28,TI,TLV5618ACP,TI,TLV5618ACP,U3,1,,http://www.ti.com/lit/ds/symlink/tlv5618a.pdf
+TLV5618,DIP,12.28,TI,TLV5618ACP,TI,TLV5618ACP,U3,1,1.65mA,http://www.ti.com/lit/ds/symlink/tlv5618a.pdf
 TM4C123GH6PM,LQFP,9.48,TI,TM4C123GH6PMI7,,,U1,1,,http://www.ti.com/lit/ds/symlink/tm4c123gh6pm.pdf
 TPA731,SM,2.25,TI,TPA731D,,,U5,1,,http://www.ti.com/lit/ds/symlink/tpa731.pdf
 USB_Micro-B_SM,SM,0.74,"Molex, LLC",475890001,Digikey,WM17143CT-ND,J5,1,,http://www.symmetron.ru/suppliers/hirose/files/pdf/hirose/hirose_ZX.pdf
