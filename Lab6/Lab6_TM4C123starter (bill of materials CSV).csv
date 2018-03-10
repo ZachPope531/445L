@@ -1,31 +1,31 @@
-Component,Package,Value,Manuf,Manuf Part No,Distrib,Distrib Part No,Ref Name,Qty,Estimated Current
-0.25Wresistor,DIP,0.1,Yageo,CFR-25JB-52-4M7,Mouser,603-CFR-25JB-52-4M7,R8 R9,2,
-0.125Wresistor,DIL,0.1,Ohmite,OJ7505E-R52,Mouser,588-OJ7505E-R52,R2 R3 R1,3,
-C 0.1uF,C0603,0.28,Karlsson Robotics,COM-08375,,,C15,1,
-Ceramic,C,0.12,Vishay,S102K33Y5PP63K5R,Mouser,594-S102K33Y5PP63K5R,C13 C14 C7 C8 C4 C6 C10 C3 C5 C11 C9 C18,12,
-Electrolytic,C,1.01,Panasonic,EEU-FR1V102,Mouser,667-EEU-FR1V102,C16,1,
-Header5,SIP,1.58,Phoenix Enterprises,HWS4670 ,,,J1,1,
-KSC353JLFG,SM,0.4,C&K,KSC353J LFG,Digikey,CKN10952TR-ND,SW1,1,
-LEDT1.75,SIP,1.49,Lumex,SSL-LX5093PC,Mouser,696-SSL-LX5093PC,D1,1,
-LM4041,MISC,0.78,TI,LM4041EIM3-1.2/NOPBCT,Digikey,LM4041EIM3-1.2/NOPBCT-ND,U4,1,
-LogicAnalyzer,DIP,,,,,,J3,1,
-LP2950CZ-3.3,TO220,0.83,TI,LP2950CZ-3.3/NOPB,Digikey,LP2950CZ-3.3/NOPB-ND,U2,1,
-OffBoardPowerSwitch,DIP,0.95,ZF Electronics,SRB22A2FBBNN,Digikey,CH755-ND,SW2,1,
-R 0.5W 5% MCF 2.0K,R 0.600,0.04,Galco,.5W-2K-5%-CF,,,R5,1,
-R 0.5W 5% MCF 10K,R 0.600,0.32,SEI,,Quest Components,RC1/2-10K-5%,R7,1,
-R 0.5W 5% MCF 12K,R 0.600,0.17,Yageo,FMP100JR-52-12K,Mouser,603-FMP100JR-52-12K,R4,1,
-R 0.5W 5% MCF 47K,R 0.600,0.8,Ohmite,OF473JE,Mouser,588-OF473JE,R6,1,
-Speaker,DIP,2.28,CUI Inc,CDM-20008,Digikey,102-2502-ND,J4,1,
-ST7735,LCD,19.95,Adafruit,,,,J2,1,50mA
-tantalum,C,0.94,AVX,TAP685K035CCS,Mouser,581-TAP685K035CCS,C12 C2 C1 C17,4,
-testpoint,BIG,0.29,Harwin,S1751-46R,Mouser,855-S1751-46R,TP3 TP4,2,
-Testpoint_TwoHole,DIL,,,,,,GND TP2 TP1 Gnd3,4,
-TLV5618,DIP,12.28,TI,TLV5618ACP,TI,TLV5618ACP,U3,1,
-TM4C123GH6PM,LQFP,9.48,TI,TM4C123GH6PMI7,,,U1,1,
-TPA731,SM,2.25,TI,TPA731D,,,U5,1,
-USB_Micro-B_SM,SM,0.74,"Molex, LLC",475890001,Digikey,WM17143CT-ND,J5,1,
-XTAL,NX5032,,,,,,Y1,1,
-Box,MISC,,,,,,,1,
-JTAG,PWR,,,,,,,1,
-,,,,,,,,49,
-PCB Artist Bill of Materials is provided for reference only and must be verified by the user.,,,,,,,,,
+Component,Package,Value,Manuf,Manuf Part No,Distrib,Distrib Part No,Ref Name,Qty,Estimated Current,Datasheet
+0.25Wresistor,DIP,0.1,Yageo,CFR-25JB-52-4M7,Mouser,603-CFR-25JB-52-4M7,R8 R9,2,,http://users.ece.utexas.edu/~valvano/Volume1/CarbonFilmresistors.pdf
+0.125Wresistor,DIL,0.1,Ohmite,OJ7505E-R52,Mouser,588-OJ7505E-R52,R2 R3 R1,3,,http://docs-europe.electrocomponents.com/webdocs/1009/0900766b810093cc.pdf
+C 0.1uF,C0603,0.28,Karlsson Robotics,COM-08375,,,C15,1,,http://www.farnell.com/datasheets/2045792.pdf
+Ceramic,C,0.12,Vishay,S102K33Y5PP63K5R,Mouser,594-S102K33Y5PP63K5R,C13 C14 C7 C8 C4 C6 C10 C3 C5 C11 C9 C18,12,,https://cdn-shop.adafruit.com/datasheets/mkseries.pdf
+Electrolytic,C,1.01,Panasonic,EEU-FR1V102,Mouser,667-EEU-FR1V102,C16,1,,https://industrial.panasonic.com/cdbs/www-data/pdf/RDF0000/ABA0000C1018.pdf
+Header5,SIP,1.58,Phoenix Enterprises,HWS4670 ,,,J1,1,,
+KSC353JLFG,SM,0.4,C&K,KSC353J LFG,Digikey,CKN10952TR-ND,SW1,1,,http://www.mouser.com/ds/2/60/ksc-965385.pdf
+LEDT1.75,SIP,1.49,Lumex,SSL-LX5093PC,Mouser,696-SSL-LX5093PC,D1,1,,https://cdn-shop.adafruit.com/datasheets/IR333_A_datasheet.pdf
+LM4041,MISC,0.78,TI,LM4041EIM3-1.2/NOPBCT,Digikey,LM4041EIM3-1.2/NOPBCT-ND,U4,1,,http://www.ti.com/lit/ds/symlink/lm4041-n.pdf
+LogicAnalyzer,DIP,0.4,,,Synthrotek,HDR-16PIN,J3,1,,
+LP2950CZ-3.3,TO220,0.83,TI,LP2950CZ-3.3/NOPB,Digikey,LP2950CZ-3.3/NOPB-ND,U2,1,,http://www.ti.com/lit/ds/symlink/lp2951-n.pdf
+OffBoardPowerSwitch,DIP,0.95,ZF Electronics,SRB22A2FBBNN,Digikey,CH755-ND,SW2,1,,https://www.mouser.com/ds/2/833/Rocker_SR_PPR-1075680.pdf
+R 0.5W 5% MCF 2.0K,R 0.600,0.04,Galco,.5W-2K-5%-CF,,,R5,1,,http://malibor.by/sitedocs/00030.pdf
+R 0.5W 5% MCF 10K,R 0.600,0.32,SEI,,Quest Components,RC1/2-10K-5%,R7,1,,
+R 0.5W 5% MCF 12K,R 0.600,0.17,Yageo,FMP100JR-52-12K,Mouser,603-FMP100JR-52-12K,R4,1,,
+R 0.5W 5% MCF 47K,R 0.600,0.8,Ohmite,OF473JE,Mouser,588-OF473JE,R6,1,,
+Speaker,DIP,2.28,CUI Inc,CDM-20008,Digikey,102-2502-ND,J4,1,,https://www.cui.com/product/resource/cdm-20008.pdf
+ST7735,LCD,19.95,Adafruit,,,,J2,1,50mA,http://www.displayfuture.com/Display/datasheet/controller/ST7735.pdf
+tantalum,C,0.94,AVX,TAP685K035CCS,Mouser,581-TAP685K035CCS,C12 C2 C1 C17,4,,https://www.vishay.com/docs/40002/293d.pdf
+testpoint,BIG,0.29,Harwin,S1751-46R,Mouser,855-S1751-46R,TP3 TP4,2,,https://www.advanced.com/pdf/AIC_TESTPIN-TECH07_rev0.pdf
+Testpoint_TwoHole,DIL,0.5,Components Corp,TP-106-01-05,J-Tron,,GND TP2 TP1 Gnd3,4,,http://datasheet.octopart.com/5002-Keystone-datasheet-7266429.pdf
+TLV5618,DIP,12.28,TI,TLV5618ACP,TI,TLV5618ACP,U3,1,,http://www.ti.com/lit/ds/symlink/tlv5618a.pdf
+TM4C123GH6PM,LQFP,9.48,TI,TM4C123GH6PMI7,,,U1,1,,http://www.ti.com/lit/ds/symlink/tm4c123gh6pm.pdf
+TPA731,SM,2.25,TI,TPA731D,,,U5,1,,http://www.ti.com/lit/ds/symlink/tpa731.pdf
+USB_Micro-B_SM,SM,0.74,"Molex, LLC",475890001,Digikey,WM17143CT-ND,J5,1,,http://www.symmetron.ru/suppliers/hirose/files/pdf/hirose/hirose_ZX.pdf
+XTAL,NX5032,0.49,Vishay,XT9S20ANA8M,Mouser,73-XT49S800-20,Y1,1,,https://www.mouser.com/ds/2/427/xt49s-88235.pdf
+Box,MISC,,,,,,,1,,
+JTAG,PWR,,,,,,,1,,
+,,,,,,,,49,50 mA/120 mA,
+PCB Artist Bill of Materials is provided for reference only and must be verified by the user.,,,,,,,,,,
