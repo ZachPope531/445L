@@ -1,0 +1,15 @@
+Component,Package,Value,Manuf,Manuf Part No,Distrib,Distrib Part No,Ref Name,Qty
+0.125Wresistor,DIL,,,,,,R3,1
+BoosterPack,QIP,,,,,,U3,1
+Header2,SIP,,,,,,J1,1
+KSC353JLFG,SM,,,,,,SW1,1
+LEDT1.75,SIP,,,,,,D1,1
+LogicAnalyzer,DIP,,,,,,J3,1
+LP2950CZ-3.3,TO220,,,,,,U2,1
+OffBoardPowerSwitch,DIP,,,,,,SW2,1
+ST7735,LCD,,,,,,J4,1
+tantalum,C,,,,,,C2 C1,2
+Testpoint_TwoHole,DIL,,,,,,Gnd Gnd3 TP2 TP1,4
+USB_Micro-B_SM,SM,,,,,,J5,1
+,,,,,,,,16
+PCB Artist Bill of Materials is provided for reference only and must be verified by the user.,,,,,,,,
