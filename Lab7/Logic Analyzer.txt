@@ -1,0 +1,8 @@
+Ch0 - RF Tx vs Rx enable
+Ch1 - TM4C Rx
+Ch2 - TM4C Tx
+Ch3 - RF Fss
+Ch4 - RF Interrupts
+Ch5 - Motor1/2 Enable
+Ch6 - Motor1 PWM
+Ch7 - Motor2 PWM

@@ -2,12 +2,12 @@ Design Consistency Status Report
 --------------------------------
 
 Report File:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car (PCB - Design Consistency Status Report).txt
-Report Written:     Wednesday, March 21, 2018
+Report Written:     Monday, March 26, 2018
 Design Path:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         3/6/2018 11:44:44 AM
-Editing Time:       876 min
+Last Saved:         3/21/2018 4:27:37 PM
+Editing Time:       887 min
 Units:              mil (precision 0)
 
 
