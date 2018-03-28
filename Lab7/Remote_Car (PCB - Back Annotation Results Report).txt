@@ -1,0 +1,18 @@
+Back Annotation Results Report
+------------------------------
+
+Report File:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car (PCB - Back Annotation Results Report).txt
+Report Written:     Tuesday, March 27, 2018
+Design Path:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car.pcb
+Design Title:       
+Created:            1/29/2013 12:01:41 AM
+Last Saved:         3/27/2018 4:24:36 PM
+Editing Time:       1032 min
+Units:              mil (precision 0)
+
+Back Annotate renames from PCB "C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car.pcb" to Schematic "C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car.sch".
+
+Renamed Component from "MotorControl" to "Motor".
+
+
+End Of Report.

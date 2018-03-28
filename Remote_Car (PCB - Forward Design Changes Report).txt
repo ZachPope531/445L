@@ -1,0 +1,21 @@
+Forward Design Changes Report
+-----------------------------
+
+Report File:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Remote_Car (PCB - Forward Design Changes Report).txt
+Report Written:     Tuesday, March 27, 2018
+Design Path:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Remote_Car.pcb
+Design Title:       
+Created:            1/29/2013 12:01:41 AM
+Last Saved:         3/27/2018 4:38:40 PM
+Editing Time:       1033 min
+Units:              mil (precision 0)
+
+Added component reference "C3" of component "Capacitor", package "C".
+
+Connected pin "U3.1" to net "+3.3".
+Connected pin "U3.20" to net "GND".
+Connected pin "C3.1" to net "GND".
+Connected pin "C3.2" to net "+5V".
+
+
+End Of Report.
