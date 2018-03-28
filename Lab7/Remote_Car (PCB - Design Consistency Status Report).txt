@@ -1,18 +1,23 @@
 Design Consistency Status Report
 --------------------------------
 
-Report File:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car (PCB - Design Consistency Status Report).txt
-Report Written:     Monday, March 26, 2018
-Design Path:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car.pcb
+Report File:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Remote_Car (PCB - Design Consistency Status Report).txt
+Report Written:     Tuesday, March 27, 2018
+Design Path:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Remote_Car.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         3/21/2018 4:27:37 PM
-Editing Time:       887 min
+Last Saved:         3/27/2018 11:18:50 PM
+Editing Time:       1042 min
 Units:              mil (precision 0)
 
 
-Checking integrity of Schematic "C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car.sch" with PCB "C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car.pcb"
-====================================================================================================================================================================================================
+Checking integrity of Schematic "C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Remote_Car.sch" with PCB "C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Remote_Car.pcb"
+==========================================================================================================================================================================================
+
+The PCB and Schematic designs do not match.
+To bring them into line, you will need to make the following changes to the PCB design:
+
+Change value "Value" on component reference "C3" to "4.7uF".
 
 
 End Of Report.

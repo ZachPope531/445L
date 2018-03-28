@@ -7,3 +7,5 @@ NEED
 
 CONTROLLER - wireless, switch, joystick
 CAR - wireless, main, motor/h-bridge
+
+rf - init, send, receive

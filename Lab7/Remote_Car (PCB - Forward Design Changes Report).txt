@@ -1,69 +1,17 @@
 Forward Design Changes Report
 -----------------------------
 
-Report File:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car (PCB - Forward Design Changes Report).txt
-Report Written:     Monday, March 26, 2018
-Design Path:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car.pcb
+Report File:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Remote_Car (PCB - Forward Design Changes Report).txt
+Report Written:     Tuesday, March 27, 2018
+Design Path:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Remote_Car.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         3/21/2018 4:27:37 PM
-Editing Time:       888 min
+Last Saved:         3/27/2018 11:18:50 PM
+Editing Time:       1042 min
 Units:              mil (precision 0)
 
-Disconnected pin "U3.2" from net "PB5".
-Disconnected pin "U3.7" from net "PB4".
-Disconnected pin "U3.38" from net "PB3".
-Disconnected pin "MotorControl.9" from net "PB3".
-Disconnected pin "MotorControl.10" from net "PB4".
-Disconnected pin "MotorControl.11" from net "M3Power".
-Disconnected pin "MotorControl.14" from net "M4Power".
-Disconnected pin "MotorControl.15" from net "PB5".
-Disconnected pin "M4.1" from net "M4Power".
-Disconnected pin "M4.2" from net "GND".
-Disconnected pin "M3.1" from net "M3Power".
-Disconnected pin "M3.2" from net "GND".
-Disconnected pin "M4BEMF.1" from net "GND".
-Disconnected pin "M4BEMF.2" from net "M4Power".
-Disconnected pin "M3BEMF.1" from net "GND".
-Disconnected pin "M3BEMF.2" from net "M3Power".
+Added value "Value=4.7uF" to component reference "C3".
 
-Deleted component reference "M4".
-Deleted component reference "M3".
-Deleted component reference "M4BEMF".
-Deleted component reference "M3BEMF".
-
-Added net "RF_CE".
-Added net "RF_CSN".
-Added net "RF_IRQ".
-Added net "RF_MISO".
-Added net "RF_MOSI".
-Added net "RF_SCK".
-
-Added component reference "J2" of component "Header4", package "SIP".
-Added component reference "J6" of component "Header4", package "SIP".
-
-Connected pin "J3.16" to net "RF_CE".
-Connected pin "J3.15" to net "RF_MISO".
-Connected pin "J3.14" to net "RF_MOSI".
-Connected pin "J3.13" to net "RF_CSN".
-Connected pin "J3.12" to net "RF_IRQ".
-Connected pin "J3.11" to net "PB2".
-Connected pin "J3.10" to net "PB7".
-Connected pin "J3.9" to net "PB6".
-Connected pin "U3.18" to net "RF_CE".
-Connected pin "U3.31" to net "RF_IRQ".
-Connected pin "U3.39" to net "RF_CSN".
-Connected pin "U3.40" to net "RF_SCK".
-Connected pin "U3.30" to net "RF_MOSI".
-Connected pin "U3.17" to net "RF_MISO".
-Connected pin "J2.1" to net "+3.3".
-Connected pin "J2.2" to net "RF_CSN".
-Connected pin "J2.3" to net "RF_MOSI".
-Connected pin "J2.4" to net "RF_IRQ".
-Connected pin "J6.1" to net "RF_MISO".
-Connected pin "J6.2" to net "RF_SCK".
-Connected pin "J6.3" to net "RF_CE".
-Connected pin "J6.4" to net "GND".
 
 
 End Of Report.
