@@ -1,0 +1,9 @@
+Lab 8 Notes
+
+
+NEED
+- header files of modules
+
+
+CONTROLLER - wireless, switch, joystick
+CAR - wireless, main, motor/h-bridge
