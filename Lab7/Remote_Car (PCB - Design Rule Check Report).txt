@@ -1,13 +1,13 @@
 Design Rule Check Report
 ------------------------
 
-Report File:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Remote_Car (PCB - Design Rule Check Report).txt
-Report Written:     Tuesday, March 27, 2018
-Design Path:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Remote_Car.pcb
+Report File:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car (PCB - Design Rule Check Report).txt
+Report Written:     Thursday, March 29, 2018
+Design Path:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         3/27/2018 4:40:26 PM
-Editing Time:       1038 min
+Last Saved:         3/29/2018 1:03:46 AM
+Editing Time:       1274 min
 Units:              mil (precision 0)
 
 

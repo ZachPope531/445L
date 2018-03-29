@@ -2,37 +2,20 @@ Forward Design Changes Report
 -----------------------------
 
 Report File:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car (PCB - Forward Design Changes Report).txt
-Report Written:     Wednesday, March 28, 2018
+Report Written:     Thursday, March 29, 2018
 Design Path:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         3/28/2018 4:34:06 PM
-Editing Time:       1191 min
+Last Saved:         3/29/2018 12:45:52 AM
+Editing Time:       1263 min
 Units:              mil (precision 0)
 
-Disconnected pin "Motor.3" from net "M1Power+".
-Disconnected pin "Motor.6" from net "M1Power-".
 Disconnected pin "Motor.14" from net "M1Power-".
-Disconnected pin "M1.1" from net "M1Power+".
-Disconnected pin "M1.2" from net "M1Power-".
 Disconnected pin "M2.2" from net "M1Power-".
-Disconnected pin "M2BEMF.1" from net "M1Power-".
-Disconnected pin "M2BEMF.2" from net "M2Power+".
-Disconnected pin "M1BEMF.1" from net "M1Power-".
-Disconnected pin "M1BEMF.2" from net "M1Power+".
 
-Deleted component reference "M2BEMF".
-Deleted component reference "M1BEMF".
-
-Added net "N0746".
-Added net "N0747".
 Added net "M2Power-".
 
 Connected pin "Motor.14" to net "M2Power-".
-Connected pin "Motor.6" to net "N0747".
-Connected pin "Motor.3" to net "N0746".
-Connected pin "M1.1" to net "N0746".
-Connected pin "M1.2" to net "N0747".
 Connected pin "M2.2" to net "M2Power-".
 
 
