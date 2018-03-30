@@ -2,45 +2,19 @@ Design Consistency Status Report
 --------------------------------
 
 Report File:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car (PCB - Design Consistency Status Report).txt
-Report Written:     Wednesday, March 28, 2018
+Report Written:     Thursday, March 29, 2018
 Design Path:        C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car.pcb
 Design Title:       
 Created:            1/29/2013 12:01:41 AM
-Last Saved:         3/28/2018 4:34:06 PM
-Editing Time:       1191 min
+Last Saved:         3/29/2018 1:03:46 AM
+Editing Time:       1273 min
 Units:              mil (precision 0)
 
 
 Checking integrity of Schematic "C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car.sch" with PCB "C:\Users\zacan\Dropbox\School\EE445L\ValvanoWare\GitHub\Lab7\Remote_Car.pcb"
 ====================================================================================================================================================================================================
 
-The PCB and Schematic designs do not match.
-To bring them into line, you will need to make the following changes to the PCB design:
-
-Disconnect Pin Motor-3 from Net "M1Power+"
-Disconnect Pin Motor-6 from Net "M1Power-"
-Disconnect Pin Motor-14 from Net "M1Power-"
-Disconnect Pin M1-1 from Net "M1Power+"
-Disconnect Pin M1-2 from Net "M1Power-"
-Disconnect Pin M2-2 from Net "M1Power-"
-Disconnect Pin M2BEMF-1 from Net "M1Power-"
-Disconnect Pin M2BEMF-2 from Net "M2Power+"
-Disconnect Pin M1BEMF-1 from Net "M1Power-"
-Disconnect Pin M1BEMF-2 from Net "M1Power+"
-
-Delete Component "M2BEMF" [1N914]
-Delete Component "M1BEMF" [1N914]
-
-Add Net "N0746"
-Add Net "N0747"
-Add Net "M2Power-"
-
-Connect Pin Motor-14 to Net "M2Power-"
-Connect Pin Motor-6 to Net "N0747"
-Connect Pin Motor-3 to Net "N0746"
-Connect Pin M1-1 to Net "N0746"
-Connect Pin M1-2 to Net "N0747"
-Connect Pin M2-2 to Net "M2Power-"
+The designs are the same.
 
 
 End Of Report.
