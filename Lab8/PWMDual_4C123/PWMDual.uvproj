@@ -425,6 +425,36 @@
               <FileType>1</FileType>
               <FilePath>.\PWMDualTest.c</FilePath>
             </File>
+            <File>
+              <FileName>MotorController.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MotorController.c</FilePath>
+            </File>
+            <File>
+              <FileName>controls.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\controls.h</FilePath>
+            </File>
+            <File>
+              <FileName>MotorController.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\MotorController.h</FilePath>
+            </File>
+            <File>
+              <FileName>rf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\rf.h</FilePath>
+            </File>
+            <File>
+              <FileName>Screen.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Screen.h</FilePath>
+            </File>
+            <File>
+              <FileName>ssi.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ssi.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

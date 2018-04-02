@@ -1,0 +1,22 @@
+Dependencies for Project 'PWMDual', Target 'PWMDual': (DO NOT MODIFY !)
+F (.\startup.s)(0x5198397A)(--cpu Cortex-M4 -g --apcs=interwork -I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\PLL.c)(0x5545A0E2)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\pll.o --omf_browse .\pll.crf --depend .\pll.d)
+I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (PLL.h)(0x55463040)
+I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
+F (.\PWMDual.c)(0x554B5FEC)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\pwmdual.o --omf_browse .\pwmdual.crf --depend .\pwmdual.d)
+I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
+F (.\PWMDualTest.c)(0x5AC1BA00)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\pwmdualtest.o --omf_browse .\pwmdualtest.crf --depend .\pwmdualtest.d)
+I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (PLL.h)(0x55463040)
+I (MotorController.h)(0x5AC1B6D4)
+F (.\MotorController.c)(0x5AC1B8A1)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\motorcontroller.o --omf_browse .\motorcontroller.crf --depend .\motorcontroller.d)
+I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (..\.\inc\tm4c123gh6pm.h)(0x5388C2DA)
+I (MotorController.h)(0x5AC1B6D4)
+F (.\controls.h)(0x5ABC82FB)()
+F (.\MotorController.h)(0x5AC1B6D4)()
+F (.\rf.h)(0x5ABC82FB)()
+F (.\Screen.h)(0x5ABC0347)()
+F (.\ssi.h)(0x5ABC82FB)()

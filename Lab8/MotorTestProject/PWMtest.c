@@ -97,7 +97,7 @@ void WaitForTouch(void){
 int main(void){
   PLL_Init(Bus80MHz);  // bus clock at 80 MHz
   PortF_Init();
-  Power = 5;
+  Power = 1;
   Steering = SERVOMID;  // 20ms period 1.5ms pulse
   SteeringMode = 0;
   Left_Init(12500, Power,0);          // initialize PWM0, 100 Hz

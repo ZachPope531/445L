@@ -5,7 +5,7 @@ PB2,3 are GPIO for enable
 */
 
 //Initialize PB4-7 as PWM and PB2,3 as GPIO
-void PortB_Init(void);
+void PortB_Init(uint16_t period1, uint16_t period2, uint16_t duty);
 
 //Sets the duty cycle for the PWMs
 //Chooses motor 0 or 1

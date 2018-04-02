@@ -30,17 +30,13 @@
  
 #include <stdint.h>
 #include "PLL.h"
-#include "PWMDual.h"
+#include "MotorController.h"
 
 void WaitForInterrupt(void);  // low power mode
 
 int main(void){
-  PLL_Init(Bus3_200MHz);           // bus clock at 3.2 MHz
-  PWM0Dual_Init(60000);            // initialize PWM1-0, 0.8333 Hz, 1 RPM
-//  PWM0Dual_Period(4000);           // 12.50 Hz, 15 RPM
-//  PWM0Dual_Period(2400);           // 20.83 Hz, 25 RPM
-//  PWM0Dual_Period(667);            // 75.00 Hz, 90 RPM
-//  PWM0Dual_Period(600);            // 83.33 Hz, 100 RPM
+  PLL_Init(Bus80MHz);           // bus clock at 80 MHz
+	PortB_Init(12500, 12500-100, 500);
   while(1){
     WaitForInterrupt();
   }
