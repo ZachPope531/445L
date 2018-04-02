@@ -1,14 +1,12 @@
 Component                     Package   Value               Manuf               Manuf Part No       Distrib             Distrib Part No     Ref Name         Qty
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 0.125Wresistor                DIL                                                                                                           R3                 1
-1N914                         MISC                                                                                                          M2BEMF             2
-                                                                                                                                            M1BEMF              
 BoosterPack                   QIP                                                                                                           U3                 1
+Capacitor                     C         4.7uF                                                                                               C3                 1
 Header2                       SIP                                                                                                           J1 M1 M2           3
 Header4                       SIP                                                                                                           J2 J6              2
 KSC353JLFG                    SM                                                                                                            SW1                1
-L293                          DIP16                                                                                                                            1
-                                                                                                                                                      MotorControl          
+L293                          DIP16                                                                                                         Motor              1
 LEDT1.75                      SIP                                                                                                           D1                 1
 LogicAnalyzer                 DIP                                                                                                           J3                 1
 LP2950CZ-3.3                  TO220                                                                                                         U2                 1
@@ -16,9 +14,9 @@ OffBoardPowerSwitch           DIP                                               
 PowerHeader                   SIP                                                                                                           MotorBat           1
 ST7735                        LCD                                                                                                           J4                 1
 tantalum                      C                                                                                                             C2 C1              2
-Testpoint_TwoHole             DIL                                                                                                           Gnd Gnd3           4
-                                                                                                                                            TP2 TP1             
+Testpoint_TwoHole             DIL                                                                                                           GND TP2            4
+                                                                                                                                            TP1 Gnd3            
 USB_Micro-B_SM                SM                                                                                                            J5                 1
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-                                                                                                                                                              24
+                                                                                                                                                              23
 PCB Artist Bill of Materials is provided for reference only and must be verified by the user.
