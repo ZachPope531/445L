@@ -36,7 +36,9 @@ void WaitForInterrupt(void);  // low power mode
 
 int main(void){
   PLL_Init(Bus80MHz);           // bus clock at 80 MHz
-	PortB_Init(12500, 12500-100, 500);
+	PortB_Init(12500, 12500-500, 500);
+	setDirection(0,0);
+	changeSpeed(0, 50);
   while(1){
     WaitForInterrupt();
   }
