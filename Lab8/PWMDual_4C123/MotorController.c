@@ -16,6 +16,9 @@
 #define PB5       (*((volatile uint32_t *)0x40005080))
 #define PB4       (*((volatile uint32_t *)0x40005040))
 	
+uint8_t Motor0Direction;
+uint8_t Motor1Direction;
+	
 //Initialize PB4-7 as PWM and PB2,3 as GPIO
 void PortB_Init(uint16_t period, uint16_t duty1, uint16_t duty2){
 	SYSCTL_RCGCPWM_R |= 0x01;             // 1) activate PWM0
@@ -48,19 +51,39 @@ void PortB_Init(uint16_t period, uint16_t duty1, uint16_t duty2){
   PWM0_1_CTL_R |= 0x00000001;           // 7) start PWM0
   PWM0_ENABLE_R |= 0x0000000C;          // enable PB4/M0PWM1A is PWM2
 	
+	//Initialize the direction to forward
+	Motor0Direction = Motor1Direction = 0;
+	
 }
 
 //Sets the duty cycle for the PWMs
-//Chooses motor 0 or 1
+//Chooses motor 0, 1, or both 2
 //Speed from 0-100
 void changeSpeed(uint8_t motor, uint8_t speed){
-	if(motor == 0){
-		PWM0_0_LOAD_R = speed - 1;
-	} else if(motor == 1){
-		
+	switch(motor){
+		case 0:
+			if(Motor0Direction == 0){
+				PWM0_0_CMPA_R = 124*speed;
+				PWM0_1_CMPA_R = 12400;
+			} else {
+				PWM0_1_CMPA_R = 12500-124*speed;
+				PWM0_0_CMPA_R = 0;
+			}
+		case 1:
+			
+		case 2:
+			
+		default:
+			break;
 	}
 }
 
 //Chooses motor 0 or 1
 //0 for forward, 1 for backward
-void setDirection(uint8_t motor, uint8_t dir);
+void setDirection(uint8_t motor, uint8_t dir){
+	if(motor == 0){
+		Motor0Direction = dir;
+	} else {
+		Motor1Direction = dir;
+	}
+}
