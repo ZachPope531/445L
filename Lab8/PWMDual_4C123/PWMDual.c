@@ -21,8 +21,8 @@
  For more information about my classes, my research, and my books, see
  http://users.ece.utexas.edu/~valvano/
  */
-#include <stdint.h>
-#include "../inc/tm4c123gh6pm.h"
+
+#include "PWMDual.h"
 
 #define PWM_ENABLE_PWM1EN       0x00000002  // PWM1 Output Enable
 #define PWM_ENABLE_PWM0EN       0x00000001  // PWM0 Output Enable
