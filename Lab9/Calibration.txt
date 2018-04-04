@@ -1,0 +1,7 @@
+1. Use the on-board ADC
+2. Use a timer and sample the voltage at a certain frequency
+3. 
+
+
+64kOhm - 36 C
+104kOhm - Room temperature
