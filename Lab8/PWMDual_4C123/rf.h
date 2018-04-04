@@ -2,13 +2,16 @@
 /* Initialize module, send data and receive data */
 
 
-//imports
+#include "ssi.h"
+#include "timer0.h"
+#include "timer1.h"
 
-//initialize Port F
-void PortF_Init(void);
+#include <stdint.h>
 
-//init timer for checking/sending data
-void Timer0A_Init(void);
+//initialize module/s
+void Module_Init(void);
 
-//check for data transmission
-void Timer0A_Handler(void);
+void Transmit();
+
+void Receive(void);
+

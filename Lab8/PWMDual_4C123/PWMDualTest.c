@@ -31,6 +31,8 @@
 #include <stdint.h>
 #include "PLL.h"
 #include "MotorController.h"
+#include "ssi.h"
+#include "rf.h"
 
 void WaitForInterrupt(void);  // low power mode
 
