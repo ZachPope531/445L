@@ -21,6 +21,9 @@
  For more information about my classes, my research, and my books, see
  http://users.ece.utexas.edu/~valvano/
  */
+ 
+#include <stdint.h>
+#include "../inc/tm4c123gh6pm.h"
 
 
 // period is 16-bit number of PWM clock cycles in one period (3<=period)
