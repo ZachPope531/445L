@@ -3,5 +3,5 @@
 3. 
 
 
-64kOhm - 36 C
-104kOhm - Room temperature
+64kOhm - 35 C
+104kOhm - 24 C
