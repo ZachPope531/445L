@@ -68,7 +68,7 @@ void Timer0A_Handler(void){
   ADCvalue = ADC0_InSeq3();
   PF2 ^= 0x04;                   // profile
 }
-int main(void){
+int main1(void){
   PLL_Init(Bus80MHz);                   // 80 MHz
   SYSCTL_RCGCGPIO_R |= 0x20;            // activate port F
   ADC0_InitSWTriggerSeq3_Ch9();         // allow time to finish activating
