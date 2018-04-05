@@ -1,7 +1,2 @@
-1. Use the on-board ADC
-2. Use a timer and sample the voltage at a certain frequency
-3. 
-
-
-64kOhm - 35 C
-104kOhm - 24 C
+64kOhm @ 35 C: B = -0.00145
+104kOhm @ 24 C: B = 0.00013
