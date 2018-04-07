@@ -6,8 +6,8 @@
 //initialize module/s
 void Module_Init(void){
 	SSI_Init();
-	Timer0A_Init(*Transmit());
-	Timer1A_Init(*Receive());
+	Timer0A_Init();
+	Timer1A_Init();
 }
 
 void Transmit(uint16_t data) {

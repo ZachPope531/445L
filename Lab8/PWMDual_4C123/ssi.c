@@ -13,7 +13,7 @@
 void SSI_Init(void){
 	SYSCTL_RCGCSSI_R |= 0x06;       // activate SSI1 and SSI2
   SYSCTL_RCGCGPIO_R |= 0x22;      // activate ports B, F
-  while((SYSCTL_PRGPIO_R&0x01) == 0){};// ready?
+  while((SYSCTL_PRGPIO_R&0x22) == 0){};// ready?
   GPIO_PORTB_AFSEL_R |= 0xD0;     // enable alt funct on PB467
   GPIO_PORTB_DEN_R |= 0xF0;       // configure PB4657 as SSI
   GPIO_PORTB_PCTL_R = (GPIO_PORTB_PCTL_R&0x00F0FFFF)+0x22020000;

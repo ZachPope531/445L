@@ -9,12 +9,12 @@ void EnableInterrupts(void);  // Enable interrupts
 long StartCritical (void);    // previous I bit, disable interrupts
 void EndCritical(long sr);    // restore I bit to previous value
 void WaitForInterrupt(void);  // low power mode
-void (*PeriodicTask)(void);   // user function
+//void (*PeriodicTask)(void);   // user function
 
-void Timer1A_Init(void(*task)(void)){long sr;
+void Timer1A_Init(/*void(*task)(void)*/){long sr;
   sr = StartCritical(); 
   SYSCTL_RCGCTIMER_R |= 0x02;   // 0) activate TIMER1
-  PeriodicTask = task;          // user function
+  //PeriodicTask = task;          // user function
   TIMER1_CTL_R = 0x00000000;    // 1) disable TIMER1A during setup
   TIMER1_CFG_R = 0x00000000;    // 2) configure for 32-bit mode
   TIMER1_TAMR_R = 0x00000002;   // 3) configure for periodic mode, default down-count settings

@@ -7,7 +7,7 @@
 #define __TIMER1AINTS_H__
 
 //init timer for checking/sending data
-void Timer1A_Init(void(*task)(void));
+void Timer1A_Init(void);
 
 //check for data transmission
 void Timer1A_Handler(void);

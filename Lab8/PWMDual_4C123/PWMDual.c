@@ -23,6 +23,8 @@
  */
 
 #include "PWMDual.h"
+#include "rf.h"
+#include "Screen.h"
 
 #define PWM_ENABLE_PWM1EN       0x00000002  // PWM1 Output Enable
 #define PWM_ENABLE_PWM0EN       0x00000001  // PWM0 Output Enable
