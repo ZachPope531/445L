@@ -31,12 +31,13 @@
 #include <stdint.h>
 #include "PLL.h"
 #include "MotorController.h"
-#include "ssi.h"
+#include "Screen.h"
 #include "rf.h"
+
 
 void WaitForInterrupt(void);  // low power mode
 
-int main(void){
+int main1(void){
   PLL_Init(Bus80MHz);           // bus clock at 80 MHz
 	PortB_Init(12500, 12500-500, 500);
 	setDirection(0,0);
@@ -44,4 +45,13 @@ int main(void){
   while(1){
     WaitForInterrupt();
   }
+}
+
+int main(void){
+	PLL_Init(Bus80MHz);
+	Module_Init();
+	screenInit();
+	while(1){
+		WaitForInterrupt();
+	}
 }

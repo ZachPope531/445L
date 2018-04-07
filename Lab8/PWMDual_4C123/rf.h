@@ -11,7 +11,7 @@
 //initialize module/s
 void Module_Init(void);
 
-void Transmit();
+void Transmit(uint16_t data);
 
-void Receive(void);
+uint16_t Receive(void);
 

@@ -1,6 +1,8 @@
 /* timer1.c */
 
 #include "timer1.h"
+#include "Screen.h"
+#include "rf.h"
 
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
@@ -30,5 +32,9 @@ void Timer1A_Init(void(*task)(void)){long sr;
 
 void Timer1A_Handler(void){
   TIMER1_ICR_R = TIMER_ICR_TATOCINT;// acknowledge timer1A timeout
-  (*PeriodicTask)();                // execute user task
+  //(*PeriodicTask)();                // execute user task
+	uint16_t data = Receive();
+	char dir = data & 0xFF;
+	uint8_t spd = (data >> 8) & 0xFF;
+	printData(spd, dir);
 }

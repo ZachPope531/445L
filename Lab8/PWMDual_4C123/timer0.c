@@ -1,6 +1,7 @@
 /* timer0.c */
 
 #include "timer0.h"
+#include "rf.h"
 
 void DisableInterrupts(void); // Disable interrupts
 void EnableInterrupts(void);  // Enable interrupts
@@ -9,7 +10,7 @@ void EndCritical(long sr);    // restore I bit to previous value
 void WaitForInterrupt(void);  // low power mode
 void (*PeriodicTask)(void);   // user function
 
-
+uint16_t data;
 
 // ***************** Timer0A_Init ****************
 // Activate TIMER0 interrupts to run user task periodically
@@ -38,5 +39,8 @@ void Timer0A_Init(void(*task)(void)){long sr;
 //check for data transmission
 void Timer0A_Handler(void){
 	TIMER0_ICR_R = TIMER_ICR_TATOCINT;// acknowledge timer0A timeout
-	(*PeriodicTask)();
+	//(*PeriodicTask)();
+	data = U;
+	data += (0x20 << 8);
+	Transmit(data);
 }
