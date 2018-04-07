@@ -2,13 +2,18 @@
 
 #include "rf.h"
 
+
 //initialize module/s
 void Module_Init(void){
 	SSI_Init();
-	Timer0A_Init(*Transmit());
-	Timer1A_Init(*Receive());
+	Timer0A_Init();
+	Timer1A_Init();
 }
 
-void Transmit(void){}
+void Transmit(uint16_t data) {
+	SSI1_Write(data);
+}
 
-void Receive(void){}
+uint16_t Receive(void) {
+  return SSI2_Read();
+}
