@@ -6,12 +6,28 @@
 #include "ADCSWTrigger.h"
 #include "UART.h"
 #include "PLL.h"
+#include "data.h"
 
 
 int32_t data;
 int32_t buffer[100];
 int i;
 
+void Read_Data(void){
+	if (i < 100){
+		data = ADC0_InSeq3();
+		buffer[i] = data;
+		i++;
+	}
+}
+
+void Send_Data(void){
+	for (int j = 0; j < 100; j++){
+		UART_OutString("\n\rADC data =");
+		int buff_val = buffer[j];
+		UART_OutUDec(buff_val);
+	}
+}
 
 int main (void){
 	int i = 0;
@@ -22,26 +38,12 @@ int main (void){
 	Timer0A_Init(&Read_Data, 80000); //run Read_Data at timer interrupt
 	                                 // (80MHz / 1000 Hz) = 80000
 	while(1){
-		if (i >= 1000){
+		if (i >= 100){
 			Send_Data(); //read buffer values use UART to send data
 			break; //stop
 		}
 	}
 }
 
-void Read_Data(void){
-	if (i < 1000){
-		data = ADC0_InSeq3();
-		buffer[i] = data;
-		i++;
-	}
-}
 
-void Send_Data(void){
-	for (int j = 0; j < 1000; j++){
-		UART_OutString("\n\rADC data =");
-		int buff_val = buffer[j];
-		UART_OutUDec(buff_val);
-	}
-}
 	
