@@ -29,12 +29,21 @@
 #include "uart.h"
 #include "PLL.h"
 
+uint32_t values[100];
+int valueIndex = 0;
+
 int main(void){ int32_t data;
   PLL_Init(Bus80MHz);   // 80 MHz
   UART_Init();              // initialize UART device
   ADC0_InitSWTriggerSeq3_Ch9();
   while(1){
     data = ADC0_InSeq3();
+		if(valueIndex < 100){
+			*(values + valueIndex) = data;
+			valueIndex++;
+		} else {
+			valueIndex = 100;
+		}
     UART_OutString("\n\rADC data =");
     UART_OutUDec(data);
   }

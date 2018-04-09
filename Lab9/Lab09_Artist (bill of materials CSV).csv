@@ -1,0 +1,13 @@
+"Component","Package","Value","Manuf","Manuf Part No","Distrib","Distrib Part No","Ref Name","Qty"
+"0.25Wresistor","DIP","","","","","","RG","1"
+"0.125Wresistor","DIL","","","","","","R1 R2 R3 R4 R5 R6 R7 R8","8"
+"BoosterPack","QIP","","","","","","U2","1"
+"Capacitor","C","4.7uF","","","","","BC3 BC4 BC2 BC1","4"
+"Ceramic","C","","","","","","C1 C2","2"
+"INA122","DIP","","","","","","U5","1"
+"LM4041","MISC","","","","","","U4","1"
+"OPA2350","DIP","","","","","","U3","1"
+"ST7735","LCD","","","","","","J4","1"
+"Thermistor","SIP","","","","","","R10","1"
+"","","","","","","","","21"
+PCB Artist Bill of Materials is provided for reference only and must be verified by the user.
