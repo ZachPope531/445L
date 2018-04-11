@@ -27,6 +27,8 @@
 #include <stdint.h>
 #include "PLL.h"
 #include "PWM.h"
+#include "Tachometer.h"
+#include "Timer0A.h"
 
 void WaitForInterrupt(void);  // low power mode
 

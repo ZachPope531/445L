@@ -1,0 +1,1 @@
+.\tachometer.o: Tachometer.c
