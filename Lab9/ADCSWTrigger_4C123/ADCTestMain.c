@@ -31,6 +31,8 @@
 #include "PLL.h"
 #include "Timer0A.h"
 #include "UART.h"
+#include "data.h"
+#include "ST7735.h"
 
 #define PF2             (*((volatile uint32_t *)0x40025010))
 #define PF1             (*((volatile uint32_t *)0x40025008))
@@ -97,6 +99,7 @@ int main(void){
   ADC0_InitSWTriggerSeq3_Ch9();         // allow time to finish activating
   //Timer0A_Init100HzInt();               // set up Timer0A for 1 kHz interrupts
 	Timer0A_Init(&capture_ADC, 80000);
+	ST7735_InitR(INITR_REDTAB);
   GPIO_PORTF_DIR_R |= 0x06;             // make PF2, PF1 out (built-in LED)
   GPIO_PORTF_AFSEL_R &= ~0x06;          // disable alt funct on PF2, PF1
   GPIO_PORTF_DEN_R |= 0x06;             // enable digital I/O on PF2, PF1
@@ -124,6 +127,10 @@ int main(void){
 				UART_OutString("Avg: ");
 				UART_OutUDec(average);
 				UART_OutString("\n\n\r");
+				
+				ADC_to_Temp(&(values[0]));
+				Print_Data();
+				
 				i = 101;
 			}
 				
