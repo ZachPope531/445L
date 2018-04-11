@@ -1,6 +1,5 @@
 /* data.c */
 
-#include "ST7735.h"
 #include "data.h"
 
 int32_t ADC_buff[100];
@@ -9,10 +8,10 @@ int32_t fixed_buff[100];
 int ASCII_Offset = 48;
 
 
-void ADC_to_Temp(uint_32 * buff){
+void ADC_to_Temp(uint32_t * buff){
 	for(int i = 0; i < 100; i++){
-		ADC_buff[i] = buff[i];
-		fixed_buff[i] = ((-9 * buff[i]) / 10) + 3836;
+		*(ADC_buff + i) = buff[i];
+		*(fixed_buff + i) = ((-9 * buff[i]) / 10) + 3836;
 	}
 }
 
@@ -76,8 +75,8 @@ void Data_Process(int * data_dump){
 		for (j = 0; j < i; j++) {
 			if (data_dump[j] > data_dump[i]){
 				int temp = data_dump[j];
-				data_dump[j] = data_dump[i];
-				data_dump[i] = temp;
+				*(data_dump + j) = data_dump[i];
+				*(data_dump + i) = temp;
 			}
 		}
 	}

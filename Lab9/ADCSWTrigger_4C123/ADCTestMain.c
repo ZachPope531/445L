@@ -76,30 +76,40 @@ void Timer0A_Handler(void){
 
 uint32_t values[100];
 uint32_t valueIndex = 0;
-uint8_t ready = 0;
+uint8_t valuesFull = 0;
 
 void capture_ADC(void){
 	PF2 ^= 0x04;
 	PF2 ^= 0x04;
 	ADCvalue = ADC0_InSeq3();
-	if(valueIndex < 100){
+	if(!valuesFull){
 		*(values + valueIndex) = ADCvalue;
 		valueIndex++;
+		if(valueIndex > 100) valuesFull = 1;
 	} else {
-		valueIndex = 100;
-		ready = 1;
+		valuesFull = 1;
 		DisableInterrupts();
+		ADC_to_Temp(values);
+		Print_Data();
+		EnableInterrupts();
+		valueIndex = 0;
+		valuesFull = 0;
 	}
 	PF2 ^= 0x04;
 }
 
+void nothing(void){
+	
+}
+
 int main(void){
   PLL_Init(Bus80MHz);                   // 80 MHz
+	ST7735_InitR(INITR_REDTAB);
+	/*
   SYSCTL_RCGCGPIO_R |= 0x20;            // activate port F
   ADC0_InitSWTriggerSeq3_Ch9();         // allow time to finish activating
   //Timer0A_Init100HzInt();               // set up Timer0A for 1 kHz interrupts
-	Timer0A_Init(&capture_ADC, 80000);
-	ST7735_InitR(INITR_REDTAB);
+	Timer0A_Init(&nothing, 80000);
   GPIO_PORTF_DIR_R |= 0x06;             // make PF2, PF1 out (built-in LED)
   GPIO_PORTF_AFSEL_R &= ~0x06;          // disable alt funct on PF2, PF1
   GPIO_PORTF_DEN_R |= 0x06;             // enable digital I/O on PF2, PF1
@@ -107,33 +117,14 @@ int main(void){
   GPIO_PORTF_PCTL_R = (GPIO_PORTF_PCTL_R&0xFFFFF00F)+0x00000000;
   GPIO_PORTF_AMSEL_R = 0;               // disable analog functionality on PF
   PF2 = 0;                      // turn off LED
-	UART_Init();
-	UART_OutString("\n\rValues:\n");
-  EnableInterrupts();
+	//UART_Init();
+	//UART_OutString("\n\rValues:\n");
+  //EnableInterrupts();
+	*/
+	ST7735_FillScreen(0x0000);
 	int i = 0;
   while(1){
     //PF1 ^= 0x02;  // toggles when running in main
-		if(ready){
-			for(; i < 100; i++){
-				UART_OutUDec(values[i]);
-				UART_OutString("\n\r");
-			}
-			if(i == 100){
-				uint32_t average = 0;
-				for(int j = 0; j < 100; j++){
-					average += values[j];
-				}
-				average /= 100;
-				UART_OutString("Avg: ");
-				UART_OutUDec(average);
-				UART_OutString("\n\n\r");
-				
-				ADC_to_Temp(&(values[0]));
-				Print_Data();
-				
-				i = 101;
-			}
-				
-		}
+		ST7735_OutString("Hello");
   }
 }

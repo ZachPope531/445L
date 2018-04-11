@@ -5,3 +5,5 @@
 .\adctestmain.o: PLL.h
 .\adctestmain.o: Timer0A.h
 .\adctestmain.o: UART.h
+.\adctestmain.o: data.h
+.\adctestmain.o: ST7735.h
