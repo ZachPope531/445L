@@ -52,9 +52,47 @@ void ST7735_sDecOut2(int32_t n){
 		else str[0] = '-';
 	}
 
-	//display both ADC and temp
-	
 	ST7735_OutString(str);
+	return;
+}
+
+void UART_sDecOut2(int32_t n){
+	if (n > 9999) {
+		char error_str[6] = " **.**";
+		UART_OutString(error_str);
+		return;
+	}
+	if (n < -9999) {
+		char error_str[6] = "-**.**";
+		UART_OutString(error_str);
+		return;
+	}
+
+	char str[6] = "";
+	str[3] = '.';
+	char buf[4] = { ' ', '0', '0', '0'	};
+
+	int32_t i = n;
+	if (i < 0) i = i * -1;
+	uint32_t j = 3;
+	while (i != 0) {
+		buf[j] = (i % 10) + ASCII_Offset;
+		i = i / 10;
+		j = j - 1;
+	}
+
+	str[5] = buf[3];
+	str[4] = buf[2];
+	str[2] = buf[1];
+	str[1] = buf[0];
+	str[0] = ' ';
+
+	if (n < 0) {
+		if (str[1] == ' ') str[1] = '-';
+		else str[0] = '-';
+	}
+
+	UART_OutString(str);
 	return;
 }
 
@@ -65,6 +103,16 @@ void Print_Data(void){
 		ST7735_sDecOut2(fixed_buff[i]);
 		ST7735_OutString("C = ");
 		ST7735_OutUDec(ADC_buff[i]);
+	}
+}
+
+void UART_Print(void){
+	for (int i = 0; i < 100; i++){
+		UART_OutString("Temp = ");
+		UART_sDecOut2(fixed_buff[i]);
+		UART_OutString("C = ");
+		UART_OutUDec(ADC_buff[i]);
+		UART_OutString("\n");
 	}
 }
 

@@ -90,7 +90,7 @@ void capture_ADC(void){
 		valuesFull = 1;
 		DisableInterrupts();
 		ADC_to_Temp(values);
-		Print_Data();
+		UART_Print();
 		EnableInterrupts();
 		valueIndex = 0;
 		valuesFull = 0;
