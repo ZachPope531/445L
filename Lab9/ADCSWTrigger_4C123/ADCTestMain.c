@@ -1,3 +1,11 @@
+/*
+ADCTestMain.c
+Zachary Pope and Ali Kedwaii
+Saadallah Kassir, the brightest star in the darkest night
+MW 3:30-5 Section
+*/
+
+
 // ADCTestMain.c
 // Runs on TM4C123
 // This program periodically samples ADC channel 0 and stores the

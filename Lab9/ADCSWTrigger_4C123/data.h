@@ -1,4 +1,8 @@
-/* data.h */
+/* data.h 
+Zachary Pope and Ali Kedwaii
+Saadallah Kassir, the brightest star in the darkest night
+MW 3:30-5 Section
+*/
 
 #include <stdint.h>
 #include "ST7735.h"
