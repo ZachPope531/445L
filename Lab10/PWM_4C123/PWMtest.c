@@ -30,12 +30,18 @@
 #include "Tachometer.h"
 #include "Timer0A.h"
 
+extern uint32_t desiredRPS;
+extern uint16_t newDuty;
+
 void WaitForInterrupt(void);  // low power mode
 
 int main(void){
   PLL_Init(Bus80MHz);               // bus clock at 80 MHz
   PWM0A_Init(40000, 30000);         // initialize PWM0, 1000 Hz, 75% duty
-  PWM0B_Init(40000, 10000);         // initialize PWM0, 1000 Hz, 25% duty
+	newDuty = 30000;
+	desiredRPS = 20;
+  //PWM0B_Init(40000, 10000);         // initialize PWM0, 1000 Hz, 25% duty
+	Timer0A_Init(&Proportional_Integral, 80000000);
 //  PWM0_Duty(4000);    // 10%
 //  PWM0_Duty(10000);   // 25%
 //  PWM0_Duty(30000);   // 75%
