@@ -29,6 +29,8 @@
 #include "PWM.h"
 #include "Tachometer.h"
 #include "Timer0A.h"
+#include "ST7735.h"
+#include "LCD.h"
 
 extern uint32_t desiredRPS;
 extern uint16_t newDuty;
@@ -42,6 +44,8 @@ int main(void){
 	desiredRPS = 20;
   //PWM0B_Init(40000, 10000);         // initialize PWM0, 1000 Hz, 25% duty
 	Timer0A_Init(&Proportional_Integral, 80000000);
+	ST7735_InitR(INITR_REDTAB);
+
 //  PWM0_Duty(4000);    // 10%
 //  PWM0_Duty(10000);   // 25%
 //  PWM0_Duty(30000);   // 75%
@@ -51,6 +55,6 @@ int main(void){
 //  PWM0_Init(1000, 100);          // initialize PWM0, 40000 Hz, 10% duty
 //  PWM0_Init(40, 20);             // initialize PWM0, 1 MHz, 50% duty
   while(1){
-    WaitForInterrupt();
+    printSpeed();
   }
 }

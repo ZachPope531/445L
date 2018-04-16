@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include "../inc/tm4c123gh6pm.h"
 #include "PWM.h"
+#include "Tachometer.h"
 
 uint32_t currentTicks;
 uint32_t currentRPS;
@@ -23,7 +24,7 @@ void PortE_Init(){
   GPIO_PORTE_IEV_R |= 0x10;    //     PE4 rising edge event
   GPIO_PORTE_ICR_R = 0x10;      // (e) clear flags 4
   GPIO_PORTE_IM_R |= 0x10;      // (f) arm interrupt on PE4
-  NVIC_PRI1_R = (NVIC_PRI1_R&0xFFFFFF00)|0x00000040; // (g) priority 2 NVIC_PRI1_R bits 7 – 5
+  NVIC_PRI1_R = (NVIC_PRI1_R&0xFFFFFF00)|0x00000040; // (g) priority 2 NVIC_PRI1_R bits 7 ï¿½ 5
   NVIC_EN0_R = 0x00000010;      // (h) enable interrupt 4 in NVIC
 	currentTicks = 0;
 }
