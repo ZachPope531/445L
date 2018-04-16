@@ -1,0 +1,14 @@
+Resistance = 125 ohms
+
+V	I
+1	0.052
+2	0.073
+3	0.078
+4	0.081
+5 V	0.086 A
+
+effective resistance = 
+
+
+Base-emitter current = 240 mA
+Collector-emitter current = 1.1 A

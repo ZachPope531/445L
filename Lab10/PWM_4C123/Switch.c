@@ -9,7 +9,7 @@
 
 #include "Switch.h"
 
-
+extern uint32_t desiredRPS;
 
 void Switch_Init(){
 	unsigned long volatile delay;
@@ -37,9 +37,11 @@ void GPIOPortF_Handler(){
 	//Delay1millisecond(15); //Still doesn't work 100%
 	if(GPIO_PORTF_RIS_R&0x01){  // PF0 touch
     GPIO_PORTF_ICR_R = 0x01;  // acknowledge flag0
+		desiredRPS -= 5;
   }
 
   if(GPIO_PORTF_RIS_R&0x10){  // PF4 touch
     GPIO_PORTF_ICR_R = 0x10;  // acknowledge flag4
+		desiredRPS += 5;
   }
 }
