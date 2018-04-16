@@ -4,3 +4,6 @@
 .\pwmtest.o: PWM.h
 .\pwmtest.o: Tachometer.h
 .\pwmtest.o: Timer0A.h
+.\pwmtest.o: ST7735.h
+.\pwmtest.o: LCD.h
+.\pwmtest.o: Tachometer.h

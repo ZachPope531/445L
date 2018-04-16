@@ -29,12 +29,15 @@
 #include "PWM.h"
 #include "Tachometer.h"
 #include "Timer0A.h"
+#include "ST7735.h"
+#include "LCD.h"
 
 void WaitForInterrupt(void);  // low power mode
 
 int main(void){
   PLL_Init(Bus80MHz);               // bus clock at 80 MHz
   PWM0A_Init(40000, 30000);         // initialize PWM0, 1000 Hz, 75% duty
+	ST7735_InitR(INITR_REDTAB);
   //PWM0B_Init(40000, 10000);         // initialize PWM0, 1000 Hz, 25% duty
 //  PWM0_Duty(4000);    // 10%
 //  PWM0_Duty(10000);   // 25%
@@ -45,6 +48,6 @@ int main(void){
 //  PWM0_Init(1000, 100);          // initialize PWM0, 40000 Hz, 10% duty
 //  PWM0_Init(40, 20);             // initialize PWM0, 1 MHz, 50% duty
   while(1){
-    WaitForInterrupt();
+    printSpeed();
   }
 }

@@ -1,5 +1,7 @@
 #include "LCD.h"
-#include "Tachometer.h"
+
+extern uint32_t currentRPS;
+extern uint32_t desiredRPS;
 
 void printSpeed(){
 	ST7735_SetCursor(0,0);
