@@ -1,21 +1,22 @@
 #include <stdint.h>
 
-int currentTicks;
-int currentRPM;
+uint32_t currentTicks;
+uint32_t currentRPS;
+uint32_t desiredRPS;
 
 /*
-Initialize PF2 as a rising edge interrupt to take in the tachometer signal
+Initialize PE4 as a rising edge interrupt to take in the tachometer signal
 Inputs:		None
 Outputs:	None
 */
-void PortF_Init(void);
+void PortE_Init(void);
 
 /*
 Updates the current number of ticks
 Inputs:		None
 Outputs:	None
 */
-void PortF_Handler(void);
+void PortE_Handler(void);
 
 /*
 PI loop here?
