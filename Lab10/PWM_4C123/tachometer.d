@@ -1,3 +1,9 @@
 .\tachometer.o: Tachometer.c
-.\tachometer.o: Tachometer.h
 .\tachometer.o: C:\Keil_uv4\ARM\ARMCC\bin\..\include\stdint.h
+.\tachometer.o: C:\Keil_uv4\ARM\ARMCC\bin\..\include\stdbool.h
+.\tachometer.o: ../inc/tm4c123gh6pm.h
+.\tachometer.o: PWM.h
+.\tachometer.o: Tachometer.h
+.\tachometer.o: LCD.h
+.\tachometer.o: ST7735.h
+.\tachometer.o: Tachometer.h

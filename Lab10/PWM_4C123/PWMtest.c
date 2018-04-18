@@ -25,6 +25,7 @@
  http://users.ece.utexas.edu/~valvano/
  */
 #include <stdint.h>
+#include <stdbool.h>
 #include "PLL.h"
 #include "PWM.h"
 #include "Tachometer.h"
@@ -33,8 +34,12 @@
 #include "LCD.h"
 #include "Switch.h"
 
+void DisableInterrupts(void);
+void EnableInterrupts(void);
+
 extern uint32_t desiredRPS;
 extern uint16_t newDuty;
+extern volatile bool printSpeedFlag;
 
 void WaitForInterrupt(void);  // low power mode
 
@@ -44,6 +49,7 @@ int main(void){
 	newDuty = 30000;
 	desiredRPS = 20;
   PWM0B_Init(40000, 30000);         // initialize PWM0, 1000 Hz, 75% duty
+	for(int i = 0; i < 1000000; i++);
 	Timer0A_Init(&Proportional_Integral, 80000000);
 	ST7735_InitR(INITR_REDTAB);
 	Switch_Init();
@@ -58,6 +64,11 @@ int main(void){
 //  PWM0_Init(1000, 100);          // initialize PWM0, 40000 Hz, 10% duty
 //  PWM0_Init(40, 20);             // initialize PWM0, 1 MHz, 50% duty
   while(1){
-    //printSpeed();
+		if(printSpeedFlag){
+			//DisableInterrupts();
+			//printSpeed();
+			//EnableInterrupts();
+			printSpeedFlag = false;
+		}
   }
 }

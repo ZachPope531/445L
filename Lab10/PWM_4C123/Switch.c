@@ -37,14 +37,15 @@ void GPIOPortF_Handler(){
 	//Delay1millisecond(15); //Still doesn't work 100%
 	if(GPIO_PORTF_RIS_R&0x01){  // PF0 touch
     GPIO_PORTF_ICR_R = 0x01;  // acknowledge flag0
-		if (desiredRPS < 5) 
-			desiredRPS = 0;
-		else 
+		if(desiredRPS > 25){ //Motor begins to stall at values less than 20 rps
 			desiredRPS -= 5;
+		}
   }
 
   if(GPIO_PORTF_RIS_R&0x10){  // PF4 touch
     GPIO_PORTF_ICR_R = 0x10;  // acknowledge flag4
-		desiredRPS += 5;
+		if(desiredRPS < 60){ //Motor can't speed up more than 60 rps
+			desiredRPS += 5;
+		}
   }
 }
