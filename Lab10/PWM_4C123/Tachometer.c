@@ -4,6 +4,7 @@
 #include "../inc/tm4c123gh6pm.h"
 #include "PWM.h"
 #include "Tachometer.h"
+#include "LCD.h"
 
 uint32_t currentTicks;
 uint32_t currentRPS;
@@ -24,7 +25,7 @@ void PortE_Init(){
   GPIO_PORTE_IEV_R |= 0x10;    //     PE4 rising edge event
   GPIO_PORTE_ICR_R = 0x10;      // (e) clear flags 4
   GPIO_PORTE_IM_R |= 0x10;      // (f) arm interrupt on PE4
-  NVIC_PRI1_R = (NVIC_PRI1_R&0xFFFFFF00)|0x00000040; // (g) priority 2 NVIC_PRI1_R bits 7 � 5
+  NVIC_PRI1_R = (NVIC_PRI1_R&0xFFFFFF00)|0x00000040; // (g) priority 2 NVIC_PRI1_R bits 7-5
   NVIC_EN0_R = 0x00000010;      // (h) enable interrupt 4 in NVIC
 	currentTicks = 0;
 }
@@ -34,11 +35,12 @@ void GPIOPortE_Handler() {
 }
 
 void Proportional_Integral(){
-	currentRPS = currentTicks / 6; //check tick #
+	currentRPS = currentTicks / 4; //check tick #
 	int32_t error = desiredRPS - currentRPS;
   newDuty = newDuty + (3 * error) / 64;
 	if (newDuty < 100) newDuty = 100;
 	if (newDuty > 39900) newDuty = 39900;
-	PWM0A_Duty(newDuty);
+	PWM0B_Duty(newDuty);
 	currentTicks = 0;
+	printSpeed();
 }
