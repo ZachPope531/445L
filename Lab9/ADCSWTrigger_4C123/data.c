@@ -15,7 +15,7 @@ int ASCII_Offset = 48;
 void ADC_to_Temp(uint32_t * buff){
 	for(int i = 0; i < 100; i++){
 		*(ADC_buff + i) = buff[i];
-		*(fixed_buff + i) = ((-9 * buff[i]) / 10) + 3836;
+		*(fixed_buff + i) = -((9 * buff[i]) / 10) + 3836;
 	}
 }
 
@@ -116,7 +116,7 @@ void UART_Print(void){
 		UART_sDecOut2(fixed_buff[i]);
 		UART_OutString("C = ");
 		UART_OutUDec(ADC_buff[i]);
-		UART_OutString("\n");
+		UART_OutString("\n\r");
 	}
 }
 

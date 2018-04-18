@@ -7,3 +7,4 @@
 .\adctestmain.o: UART.h
 .\adctestmain.o: data.h
 .\adctestmain.o: ST7735.h
+.\adctestmain.o: UART.h
