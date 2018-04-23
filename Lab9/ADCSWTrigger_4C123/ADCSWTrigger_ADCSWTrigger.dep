@@ -4,7 +4,7 @@ F (.\ADCSWTrigger.c)(0x5ACE67CA)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --sp
 I (ADCSWTrigger.h)(0x5ACE67CA)
 I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C88A34)
 I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
-F (.\ADCTestMain.c)(0x5AD6DD68)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --c99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\adctestmain.o --omf_browse .\adctestmain.crf --depend .\adctestmain.d)
+F (.\ADCTestMain.c)(0x5AD7A66D)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --c99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\adctestmain.o --omf_browse .\adctestmain.crf --depend .\adctestmain.d)
 I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C88A34)
 I (ADCSWTrigger.h)(0x5ACE67CA)
 I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
@@ -33,7 +33,7 @@ I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C88A34)
 I (UART.h)(0x5AC83C6B)
 I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
 F (.\UART.h)(0x5AC83C6B)()
-F (.\data.c)(0x5AD6EFB7)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --c99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\data.o --omf_browse .\data.crf --depend .\data.d)
+F (.\data.c)(0x5AD7A795)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --c99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\data.o --omf_browse .\data.crf --depend .\data.d)
 I (data.h)(0x5AD18768)
 I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C88A34)
 I (ST7735.h)(0x551B110C)

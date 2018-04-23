@@ -116,7 +116,7 @@ int main(void){
   SYSCTL_RCGCGPIO_R |= 0x20;            // activate port F
   ADC0_InitSWTriggerSeq3_Ch9();         // allow time to finish activating
   //Timer0A_Init100HzInt();               // set up Timer0A for 1 kHz interrupts
-	Timer0A_Init(&capture_ADC, 80000);
+	Timer0A_Init(&capture_ADC, 800000);
   GPIO_PORTF_DIR_R |= 0x06;             // make PF2, PF1 out (built-in LED)
   GPIO_PORTF_AFSEL_R &= ~0x06;          // disable alt funct on PF2, PF1
   GPIO_PORTF_DEN_R |= 0x06;             // enable digital I/O on PF2, PF1

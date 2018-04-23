@@ -1,10 +1,8 @@
-/* 
-  Zachary Pope zhp76
-  Mohammad Kedwaii mak3799
-  Mar 02 2018
-	
-	Lab: MW 330-5
-	TA: Saadallah Kassir the unstoppable force, the immovable object
+/*
+Switch.h
+Zach Pope and Ali Kedwaii
+Saadallah Kassir, the first cherry blossom to fall in spring
+MW 3:30-5
 */
 
 #include <stdint.h>

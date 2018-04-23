@@ -7,7 +7,7 @@ I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
 F (.\PWM.c)(0x5ACE7DA0)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\pwm.o --omf_browse .\pwm.crf --depend .\pwm.d)
 I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C88A34)
 I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
-F (.\PWMtest.c)(0x5AD6C1F7)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\pwmtest.o --omf_browse .\pwmtest.crf --depend .\pwmtest.d)
+F (.\PWMtest.c)(0x5ADD5FF5)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\pwmtest.o --omf_browse .\pwmtest.crf --depend .\pwmtest.d)
 I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C88A34)
 I (C:\Keil_uv4\ARM\ARMCC\include\stdbool.h)(0x51C88A34)
 I (PLL.h)(0x55463040)
@@ -18,7 +18,7 @@ I (ST7735.h)(0x551B110C)
 I (LCD.h)(0x5AD4EF8B)
 I (Switch.h)(0x5AD6CBFD)
 I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
-F (.\Tachometer.c)(0x5AD6CAAD)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\tachometer.o --omf_browse .\tachometer.crf --depend .\tachometer.d)
+F (.\Tachometer.c)(0x5ADD5FF5)(-c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\.. --C99-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\tachometer.o --omf_browse .\tachometer.crf --depend .\tachometer.d)
 I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C88A34)
 I (C:\Keil_uv4\ARM\ARMCC\include\stdbool.h)(0x51C88A34)
 I (../inc/tm4c123gh6pm.h)(0x5388C2DA)

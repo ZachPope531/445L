@@ -7,8 +7,8 @@ V	I
 4	0.081
 5 V	0.086 A
 
-effective resistance = 
+effective resistance =
 
 
-Base-emitter current = 240 mA
-Collector-emitter current = 1.1 A
+Base-emitter current = 1.5 mA
+Collector-emitter current = 1.2 mA

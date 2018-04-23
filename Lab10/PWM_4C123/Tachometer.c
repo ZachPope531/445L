@@ -1,4 +1,9 @@
-/* Tachometer.c */
+/*
+Tachometer.c
+Zach Pope and Ali Kedwaii
+Saadallah Kassir, the first cherry blossom to fall in spring
+MW 3:30-5
+*/
 
 #include <stdint.h>
 #include <stdbool.h>
@@ -9,7 +14,7 @@
 
 volatile uint32_t currentTicks;
 volatile uint32_t currentRPS;
-volatile uint32_t desiredRPS;
+volatile uint32_t desiredRPS; //Used in the PI controller
 volatile int32_t newDuty;
 volatile bool printSpeedFlag;
 
@@ -41,7 +46,7 @@ void GPIOPortE_Handler() {
 }
 
 void Proportional_Integral(){
-	currentRPS = currentTicks / 4; //check tick #
+	currentRPS = currentTicks / 4; //4 ticks / rotation
 	int32_t error = desiredRPS - currentRPS;
   newDuty = newDuty + 500*error;
 	if (newDuty < 15000) newDuty = 15000;

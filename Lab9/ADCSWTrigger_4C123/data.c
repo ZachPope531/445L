@@ -13,10 +13,19 @@ int ASCII_Offset = 48;
 
 
 void ADC_to_Temp(uint32_t * buff){
+	/*
 	for(int i = 0; i < 100; i++){
 		*(ADC_buff + i) = buff[i];
 		*(fixed_buff + i) = -((9 * buff[i]) / 10) + 3836;
 	}
+	*/
+	uint32_t avg_ADC = 0;
+	for(int i = 0; i < 100; i++){
+		avg_ADC += buff[i];
+	}
+	avg_ADC /= 100;
+	*(ADC_buff) = avg_ADC;
+	*(fixed_buff) = -((9 * avg_ADC) / 10) + 3836;
 }
 
 
@@ -111,6 +120,7 @@ void Print_Data(void){
 }
 
 void UART_Print(void){
+	/*
 	for (int i = 0; i < 100; i++){
 		UART_OutString("Temp = ");
 		UART_sDecOut2(fixed_buff[i]);
@@ -118,6 +128,12 @@ void UART_Print(void){
 		UART_OutUDec(ADC_buff[i]);
 		UART_OutString("\n\r");
 	}
+	*/
+	UART_OutString("Temp = ");
+		UART_sDecOut2(fixed_buff[0]);
+		UART_OutString("C = ");
+		UART_OutUDec(ADC_buff[0]);
+		UART_OutString("\n\r");
 }
 
 void Data_Process(int * data_dump){
