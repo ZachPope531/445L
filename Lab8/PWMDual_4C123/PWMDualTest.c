@@ -49,8 +49,8 @@ int main1(void){
 
 int main(void){
 	PLL_Init(Bus80MHz);
+	Screen_Init();
 	Module_Init();
-	screenInit();
 	while(1){
 		WaitForInterrupt();
 	}

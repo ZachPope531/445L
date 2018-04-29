@@ -2,8 +2,12 @@
 
 #include "timer0.h"
 #include "rf.h"
+#include "Screen.h"
 
 #define U 0x55
+#define D 0x44
+#define L 0x4C
+#define R 0x52
 
 
 void DisableInterrupts(void); // Disable interrupts
@@ -44,6 +48,7 @@ void Timer0A_Handler(void){
 	TIMER0_ICR_R = TIMER_ICR_TATOCINT;// acknowledge timer0A timeout
 	//(*PeriodicTask)();
 	data = U;
-	data += (0x20 << 8);
+	data += (0x26 << 8);
+	printData(0x26, U, 0);
 	Transmit(data);
 }
