@@ -2,6 +2,7 @@
 
 #include <stdint.h>
 #include "../inc/tm4c123gh6pm.h"
+#include "ST7735.h"
 
 void SSI_Init(void);
 
