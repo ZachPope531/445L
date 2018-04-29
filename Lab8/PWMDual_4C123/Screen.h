@@ -6,8 +6,8 @@ Sets up the screen to display connection status, speed, etc
 #include <stdint.h>
 
 //Initializes the screen and clears it
-void screenInit(void);
+void Screen_Init(void);
 
 //Prints the current data to the screen
 //Speed, connection status
-void printData(uint8_t speed, char status);
+void printData(uint8_t speed, char status, int cursor);

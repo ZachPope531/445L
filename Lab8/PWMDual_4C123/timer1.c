@@ -34,7 +34,9 @@ void Timer1A_Handler(void){
   TIMER1_ICR_R = TIMER_ICR_TATOCINT;// acknowledge timer1A timeout
   //(*PeriodicTask)();                // execute user task
 	uint16_t data = Receive();
+	//ST7735_SetCursor(0, 0);
+	//ST7735_OutUDec(data);
 	char dir = data & 0xFF;
 	uint8_t spd = (data >> 8) & 0xFF;
-	printData(spd, dir);
+	printData(spd, dir, 1);
 }
