@@ -10,8 +10,8 @@
 #define IRQ		(*((volatile unsigned long *)0x40025040))
 
 
-void Init();
+void SSI_Init(void);
 
 void send_data(uint8_t data);
 
-void receive_data(uint16_t data);
+uint16_t receive_data(void);

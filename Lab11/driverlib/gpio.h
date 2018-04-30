@@ -37,8 +37,8 @@
 //
 //*****************************************************************************
 
-#ifndef __DRIVERLIB_GPIO_H__
-#define __DRIVERLIB_GPIO_H__
+//#ifndef __DRIVERLIB_GPIO_H__
+//#define __DRIVERLIB_GPIO_H__
 
 //*****************************************************************************
 //
@@ -46,10 +46,10 @@
 // have a C binding.
 //
 //*****************************************************************************
-#ifdef __cplusplus
+/*#ifdef __cplusplus
 extern "C"
 {
-#endif
+#endif*/
 
 //*****************************************************************************
 //
@@ -189,8 +189,8 @@ extern void GPIOADCTriggerDisable(uint32_t ui32Port, uint8_t ui8Pins);
 // Mark the end of the C bindings section for C++ compilers.
 //
 //*****************************************************************************
-#ifdef __cplusplus
+/*#ifdef __cplusplus
 }
-#endif
+#endif*/
 
-#endif // __DRIVERLIB_GPIO_H__
+//#endif // __DRIVERLIB_GPIO_H__

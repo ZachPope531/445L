@@ -45,7 +45,7 @@
 // TM4C1230C3PM Port/Pin Mapping Definitions
 //
 //*****************************************************************************
-#ifdef PART_TM4C1230C3PM
+//#ifdef PART_TM4C1230C3PM
 
 #define GPIO_PA0_U0RX           0x00000001
 
@@ -209,7 +209,7 @@
 #define GPIO_PG5_I2C1SDA        0x00061403
 #define GPIO_PG5_WT0CCP1        0x00061407
 
-#endif // PART_TM4C1230C3PM
+//#endif // PART_TM4C1230C3PM
 
 //*****************************************************************************
 //

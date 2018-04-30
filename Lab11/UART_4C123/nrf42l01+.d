@@ -2,4 +2,4 @@
 .\nrf42l01+.o: nRF42L01+.h
 .\nrf42l01+.o: C:\Keil_uv4\ARM\ARMCC\bin\..\include\stdint.h
 .\nrf42l01+.o: C:\Keil_uv4\ARM\ARMCC\bin\..\include\stdbool.h
-.\nrf42l01+.o: ..\driverlib/ssi.h
+.\nrf42l01+.o: ../inc/tm4c123gh6pm.h

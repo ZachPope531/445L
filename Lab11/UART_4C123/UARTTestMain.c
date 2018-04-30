@@ -25,6 +25,7 @@
 #include <stdint.h>
 #include "PLL.h"
 #include "UART.h"
+#include "nRF42L01+.h"
 
 //---------------------OutCRLF---------------------
 // Output a CR,LF to UART to go to a new line
@@ -41,31 +42,12 @@ int main(void){
   uint32_t n;
 
   PLL_Init(Bus80MHz);       // 80  MHz
-  UART_Init();              // initialize UART
+	//PLL_Init(Bus16MHz);
+  //UART_Init();              // initialize UART
+	SSI_Init(); //SSI
+	
+	while(1){
+		uint16_t irq = receive_data();
+	}
   
-  OutCRLF();
-  for(ch='A'; ch<='Z'; ch=ch+1){// print the uppercase alphabet
-    UART_OutChar(ch);
-  }
-  OutCRLF();
-  UART_OutChar(' ');
-  for(ch='a'; ch<='z'; ch=ch+1){// print the lowercase alphabet
-    UART_OutChar(ch);
-  }
-  OutCRLF();
-  UART_OutChar('-');
-  UART_OutChar('-');
-  UART_OutChar('>');
-  while(1){
-    UART_OutString("InString: ");
-    UART_InString(string,19);
-    UART_OutString(" OutString="); UART_OutString(string); OutCRLF();
-
-    UART_OutString("InUDec: ");  n=UART_InUDec();
-    UART_OutString(" OutUDec="); UART_OutUDec(n); OutCRLF();
-
-    UART_OutString("InUHex: ");  n=UART_InUHex();
-    UART_OutString(" OutUHex="); UART_OutUHex(n); OutCRLF();
-
-  }
 }
