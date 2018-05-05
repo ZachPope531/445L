@@ -1,0 +1,25 @@
+Dependencies for Project 'Timer0APWM', Target 'Timer0APWM': (DO NOT MODIFY !)
+F (.\startup.s)(0x53EA39B6)(--cpu Cortex-M4 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\PLL.c)(0x5545A0E2)(-c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\pll.o --omf_browse .\pll.crf --depend .\pll.d)
+I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (PLL.h)(0x55463040)
+I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
+F (.\Timer0APWM.c)(0x5AECEF20)(-c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\timer0apwm.o --omf_browse .\timer0apwm.crf --depend .\timer0apwm.d)
+I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
+F (.\Timer0APWMTestMain.c)(0x5AECFED8)(-c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\timer0apwmtestmain.o --omf_browse .\timer0apwmtestmain.crf --depend .\timer0apwmtestmain.d)
+I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (Timer0APWM.h)(0x5AECEF20)
+I (PLL.h)(0x55463040)
+I (motor.h)(0x5AECEF20)
+I (UART.h)(0x5AECFED8)
+I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
+F (.\motor.c)(0x5AECEF3C)(-c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\motor.o --omf_browse .\motor.crf --depend .\motor.d)
+I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
+I (Timer0APWM.h)(0x5AECEF20)
+F (.\UART.c)(0x5AED009C)(-c --cpu Cortex-M4 -D__MICROLIB -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil_uv4\ARM\RV31\INC-I C:\Keil_uv4\ARM\CMSIS\Include-I C:\Keil_uv4\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\uart.o --omf_browse .\uart.crf --depend .\uart.d)
+I (C:\Keil_uv4\ARM\ARMCC\include\stdint.h)(0x51C88A34)
+I (../inc/tm4c123gh6pm.h)(0x5388C2DA)
+I (motor.h)(0x5AECEF20)
+F (.\UART.h)(0x5AECFED8)()
