@@ -35,7 +35,7 @@ void OutCRLF(void){
   UART_OutChar(LF);
 }
 //debug code
-int main(void){
+int main0(void){
   char ch;
   char string[20];  // global to assist in debugging
   uint32_t n;

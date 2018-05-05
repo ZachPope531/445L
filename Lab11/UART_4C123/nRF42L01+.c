@@ -57,9 +57,11 @@ void send_data(uint8_t data){
 	//PRIM_RX = 0
 	CE = 0x01; //Set CE high
 	while((SSI1_SR_R&SSI_SR_BSY)==SSI_SR_BSY){};	//Wait until SSI1 TX not busy
-  SSI1_DR_R = 0b0010 0000; //Write to PWR_UP
+		/*Write to PWR_UP */
+  SSI1_DR_R = 0x20; 
 	while((SSI1_SR_R&SSI_SR_BSY)==SSI_SR_BSY){};	//Wait until SSI1 TX not busy
-	SSI1_DR_R = 0b0010 0000; //Write to PRIM_RX
+		/*Write to PRIM_RX */
+	SSI1_DR_R = 0x20; 
 	while((SSI1_SR_R&SSI_SR_BSY)==SSI_SR_BSY){};	//Wait until SSI1 TX not busy
 	SSI1_DR_R = data;
 

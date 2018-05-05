@@ -27,6 +27,7 @@
 // U0Tx (VCP transmit) connected to PA1
 #include <stdint.h>
 #include "UART.h"
+#include "Screen.h"
 #include "../inc/tm4c123gh6pm.h"
 
 
@@ -43,20 +44,25 @@
 // Input: none
 // Output: none
 void UART_Init(void){
-  SYSCTL_RCGCUART_R |= 0x01;            // activate UART0
-  SYSCTL_RCGCGPIO_R |= 0x01;            // activate port A
-  while((SYSCTL_PRGPIO_R&0x01) == 0){};
-  UART0_CTL_R &= ~UART_CTL_UARTEN;      // disable UART
-  UART0_IBRD_R = 27;                    // IBRD = int(50,000,000 / (16 * 115,200)) = int(27.1267)
-  UART0_FBRD_R = 8;                     // FBRD = int(0.1267 * 64 + 0.5) = 8
-                                        // 8 bit word length (no parity bits, one stop bit, FIFOs)
-  UART0_LCRH_R = (UART_LCRH_WLEN_8|UART_LCRH_FEN);
-  UART0_CTL_R |= 0x301;                 // enable UART
-  GPIO_PORTA_AFSEL_R |= 0x03;           // enable alt funct on PA1-0
-  GPIO_PORTA_DEN_R |= 0x03;             // enable digital I/O on PA1-0
-                                        // configure PA1-0 as UART
-  GPIO_PORTA_PCTL_R = (GPIO_PORTA_PCTL_R&0xFFFFFF00)+0x00000011;
-  GPIO_PORTA_AMSEL_R &= ~0x03;          // disable analog functionality on PA
+  SYSCTL_RCGC1_R |= 0x00000002;  // activate UART1
+  SYSCTL_RCGC2_R |= 0x00000004;  // activate port C
+	GPIO_PORTC_LOCK_R = 0x4C4F434B;
+	GPIO_PORTC_CR_R = 0x30;
+  UART1_CTL_R &= ~0x00000001;    // disable UART
+  UART1_IBRD_R = 43;     // IBRD = int(80,000,000/(16*115,200)) = int(43.40278)
+  UART1_FBRD_R = 27;     // FBRD = round(0.40278 * 64) = 26
+  UART1_LCRH_R = 0x00000070;  // 8 bit, no parity bits, one stop, FIFOs
+  UART1_CTL_R |= 0x00000001;     // enable UART
+  GPIO_PORTC_AFSEL_R |= 0x30;    // enable alt funct on PC5-4
+  GPIO_PORTC_DEN_R |= 0x30;      // configure PC5-4 as UART1
+  GPIO_PORTC_PCTL_R = (GPIO_PORTC_PCTL_R&0xFF00FFFF)+0x00220000;
+  GPIO_PORTC_AMSEL_R &= ~0x30;   // disable analog on PC5-4
+	
+	
+	UART1_IM_R = UART_IM_RXIM;
+	UART1_IFLS_R |= 0x10;
+	NVIC_PRI1_R |= 0x00800000;
+	NVIC_EN0_R |= 0x00000040;
 }
 
 //------------UART_InChar------------
@@ -64,16 +70,16 @@ void UART_Init(void){
 // Input: none
 // Output: ASCII code for key typed
 char UART_InChar(void){
-  while((UART0_FR_R&UART_FR_RXFE) != 0);
-  return((char)(UART0_DR_R&0xFF));
+  while((UART1_FR_R&UART_FR_RXFE) != 0);
+  return((char)(UART1_DR_R&0xFF));
 }
 //------------UART_OutChar------------
 // Output 8-bit to serial port
 // Input: letter is an 8-bit ASCII character to be transferred
 // Output: none
 void UART_OutChar(char data){
-  while((UART0_FR_R&UART_FR_TXFF) != 0);
-  UART0_DR_R = data;
+  while((UART1_FR_R&UART_FR_TXFF) != 0);
+  UART1_DR_R = data;
 }
 
 
@@ -232,4 +238,16 @@ char character;
     character = UART_InChar();
   }
   *bufPt = 0;
+}
+
+
+
+//---------------UART1_Handler---------------
+void UART_Handler(void){
+	uint32_t val = UART_InUDec();
+	//char dir = (val >> 8) & 0x000000FF;
+	//uint8_t spd = val & 0x000000FF;
+	//printData(spd, dir, 0);
+	ST7735_OutUDec(val);
+	UART1_ICR_R = 0x10;
 }
